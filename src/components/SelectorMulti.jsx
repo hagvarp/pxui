@@ -5,7 +5,6 @@ import "font-awesome/css/font-awesome.min.css";
 
 
 const animatedComponents = makeAnimated();
-const xArray = [];
 
 export default function SelectorMulti(props) {
   const [options] = useState(props.options);
