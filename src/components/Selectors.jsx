@@ -4,7 +4,6 @@ import { useHttp } from "../hooks/http";
 
 let mainObj = {};
 let query = [];
-let x = true;
 
 const Selectors = () => {
   const [postData, setPostData] = useState(null);
@@ -41,10 +40,10 @@ const Selectors = () => {
     mainObj = { query, response };
     console.log(mainObj);
 
-    fetchPostHttp(mainObj);
+    fetchPostHttp(mainObj,code);
   };
 
-  const fetchPostHttp = async obj => {
+  const fetchPostHttp = async (obj) =>{
     await fetch(
       "https://statbank.hagstova.fo/api/v1/fo/H2/IB/IB01/fo_vital_md.px",
       {
@@ -52,11 +51,26 @@ const Selectors = () => {
         method: "post"
       }
     )
-      .then(response => response.text())
-      .then(response => setPostData(response));
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Failed to fetch.");
+        }
+        return response.text();
+      })
+      .then(response => {
+        setPostData(response);
+      })
+      .catch(err => {
+        console.log(err);
+        setPostData("Please pick items for the empty selectors");
+      });
   };
 
   let s = [];
+  if (isLoading) {
+    return <div>LOADING...</div>;
+  }
+
   if (fetchedData) {
     let table = null;
     let options = [];
@@ -104,7 +118,6 @@ const Selectors = () => {
 
       a++;
     }
-    console.log(mainObj);
     const format = "px";
     const response = { format };
     mainObj = { query, response };
