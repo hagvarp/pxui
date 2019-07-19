@@ -79,7 +79,7 @@ const Selectors = () => {
 
     table = fetchedData.title;
     s.push(
-      <div style={{ fontWeight: "bold", fontSize: "1.5em" }}>{table}</div>
+      <div style={{ fontWeight: "bold", fontSize: "1.5em",color:"#2d4182" }}>{table}</div>
     );
 
     //----

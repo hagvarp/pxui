@@ -2,7 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default props => (
-  <div>
+  <div className="footer">
     <footer id="section-footer" className="section section-footer">
       <div
         id="zone-footer-wrapper"
@@ -24,7 +24,7 @@ export default props => (
                 <div className="block-inner clearfix">
                   <div className="content clearfix">
                     <hr />
-                    <p style={{ textAlign: "center" }}>
+                    <p style={{ textAlign: "center", color: "#2d4182" }}>
                       Hagstova Føroya | Kvíggjartún 1 | Postboks 2068 | FO-165
                       Argir | Tlf.: +298-352800 | Fax.: +298-352801 | V-tal:
                       463000 | T-postur:{" "}

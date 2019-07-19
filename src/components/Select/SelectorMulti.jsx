@@ -37,10 +37,18 @@ export default function SelectorMulti(props) {
     }
   };
 
+  const customStyles = {
+    option: (provided, state) => ({
+      ...provided,
+      borderBottom: "1px dotted #2d4182",
+      color: state.isSelected ? "red" : "#2d4182"
+    })
+  };
   return (
     <div>
       {codeReq(elimination, code)}
       <Select
+        styles={customStyles}
         onChange={handleChange(code)}
         closeMenuOnSelect={false}
         components={animatedComponents}
