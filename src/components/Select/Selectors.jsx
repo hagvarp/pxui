@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import SelectorMulti from "./SelectorMulti";
-import { useHttp } from "../hooks/http";
+import { useHttp } from "../../hooks/http";
 
 let mainObj = {};
 let query = [];
@@ -40,10 +40,10 @@ const Selectors = () => {
     mainObj = { query, response };
     console.log(mainObj);
 
-    fetchPostHttp(mainObj,code);
+    fetchPostHttp(mainObj, code);
   };
 
-  const fetchPostHttp = async (obj) =>{
+  const fetchPostHttp = async obj => {
     await fetch(
       "https://statbank.hagstova.fo/api/v1/fo/H2/IB/IB01/fo_vital_md.px",
       {
@@ -75,14 +75,20 @@ const Selectors = () => {
     let table = null;
     let options = [];
     let selectorName = [];
+    //----
 
     table = fetchedData.title;
-    s.push(<div>{table}</div>);
+    s.push(
+      <div style={{ fontWeight: "bold", fontSize: "1.5em" }}>{table}</div>
+    );
+
+    //----
     let a = 0;
     for (let i = 0; i < fetchedData.variables.length; i++) {
       let timeBoolean = fetchedData.variables[i].time;
       let elimination = fetchedData.variables[i].elimination;
       let code = fetchedData.variables[i].code;
+      let text = fetchedData.variables[i].text;
 
       for (let y = 0; y < fetchedData.variables[a].values.length; y++) {
         options.push({
@@ -108,6 +114,7 @@ const Selectors = () => {
           options={options}
           selectorName={selectorName}
           code={code}
+          text={text}
           elimination={elimination}
           callBack={handleChange}
         />

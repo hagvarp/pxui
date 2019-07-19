@@ -1,9 +1,17 @@
-import React from "react";
+import React, {Fragment} from "react";
 import "./App.css";
-import Selectors from "./components/Selectors";
+import Header from "./components/Layouts/Header";
+import Footer from "./components/Layouts/Footer";
+import MainBody from "./components/Layouts/MainBody";
+
+
 
 function App() {
-  return <Selectors></Selectors>;
+  return <Fragment>
+    <Header></Header>
+    <MainBody></MainBody>
+    <Footer></Footer>
+    </Fragment>
 }
 
 export default App;
