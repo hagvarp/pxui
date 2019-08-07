@@ -1,4 +1,11 @@
-.alpa:hover {
+.menu-item{
+  text-align: left;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.menu-item:hover {
   background-color: #87ceeb;
   cursor: pointer;
 }
+

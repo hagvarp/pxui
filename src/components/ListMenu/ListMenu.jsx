@@ -1,36 +1,68 @@
 import React, { useState, useEffect } from "react";
 import { useHttp } from "../../hooks/http";
 import "./ListMenu.css";
+import ListItem from "./ListItem";
+
 
 const ListMenu = () => {
   const [isLoading, fetchedData] = useHttp(
     "http://statbank.hagstova.fo/api/v1/fo/H2",
     []
   );
+  const [getData, setGetData] = useState(null);
+  let test = [];
 
-  const handleClick = () => {
-    console.log("clicked");
+  const handleChange = e => {
+    console.log(e);
+    fetchGetHttp(e);
   };
-  let x = null;
+  //useEffect
   if (fetchedData) {
-    x = fetchedData.map(item => {
-      return (
-        <div
-          className="alpa"
-          onClick={handleClick}
-          style={{ fontWeight: "bold", fontSize: "1.1em" }}
+    for (let i = 0; i < fetchedData.length; i++) {
+      let id = fetchedData[i].id;
+      let text = fetchedData[i].text;
+      console.log(id);
+      console.log(text);
+
+      test.push(
+        <ListItem
+          className="menu-item"
+          text={text}
+          id={id}
+          callBack={handleChange}
         >
-          {item.text}
-        </div>
+          {text}
+        </ListItem>
       );
-    });
+    }
   }
+  const fetchGetHttp = async id => {
+    await fetch("https://statbank.hagstova.fo/api/v1/fo/H2/" + id)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Failed to fetch.");
+        }
+        return response.text();
+      })
+      .then(response => {
+        console.log(response);
+        setGetData(response);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
+  if (isLoading) {
+    return <div>LOADING...</div>;
+  }
+
   return (
     <div>
       <div style={{ fontWeight: "bold", fontSize: "1.5em", color: "#2d4182" }}>
         Hagtalsgrunnur
       </div>
-      {x}
+      {test}
     </div>
   );
 };

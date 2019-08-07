@@ -40,8 +40,8 @@ const Selectors = () => {
     mainObj = { query, response };
     console.log(mainObj);
 
-    fetchPostHttp(mainObj, code);
-  };
+    fetchPostHttp(mainObj, code);    
+  }; 
 
   const fetchPostHttp = async obj => {
     await fetch(
@@ -79,7 +79,9 @@ const Selectors = () => {
 
     table = fetchedData.title;
     s.push(
-      <div style={{ fontWeight: "bold", fontSize: "1.5em",color:"#2d4182" }}>{table}</div>
+      <div style={{ fontWeight: "bold", fontSize: "1.5em", color: "#2d4182" }}>
+        {table}
+      </div>
     );
 
     //----

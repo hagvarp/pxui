@@ -9,7 +9,6 @@ export default function SelectorMulti(props) {
   const [options] = useState(props.options);
   const [code] = useState(props.code);
   const [text] = useState(props.text);
-
   const [elimination] = useState(props.elimination);
 
   const handleChange = code => variables => {
