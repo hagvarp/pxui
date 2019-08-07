@@ -1,0 +1,19 @@
+\section*{Introduction}
+
+\subsection*{PXWEB}
+\href{https://statbank.hagstova.fo/pxweb/fo/H2}{Statistics Faroe Islands} is build on $PXWEB$. $PXWEB$ is an API structure developed by Statistics Sweden together with other national statistical institutions, like Statistics Finland and Statistics Norway, to disseminate public statistics in a structured way. This enables downloading and usage of data from statistical agencies without using a web browser direct over HTTP/HTTPS.
+
+The $PXWEB$ $R$ package connects any $PXWEB$ API to $R$ and hence facilitate the access, use and referencing of data from $PXWEB$ APIs\footnote{\href{https://cran.r-project.org/web/packages/pxweb/vignettes/pxweb.html}{PX-WEB API Interface for R}\label{note1}}.
+
+Statistics Faroe Islands, as well  as other organizations use $PXWEB$ to distribute hierarchical data. 
+
+Here is a list of a few data sets:
+
+\begin{itemize}
+\item \href{https://statbank.hagstova.fo/pxweb/fo/H2}{Statistics Faroe Islands}
+\item \href{http://www.statistikdatabasen.scb.se/pxweb/en/ssd/}{Statistics Sweden}
+\item \href{https://tilastokeskus.fi/til/aihealuejako.html}{Statistics Finland}
+\end{itemize}
+
+\subsection*{PXWEB API}
+The data in $PXWEB$ APIs consists of a metadata part and a data part. Metadata is structured in a hierarchical node tree, where each node contains information about subnodes that are below it in the tree or, if the nodes are at the bottom of the tree structure, the data referenced by the node as well as what dimensions are available for the data at that subnode\ref{note1}.
