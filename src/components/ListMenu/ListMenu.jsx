@@ -3,7 +3,6 @@ import { useHttp } from "../../hooks/http";
 import "./ListMenu.css";
 import ListItem from "./ListItem";
 
-
 const ListMenu = () => {
   const [isLoading, fetchedData] = useHttp(
     "http://statbank.hagstova.fo/api/v1/fo/H2",
@@ -13,7 +12,6 @@ const ListMenu = () => {
   let test = [];
 
   const handleChange = e => {
-    console.log(e);
     fetchGetHttp(e);
   };
   //useEffect
@@ -21,9 +19,6 @@ const ListMenu = () => {
     for (let i = 0; i < fetchedData.length; i++) {
       let id = fetchedData[i].id;
       let text = fetchedData[i].text;
-      console.log(id);
-      console.log(text);
-
       test.push(
         <ListItem
           className="menu-item"
