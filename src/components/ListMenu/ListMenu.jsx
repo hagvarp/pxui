@@ -5,6 +5,7 @@ import { resolve } from "uri-js";
 let test = [];
 let url = "https://statbank.hagstova.fo/api/v1/fo/H2/";
 let t = null;
+let count = 0;
 const ListMenu = () => {
   useEffect(() => {
     fetch(url)
@@ -31,8 +32,11 @@ const ListMenu = () => {
                 return response.json();
               })
               .then(response => {
-                test.push({ mainOjb, response });
-                console.log(test);                
+                mainOjb[i] = { response };
+
+                test.push(mainOjb);
+                count++;
+                console.log(test);
                 //tmpUrl = tmpUrl + id + "/";
               });
           }
