@@ -1,51 +1,35 @@
 import React, { useState, useEffect } from "react";
 import "./ListMenu.css";
-import { resolve } from "uri-js";
+import { useHttp } from "../../hooks/http";
 
-let test = [];
-let url = "https://statbank.hagstova.fo/api/v1/fo/H2/";
-let t = null;
-let count = 0;
 const ListMenu = () => {
-  useEffect(() => {
-    fetch(url)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error("Failed to fetch.");
-        }
-        return response.json();
-      })
-      .then(data => {
-        for (let i = 0; i < data.length; i++) {
-          let id = data[i].id;
-          let type = data[i].type;
-          let text = data[i].text;
-          let mainOjb = { id, type, text };
-
-          if (type == "l") {
-            let tmpUrl = url + id + "/";
-            fetch(tmpUrl)
-              .then(response => {
-                if (!response.ok) {
-                  throw new Error("Failed to fetch.");
-                }
-                return response.json();
-              })
-              .then(response => {
-                mainOjb[i] = { response };
-
-                test.push(mainOjb);
-                count++;
-                console.log(test);
-                //tmpUrl = tmpUrl + id + "/";
-              });
+  const [isLoading, fetchedData] = useHttp(
+    "http://statbank.hagstova.fo/api/v1/fo/H2",
+    []
+  );
+  if (fetchedData) {
+    fetchedData.forEach((element, index) => {
+      console.log(element.id); // 100, 200, 300
+      console.log(element.text); // 100, 200, 300
+      fetch("https://statbank.hagstova.fo/api/v1/fo/H2/" + element.id)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error("Failed to fetch.");
           }
-        }
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }, []);
+          return response.json();
+        })
+        .then(data => {
+          data.forEach((data, index) => {
+            console.log(data.id); // 100, 200, 300
+            console.log(data.text); // 100, 200, 300
+          });
+          console.log("------------");
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    });
+  }
 
   return (
     <div>

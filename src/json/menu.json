@@ -1,0 +1,15 @@
+{
+  "Hagtalsgrunnur": [
+    {
+      "id": "AL",
+      "name": "Almannamál",
+      "siblings": [
+        {
+          "name": "Christine",
+          "age": "19",
+          "alive": "true"
+        }
+      ]
+    }
+  ]
+}

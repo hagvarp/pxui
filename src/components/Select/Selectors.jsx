@@ -31,17 +31,15 @@ const Selectors = () => {
     } else {
       query.push(obj);
     }
-    console.log(query.length);
     if (query.length > 9) {
       for (let i = 0; i < 5; i++) {
         query.pop();
       }
     }
     mainObj = { query, response };
-    console.log(mainObj);
 
-    fetchPostHttp(mainObj, code);    
-  }; 
+    fetchPostHttp(mainObj, code);
+  };
 
   const fetchPostHttp = async obj => {
     await fetch(
