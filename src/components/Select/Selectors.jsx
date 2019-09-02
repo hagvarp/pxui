@@ -19,8 +19,6 @@ const Selectors = () => {
         values.push(variables[i].value);
       }
     }
-    const format = "px";
-    const response = { format };
     const filter = "item";
     const selection = { filter, values };
     const obj = { code, selection };
@@ -31,13 +29,8 @@ const Selectors = () => {
     } else {
       query.push(obj);
     }
-    if (query.length > 9) {
-      for (let i = 0; i < 5; i++) {
-        query.pop();
-      }
-    }
+    const response = { px: "" };
     mainObj = { query, response };
-
     fetchPostHttp(mainObj, code);
   };
 
@@ -125,8 +118,7 @@ const Selectors = () => {
 
       a++;
     }
-    const format = "px";
-    const response = { format };
+    const response = { px: "" };
     mainObj = { query, response };
     fetchPostHttp(mainObj);
   }

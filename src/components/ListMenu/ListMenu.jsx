@@ -1,41 +1,41 @@
 import React, { useState, useEffect } from "react";
 import "./ListMenu.css";
-import { useHttp } from "../../hooks/http";
+import axios from "axios";
+import ListDisplay from "./ListDisplay";
 
 const ListMenu = () => {
-  const [isLoading, fetchedData] = useHttp(
-    "http://statbank.hagstova.fo/api/v1/fo/H2",
-    []
-  );
-  if (fetchedData) {
-    fetchedData.forEach((element, index) => {
-      console.log(element.id); // 100, 200, 300
-      console.log(element.text); // 100, 200, 300
-      fetch("https://statbank.hagstova.fo/api/v1/fo/H2/" + element.id)
-        .then(response => {
-          if (!response.ok) {
-            throw new Error("Failed to fetch.");
-          }
-          return response.json();
-        })
-        .then(data => {
-          data.forEach((data, index) => {
-            console.log(data.id); // 100, 200, 300
-            console.log(data.text); // 100, 200, 300
-          });
-          console.log("------------");
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    });
-  }
+  const [data, setData] = useState([]);
+  const [tmpData, setTmpData] = useState([]);
+
+  const [toggle, setToggle] = useState(true);
+  useEffect(async () => {
+    await axios
+      .get("https://statbank.hagstova.fo/api/v1/fo/H2")
+      .then(json => setData(json.data));
+  }, []);
+
+  const handleClick = async e => {
+    const newData = [...data];
+    console.log(e);
+    await axios
+      .get("https://statbank.hagstova.fo/api/v1/fo/H2/" + e.id)
+      .then(json => setTmpData(json.data));
+    console.log(tmpData);
+
+    newData[0].add(tmpData);
+
+    setData(newData);
+    console.log(data);
+  };
 
   return (
     <div>
       <div style={{ fontWeight: "bold", fontSize: "1.5em", color: "#2d4182" }}>
         Hagtalsgrunnur
       </div>
+      {data.map((element, index) => {
+        return <div onClick={() => handleClick(element)}>{element.text}</div>;
+      })}
     </div>
   );
 };
