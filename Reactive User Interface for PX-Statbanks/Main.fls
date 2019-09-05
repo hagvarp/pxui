@@ -1,0 +1,247 @@
+PWD /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks
+INPUT /etc/texmf/web2c/texmf.cnf
+INPUT /usr/share/texmf/web2c/texmf.cnf
+INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
+INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/Main.tex
+OUTPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/Main.log
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/report.cls
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/report.cls
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
+INPUT /usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm1200.tfm
+INPUT /usr/share/texlive/texmf-dist/tex/latex/fncychap/fncychap.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/fncychap/fncychap.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+INPUT /usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+INPUT /usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+INPUT /usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+INPUT /usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+INPUT /usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
+INPUT /usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
+INPUT /usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+INPUT /usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
+INPUT /usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
+INPUT /usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+INPUT /usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+INPUT /usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+INPUT /usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+INPUT /usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/cleveref/cleveref.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/cleveref/cleveref.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/pdfpages/pdfpages.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/pdfpages/pdfpages.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/eso-pic/eso-pic.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/eso-pic/eso-pic.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+INPUT /usr/share/texlive/texmf-dist/tex/latex/pdfpages/pppdftex.def
+INPUT /usr/share/texlive/texmf-dist/tex/latex/pdfpages/pppdftex.def
+INPUT /usr/share/texlive/texmf-dist/tex/latex/preprint/fullpage.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/preprint/fullpage.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithm.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithm.sty
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/Main.aux
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/Main.aux
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/frontmatter/foreword.aux
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/frontmatter/foreword.aux
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/introduction.aux
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/introduction.aux
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/relatedWork.aux
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/relatedWork.aux
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/methodologyOfTheStudy.aux
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/methodologyOfTheStudy.aux
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/architecture.aux
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/architecture.aux
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/analysis.aux
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/analysis.aux
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/conclusion.aux
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/conclusion.aux
+OUTPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/Main.aux
+INPUT /usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+INPUT /usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+INPUT /usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+INPUT /usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+INPUT /usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+INPUT /usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+INPUT /usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/Main.out
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/Main.out
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/Main.out
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/Main.out
+OUTPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/Main.pdf
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/Main.out
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/Main.out
+OUTPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/Main.out
+INPUT /usr/share/texlive/texmf-dist/tex/latex/oberdiek/pdflscape.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/oberdiek/pdflscape.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics/lscape.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics/lscape.sty
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/frontmatter/forsida.pdf
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/frontmatter/forsida.pdf
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/frontmatter/forsida.pdf
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/frontmatter/forsida.pdf
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/frontmatter/forsida.pdf
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/frontmatter/forsida.pdf
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/frontmatter/forsida.pdf
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/frontmatter/forsida.pdf
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/frontmatter/forsida.pdf
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/frontmatter/forsida.pdf
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/frontmatter/forsida.pdf
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/frontmatter/forsida.pdf
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/frontmatter/forsida.pdf
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/frontmatter/forsida.pdf
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/frontmatter/forsida.pdf
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/frontmatter/forsida.pdf
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/frontmatter/forsida.pdf
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/frontmatter/forsida.pdf
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/frontmatter/forsida.pdf
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/frontmatter/forsida.pdf
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/frontmatter/forsida.pdf
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/frontmatter/forsida.pdf
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/frontmatter/forsida.pdf
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/frontmatter/forsida.pdf
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/frontmatter/forsida.pdf
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/frontmatter/forsida.pdf
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/frontmatter/abstract.tex
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/frontmatter/abstract.tex
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1200.tfm
+INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
+OUTPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/frontmatter/foreword.aux
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/frontmatter/foreword.tex
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/frontmatter/foreword.tex
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm1728.tfm
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/t1cmss.fd
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/t1cmss.fd
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecss1728.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1728.tfm
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/Main.toc
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/Main.toc
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
+OUTPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/Main.toc
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/Main.lof
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/Main.lof
+OUTPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/Main.lof
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/Main.lot
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/Main.lot
+OUTPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/Main.lot
+OUTPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/introduction.aux
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/introduction.tex
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/introduction.tex
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecss2488.tfm
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/img/ui1.png
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/img/ui1.png
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/img/ui1.png
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm1095.tfm
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/img/ui2.png
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/img/ui2.png
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/img/ui2.png
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/img/ui3.png
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/img/ui3.png
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/img/ui3.png
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm0800.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm1000.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm0700.tfm
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+OUTPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/relatedWork.aux
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/relatedWork.tex
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/relatedWork.tex
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm1440.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1440.tfm
+OUTPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/methodologyOfTheStudy.aux
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/methodologyOfTheStudy.tex
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/methodologyOfTheStudy.tex
+OUTPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/architecture.aux
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/architecture.tex
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/architecture.tex
+OUTPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/analysis.aux
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/analysis.tex
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/analysis.tex
+OUTPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/conclusion.aux
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/conclusion.tex
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/conclusion.tex
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/Main.aux
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/frontmatter/foreword.aux
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/frontmatter/foreword.aux
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/introduction.aux
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/introduction.aux
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/relatedWork.aux
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/relatedWork.aux
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/methodologyOfTheStudy.aux
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/methodologyOfTheStudy.aux
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/architecture.aux
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/architecture.aux
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/analysis.aux
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/analysis.aux
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/conclusion.aux
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/chapters/conclusion.aux
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/Main.out
+INPUT /mnt/9c17aad5-7b2f-453b-9ae2-085895278529/Projects/React/pxui/Reactive User Interface for PX-Statbanks/Main.out
+INPUT /usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc
+INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+INPUT /usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb
+INPUT /usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb
+INPUT /usr/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb
+INPUT /usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb
+INPUT /usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb
+INPUT /usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb
+INPUT /usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb
+INPUT /usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb
+INPUT /usr/share/texmf/fonts/type1/public/cm-super/sfss1728.pfb
+INPUT /usr/share/texmf/fonts/type1/public/cm-super/sfss2488.pfb
