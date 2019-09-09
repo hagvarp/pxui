@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import "./ListMenu.css";
 import axios from "axios";
 import ListDisplay from "./ListDisplay";
@@ -10,14 +10,19 @@ const ListMenu = () => {
     []
   );
   const [data, setData] = useState();
-
   const [toggle, setToggle] = useState(true);
+
   useEffect(() => {
     setData(fetchedData);
   }, [fetchedData]);
 
+  const handleChange = (id, type, text) => {
+    console.log(id);
+    console.log(type);
+    console.log(text);
+  };
+
   if (data) {
-    console.log(data);
     return (
       <div>
         <div
@@ -25,7 +30,7 @@ const ListMenu = () => {
         >
           Hagtalsgrunnur
         </div>
-        <ListDisplay data={data}></ListDisplay>
+        <ListDisplay data={data} callBack={handleChange}></ListDisplay>
       </div>
     );
   }
