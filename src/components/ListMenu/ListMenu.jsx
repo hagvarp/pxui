@@ -3,6 +3,7 @@ import "./ListMenu.css";
 import axios from "axios";
 import ListDisplay from "./ListDisplay";
 import { useHttp } from "../../hooks/http";
+import Loading from "../Loading/Loading";
 
 const ListMenu = () => {
   const [isLoading, fetchedData] = useHttp(
@@ -34,7 +35,10 @@ const ListMenu = () => {
       </div>
     );
   }
-  return <div>loading...</div>;
+
+  return (
+    <Loading type="cylon" color="#2d4182" height="20%" width="20%"></Loading>
+  );
 };
 
 export default ListMenu;

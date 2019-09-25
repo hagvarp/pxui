@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import SelectorMulti from "./SelectorMulti";
 import { useHttp } from "../../hooks/http";
+import Loading from "../Loading/Loading";
 
 let mainObj = {};
 let query = [];
@@ -59,7 +60,9 @@ const Selectors = () => {
 
   let s = [];
   if (isLoading) {
-    return <div>LOADING...</div>;
+    return (
+      <Loading type="cylon" color="#2d4182" height="4%" width="4%"></Loading>
+    );
   }
 
   if (fetchedData) {
