@@ -2640,7 +2640,7 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-classnames@^2.2.5:
+classnames@^2.2.5, classnames@^2.2.6:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
   integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
@@ -4120,6 +4120,11 @@ fast-levenshtein@~2.0.4:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/fast-levenshtein/-/fast-levenshtein-2.0.6.tgz#3d8a5c66883a16a30ca8643e851f19baa7797917"
   integrity sha1-PYpcZog6FqMMqGQ+hR8Zuqd5eRc=
+
+fast-memoize@^2.5.1:
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/fast-memoize/-/fast-memoize-2.5.1.tgz#c3519241e80552ce395e1a32dcdde8d1fd680f5d"
+  integrity sha512-xdmw296PCL01tMOXx9mdJSmWY29jQgxyuZdq0rEHMu+Tpe1eOEtCycoG6chzlcrWsNgpZP7oL8RiQr7+G6Bl6g==
 
 faye-websocket@^0.10.0:
   version "0.10.0"
@@ -8358,6 +8363,15 @@ react-select@^3.0.4:
     raf "^3.4.0"
     react-input-autosize "^2.2.1"
     react-transition-group "^2.2.1"
+
+react-simple-tree-menu@^1.1.5:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/react-simple-tree-menu/-/react-simple-tree-menu-1.1.5.tgz#ad243e3980cf73fa784de5b1d36f5c25103b841f"
+  integrity sha512-FsAw2uv0BRBLNsk4DocP4zRNtgCCqjYpELXlv6pdrJckSjyPGsHHNEDq28Oejz85zXqRbsU5UsQBydVKKEmqbw==
+  dependencies:
+    classnames "^2.2.6"
+    fast-memoize "^2.5.1"
+    lodash "^4.17.11"
 
 react-transition-group@^2.2.1:
   version "2.9.0"

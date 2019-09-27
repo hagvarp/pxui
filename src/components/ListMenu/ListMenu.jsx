@@ -1,28 +1,17 @@
 import React, { useRef, useState, useEffect } from "react";
 import "./ListMenu.css";
-import axios from "axios";
-import ListDisplay from "./ListDisplay";
-import { useHttp } from "../../hooks/http";
 import Loading from "../Loading/Loading";
+import TreeMenu from "react-simple-tree-menu";
+import "../../../node_modules/react-simple-tree-menu/dist/main.css";
+import data from "../../json/menu";
 
-const ListMenu = () => {
-  const [isLoading, fetchedData] = useHttp(
-    "http://statbank.hagstova.fo/api/v1/fo/H2",
-    []
-  );
-  const [data, setData] = useState();
-  const [toggle, setToggle] = useState(true);
-
-  useEffect(() => {
-    setData(fetchedData);
-  }, [fetchedData]);
-
-  const handleChange = (id, type, text) => {
-    console.log(id);
-    console.log(type);
-    console.log(text);
+const ListMenu = props => {
+  const handleClick = e => {
+    if (e.type === "t") {
+      const tmpUrl = "https://statbank.hagstova.fo/api/v1/fo/H2/" + e.key;
+      props.onClickItem(tmpUrl);
+    }
   };
-
   if (data) {
     return (
       <div>
@@ -31,7 +20,7 @@ const ListMenu = () => {
         >
           Hagtalsgrunnur
         </div>
-        <ListDisplay data={data} callBack={handleChange}></ListDisplay>
+        <TreeMenu data={data} onClickItem={handleClick} />
       </div>
     );
   }
