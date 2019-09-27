@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/pxui/static/css/main.529f6b1a.chunk.css",
+    "main.js": "/pxui/static/js/main.75d91ce1.chunk.js",
+    "main.js.map": "/pxui/static/js/main.75d91ce1.chunk.js.map",
+    "runtime~main.js": "/pxui/static/js/runtime~main.1114999b.js",
+    "runtime~main.js.map": "/pxui/static/js/runtime~main.1114999b.js.map",
+    "static/css/2.3aa4d2b7.chunk.css": "/pxui/static/css/2.3aa4d2b7.chunk.css",
+    "static/js/2.5014b93c.chunk.js": "/pxui/static/js/2.5014b93c.chunk.js",
+    "static/js/2.5014b93c.chunk.js.map": "/pxui/static/js/2.5014b93c.chunk.js.map",
+    "index.html": "/pxui/index.html",
+    "precache-manifest.dbd98180f52a0f88582978aca03e1ec8.js": "/pxui/precache-manifest.dbd98180f52a0f88582978aca03e1ec8.js",
+    "service-worker.js": "/pxui/service-worker.js",
+    "static/css/2.3aa4d2b7.chunk.css.map": "/pxui/static/css/2.3aa4d2b7.chunk.css.map",
+    "static/css/main.529f6b1a.chunk.css.map": "/pxui/static/css/main.529f6b1a.chunk.css.map",
+    "static/media/font-awesome.min.css": "/pxui/static/media/fontawesome-webfont.fee66e71.woff",
+    "static/media/logo.svg": "/pxui/static/media/logo.565f9a19.svg"
+  }
+}
