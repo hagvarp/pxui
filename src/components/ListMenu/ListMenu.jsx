@@ -16,11 +16,17 @@ const ListMenu = props => {
     return (
       <div>
         <div
-          style={{ fontWeight: "bold", fontSize: "1.5em", color: "#2d4182" }}
+          style={{ fontWeight: "bold", fontSize: "1.1em", color: "#2d4182" }}
         >
           Hagtalsgrunnur
         </div>
-        <TreeMenu data={data} onClickItem={handleClick} />
+        <div>
+          <TreeMenu
+            className="menu-item"
+            data={data}
+            onClickItem={handleClick}
+          />
+        </div>
       </div>
     );
   }

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+
 import Selectors from "../Select/Selectors";
 import "./Index.css";
 import ListMenu from "../ListMenu/ListMenu";
@@ -36,13 +38,15 @@ export default function MainBody() {
 
   return (
     <div className={classes.root}>
-      <Grid container spacing={3}>
-        <Grid item xs={2}>
+      <Grid container spacing={2}>
+        <Grid item xs={12} sm={4}>
           <Paper className={classes.paper}>
-            <ListMenu onClickItem={handleChange} />
+            <Typography>
+              <ListMenu onClickItem={handleChange} />
+            </Typography>
           </Paper>
         </Grid>
-        <Grid item xs={10}>
+        <Grid item xs={12} sm={8}>
           <Paper className={classes.paper}>
             <Selectors onChange={wtf} url={url} />
           </Paper>
