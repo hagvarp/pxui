@@ -1,7 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-export default props => (
+export default () => (
   <div className="footer">
     <footer id="section-footer" className="section section-footer">
       <div

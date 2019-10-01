@@ -16,7 +16,7 @@ const ListMenu = props => {
     return (
       <div>
         <div
-          style={{ fontWeight: "bold", fontSize: "1.1em", color: "#2d4182" }}
+          style={{ fontWeight: "bold", fontSize: "1.3em", color: "#2d4182" }}
         >
           Hagtalsgrunnur
         </div>

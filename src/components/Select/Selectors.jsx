@@ -129,9 +129,13 @@ const Selectors = props => {
           console.log("Failed response", response);
           throw new Error("POST Failed to fetch.");
         }
+        console.log(response);
+
         return response.text();
       })
       .then(response => {
+        console.log(response);
+
         setPostData(response);
       })
       .catch(err => {
@@ -142,12 +146,22 @@ const Selectors = props => {
 
   if (isLoading) {
     return (
-      <Loading type="cylon" color="#2d4182" height="4%" width="4%"></Loading>
+      <Loading
+        type="spinningBubbles"
+        color="#2d4182"
+        height="2%"
+        width="2%"
+      ></Loading>
     );
   }
   if (s && postData) {
     return <div onChange={wtf(postData)}>{s}</div>;
   }
-  return <div>S</div>;
+  return (
+    <div style={{ fontWeight: "italic", fontSize: "1.1em", color: "#2d4182" }}>
+      Eingin talva vald
+      <Loading type="cylon" color="#2d4182" height="3%" width="3%"></Loading>
+    </div>
+  );
 };
 export default Selectors;

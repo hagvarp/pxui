@@ -12,7 +12,7 @@ export default function ListItem(props) {
   return (
     <div
       onClick={() => handleClick(id, type, text)}
-      className="menu-item"
+      className="tree-item"
       id={id}
     >
       {text}

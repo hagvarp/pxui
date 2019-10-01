@@ -3,15 +3,13 @@ import "./App.css";
 import Header from "./components/Layouts/Header";
 import Footer from "./components/Layouts/Footer";
 import MainBody from "./components/Layouts/MainBody";
-
 function App() {
 
 
   return (
-    <div>
+    <div >
       <Header></Header>
-      <MainBody></MainBody>
-
+      <MainBody ></MainBody>
     </div>
   );
 }

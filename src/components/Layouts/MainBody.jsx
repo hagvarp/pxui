@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function MainBody() {
   const [url, setUrl] = useState("");
-  const [data, setData] = useState("HEEEEY");
+  const [data, setData] = useState("");
 
   const classes = useStyles();
   const handleChange = e => {
