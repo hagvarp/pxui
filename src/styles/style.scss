@@ -1,0 +1,20 @@
+@import "./_variables";
+
+@import "./_menuTree";
+@import "./_selectors";
+
+.App {
+  text-align: center;
+}
+
+.noData {
+  font-style: italic;
+  font-size: 1.1em;
+  color: $primaryColor;
+}
+
+.headLine {
+  font-weight: bold;
+  font-size: 1.5em;
+  color: $primaryColor;
+}

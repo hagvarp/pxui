@@ -1,0 +1,68 @@
+.tree-item {
+  text-align: left;
+  font-size: 1em;
+  cursor: pointer;
+  color: #333;
+  background: none;
+}
+
+.tree-item:hover {
+  background-color: #87ceeb;
+  cursor: pointer;
+}
+
+.tree-item--active {
+  font-weight: bold;
+  color: white;
+  background: #179ed3;
+  border-bottom: none;
+}
+
+.tree-item--focused {
+  z-index: 999;
+}
+
+.tree-item-group {
+  list-style-type: none;
+}
+
+.toggle-icon {
+  display: inline-block;
+}
+
+.toggle-icon-symbol {
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+  line-height: 2rem;
+}
+
+.search {
+  padding: 0.7rem 0.6rem;
+  border: none;
+  width: 100%;
+  font-size: 1em;
+}
+
+.selectorsHeadLine {
+  font-weight: bold;
+  font-size: 1.1em;
+  text-align: left;
+}
+
+.App {
+  text-align: center;
+}
+
+.noData {
+  font-style: italic;
+  font-size: 1.1em;
+  color: #2d4182;
+}
+
+.headLine {
+  font-weight: bold;
+  font-size: 1.5em;
+  color: #2d4182;
+}
+/*# sourceMappingURL=style.css.map */

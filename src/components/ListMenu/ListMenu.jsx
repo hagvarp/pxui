@@ -1,9 +1,11 @@
 import React, { useRef, useState, useEffect } from "react";
-import "./ListMenu.css";
+import "../../styles/style.css";
 import Loading from "../Loading/Loading";
 import TreeMenu from "react-simple-tree-menu";
-import "../../../node_modules/react-simple-tree-menu/dist/main.css";
 import data from "../../json/menu";
+
+//CSS from the library
+//import "../../../node_modules/react-simple-tree-menu/dist/main.css";
 
 const ListMenu = props => {
   const handleClick = e => {
@@ -15,14 +17,10 @@ const ListMenu = props => {
   if (data) {
     return (
       <div>
-        <div
-          style={{ fontWeight: "bold", fontSize: "1.3em", color: "#2d4182" }}
-        >
-          Hagtalsgrunnur
-        </div>
+        <div className="headLine">Hagtalsgrunnur</div>
         <div>
           <TreeMenu
-            className="menu-item"
+            className="tree-item"
             data={data}
             onClickItem={handleClick}
           />

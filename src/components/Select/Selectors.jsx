@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import SelectorMulti from "./SelectorMulti";
-import { useHttp } from "../../hooks/http";
 import Loading from "../Loading/Loading";
-import TablesData from "../TablesData/TablesData";
 
 let mainObj = {};
 let s = [];
@@ -36,13 +34,7 @@ const Selectors = props => {
         //----
 
         table = data.title;
-        s.push(
-          <div
-            style={{ fontWeight: "bold", fontSize: "1.5em", color: "#2d4182" }}
-          >
-            {table}
-          </div>
-        );
+        s.push(<div className="headLine">{table}</div>);
         console.log(s);
         //----
         let a = 0;
@@ -158,7 +150,7 @@ const Selectors = props => {
     return <div onChange={wtf(postData)}>{s}</div>;
   }
   return (
-    <div style={{ fontWeight: "italic", fontSize: "1.1em", color: "#2d4182" }}>
+    <div className="noData">
       Eingin talva vald
       <Loading type="cylon" color="#2d4182" height="3%" width="3%"></Loading>
     </div>

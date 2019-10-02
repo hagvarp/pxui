@@ -30,12 +30,11 @@ export default function MainBody() {
   };
 
   const wtf = e => {
-    console.log("WTF was activated");
     console.log(e);
     const tmp = e;
     setData(tmp);
   };
-
+  let ws = "\n";
   return (
     <div className={classes.root}>
       <Grid container spacing={2}>
@@ -47,9 +46,10 @@ export default function MainBody() {
           </Paper>
         </Grid>
         <Grid item xs={12} sm={8}>
-          <Paper className={classes.paper}>
+          <Paper style={{ marginBottom: "0.5cm" }} className={classes.paper}>
             <Selectors onChange={wtf} url={url} />
           </Paper>
+
           <Paper className={classes.paper}>
             <TableData data={data} />
           </Paper>

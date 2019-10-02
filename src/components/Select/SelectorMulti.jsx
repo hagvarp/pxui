@@ -17,18 +17,10 @@ export default function SelectorMulti(props) {
 
   const codeReq = () => {
     if (elimination == true) {
-      return (
-        <div
-          style={{ fontWeight: "bold", fontSize: "1.1em", textAlign: "left" }}
-        >
-          {text}{" "}
-        </div>
-      );
+      return <div className="selectorsHeadLine">{text} </div>;
     } else {
       return (
-        <div
-          style={{ fontWeight: "bold", fontSize: "1.1em", textAlign: "left" }}
-        >
+        <div className="selectorsHeadLine">
           {text}{" "}
           <i className="fa fa-exclamation-circle" style={{ color: "red" }} />
         </div>
