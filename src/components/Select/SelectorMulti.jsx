@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
 import "font-awesome/css/font-awesome.min.css";
@@ -15,8 +15,8 @@ export default function SelectorMulti(props) {
     props.callBack(code, variables);
   };
 
-  const codeReq = () => {
-    if (elimination == true) {
+  const codeRequired = () => {
+    if (elimination === true) {
       return <div className="selectorsHeadLine">{text} </div>;
     } else {
       return (
@@ -37,7 +37,7 @@ export default function SelectorMulti(props) {
   };
   return (
     <div>
-      {codeReq(elimination, code)}
+      {codeRequired(elimination, code)}
       <Select
         styles={customStyles}
         onChange={handleChange(code)}

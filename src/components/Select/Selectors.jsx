@@ -2,22 +2,21 @@ import React, { useState, useEffect } from "react";
 import SelectorMulti from "./SelectorMulti";
 import Loading from "../Loading/Loading";
 
-let mainObj = {};
-let s = [];
+let mainObject = {};
+let selectorArray = [];
 let query = [];
 
 const Selectors = props => {
   const [postData, setPostData] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
 
-  const wtf = e => {
+  const onChangeData = e => {
     props.onChange(e);
   };
 
   useEffect(() => {
-    s = [];
+    selectorArray = [];
     query.length = 0;
-    console.log(s.length);
     setIsLoading(true);
     fetch(props.url)
       .then(response => {
@@ -34,26 +33,29 @@ const Selectors = props => {
         //----
 
         table = data.title;
-        s.push(<div className="headLine">{table}</div>);
-        console.log(s);
+        selectorArray.push(<div className="headLine">{table}</div>);
         //----
-        let a = 0;
+        let selectorCounter = 0;
         for (let i = 0; i < data.variables.length; i++) {
           let timeBoolean = data.variables[i].time;
           let elimination = data.variables[i].elimination;
           let code = data.variables[i].code;
           let text = data.variables[i].text;
 
-          for (let y = 0; y < data.variables[a].values.length; y++) {
+          for (
+            let y = 0;
+            y < data.variables[selectorCounter].values.length;
+            y++
+          ) {
             options.push({
-              value: data.variables[a].values[y],
-              label: data.variables[a].valueTexts[y]
+              value: data.variables[selectorCounter].values[y],
+              label: data.variables[selectorCounter].valueTexts[y]
             });
           }
           if (timeBoolean === true) {
             options.reverse();
           }
-          if (query.length != data.variables.length) {
+          if (query.length !== data.variables.length) {
             let value = options[0].value;
 
             const values = [];
@@ -63,7 +65,7 @@ const Selectors = props => {
             const aa = { code, selection };
             query.push(aa);
           }
-          s.push(
+          selectorArray.push(
             <SelectorMulti
               options={options}
               selectorName={selectorName}
@@ -76,11 +78,11 @@ const Selectors = props => {
           selectorName = [];
           options = [];
 
-          a++;
+          selectorCounter++;
         }
         const response = { px: "" };
-        mainObj = { query, response };
-        fetchPostHttp(mainObj);
+        mainObject = { query, response };
+        fetchPostHttp(mainObject);
       })
       .catch(err => {
         console.log(err);
@@ -106,8 +108,8 @@ const Selectors = props => {
       query.push(obj);
     }
     const response = { px: "" };
-    mainObj = { query, response };
-    fetchPostHttp(mainObj, code);
+    mainObject = { query, response };
+    fetchPostHttp(mainObject, code);
   }
 
   async function fetchPostHttp(obj) {
@@ -121,18 +123,13 @@ const Selectors = props => {
           console.log("Failed response", response);
           throw new Error("POST Failed to fetch.");
         }
-        console.log(response);
-
         return response.text();
       })
       .then(response => {
-        console.log(response);
-
         setPostData(response);
       })
       .catch(err => {
         console.log(err);
-        setPostData("Please pick items for the empty selectors");
       });
   }
 
@@ -146,8 +143,8 @@ const Selectors = props => {
       ></Loading>
     );
   }
-  if (s && postData) {
-    return <div onChange={wtf(postData)}>{s}</div>;
+  if (selectorArray && postData) {
+    return <div onChange={onChangeData(postData)}>{selectorArray}</div>;
   }
   return (
     <div className="noData">

@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { Fragment } from "react";
 import "../../styles/style.css";
 import Loading from "../Loading/Loading";
 import TreeMenu from "react-simple-tree-menu";
@@ -10,22 +10,17 @@ import data from "../../json/menu";
 const ListMenu = props => {
   const handleClick = e => {
     if (e.type === "t") {
-      const tmpUrl = "https://statbank.hagstova.fo/api/v1/fo/H2/" + e.key;
+      const tmpKey = e;
+      const tmpUrl = "https://statbank.hagstova.fo/api/v1/fo/H2/" + tmpKey;
       props.onClickItem(tmpUrl);
     }
   };
   if (data) {
     return (
-      <div>
+      <Fragment>
         <div className="headLine">Hagtalsgrunnur</div>
-        <div>
-          <TreeMenu
-            className="tree-item"
-            data={data}
-            onClickItem={handleClick}
-          />
-        </div>
-      </div>
+        <TreeMenu className="tree-item" data={data} onClickItem={handleClick} />
+      </Fragment>
     );
   }
 

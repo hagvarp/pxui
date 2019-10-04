@@ -24,14 +24,13 @@ export default function MainBody() {
   const [data, setData] = useState("");
 
   const classes = useStyles();
-  const handleChange = e => {
+
+  const handleChangeUrl = e => {
     setUrl(e);
   };
 
-  const wtf = e => {
-    console.log(e);
-    const tmp = e;
-    setData(tmp);
+  const handleChangeData = e => {
+    setData(e);
   };
 
   return (
@@ -39,14 +38,14 @@ export default function MainBody() {
       <Grid container spacing={2}>
         <Grid item xs={12} sm={4}>
           <Paper className={classes.paper}>
-            <Typography>
-              <ListMenu onClickItem={handleChange} />
+            <Typography component={"span"}>
+              <ListMenu onClickItem={handleChangeUrl} />
             </Typography>
           </Paper>
         </Grid>
         <Grid item xs={12} sm={8}>
           <Paper style={{ marginBottom: "0.5cm" }} className={classes.paper}>
-            <Selectors onChange={wtf} url={url} />
+            <Selectors onChange={handleChangeData} url={url} />
           </Paper>
           <Paper className={classes.paper}>
             <TableData data={data} />

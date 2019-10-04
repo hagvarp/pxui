@@ -3,6 +3,10 @@ import Logo from "../../img/logo.svg";
 import Grid from "@material-ui/core/Grid";
 
 export default function Header() {
+  const redirectToUrl = () => {
+    window.location.href = "https://www.google.com";
+  };
+
   return (
     <div>
       <Grid container spacing={3}>
@@ -12,7 +16,7 @@ export default function Header() {
               src={Logo}
               style={{ height: "3em", alignIem: "left" }}
               alt="Hagstovan"
-              onClick="javascript:window.location='https://www.facebook.com/pages/Gr81';"
+              onClick={redirectToUrl}
             />
           </a>
           <hr />
