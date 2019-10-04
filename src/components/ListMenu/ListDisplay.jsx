@@ -7,7 +7,12 @@ export default function ListDisplay(props) {
   const handleClick = (id, type, text) => {
     props.callBack(id, type, text);
   };
-  return data.map(c => (
-    <ListItem id={c.id} type={c.type} text={c.text} callBack={handleClick} />
+  return data.map(item => (
+    <ListItem
+      id={item.id}
+      type={item.type}
+      text={item.text}
+      callBack={handleClick}
+    />
   ));
 }

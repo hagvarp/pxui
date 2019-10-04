@@ -113,7 +113,6 @@ const Selectors = props => {
   }
 
   async function fetchPostHttp(obj) {
-    console.log(obj);
     await fetch(props.url, {
       body: JSON.stringify(obj),
       method: "post"
