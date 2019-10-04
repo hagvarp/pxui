@@ -10,7 +10,7 @@ import data from "../../json/menu";
 const ListMenu = props => {
   const handleClick = e => {
     if (e.type === "t") {
-      const tmpKey = e;
+      const tmpKey = e.key;
       const tmpUrl = "https://statbank.hagstova.fo/api/v1/fo/H2/" + tmpKey;
       props.onClickItem(tmpUrl);
     }
