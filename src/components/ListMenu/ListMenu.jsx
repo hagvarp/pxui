@@ -14,6 +14,7 @@ Files: walk.d.ts, main.js
 "key" to "id"
 "label" to "text"
 */
+
 const ListMenu = props => {
   const [data, setData] = useState(null);
 
@@ -22,40 +23,37 @@ const ListMenu = props => {
     const json = await response.json();
     return json;
   }
-  const mainUrl = "https://statbank.hagstova.fo/api/v1/fo/H2/";
+  const mainUrl = props.url;
 
   const fetchDataTree = async url => {
     //i assume you will handle the fetch with your own method
-    let countryArr = await fetchData(url);
+    let menuArray = await fetchData(url);
 
-    for (let key in countryArr) {
-      if (countryArr[key].type === "l") {
-        countryArr[key].nodes = await fetchDataTree(
-          url + "/" + countryArr[key].id
+    for (let key in menuArray) {
+      if (menuArray[key].type === "l") {
+        menuArray[key].nodes = await fetchDataTree(
+          url + "/" + menuArray[key].id
         );
-        console.log(countryArr[key].nodes);
       }
     }
-    return countryArr;
+    return menuArray;
   };
 
-  async function getDataTree() {
-    const yourDataTree = await fetchDataTree(mainUrl);
+  async function getDataTree(statBankUrl) {
+    const yourDataTree = await fetchDataTree(statBankUrl);
     setData(yourDataTree);
-    console.log("------------");
-    console.log(yourDataTree);
-    console.log("-----------");
-    console.log(staticData);
   }
 
-  useEffect(async () => {
-    getDataTree();
-  }, []);
+  useEffect(() => {
+    setData(null);
+    console.log("useEffect", props.statBank);
+    getDataTree(props.statBank);
+  }, [props.statBank]);
 
   const handleClick = e => {
     if (e.type === "t") {
       const tmpId = e.id;
-      const tmpUrl = "https://statbank.hagstova.fo/api/v1/fo/H2/" + tmpId;
+      const tmpUrl = props.statBank + tmpId;
       props.onClickItem(tmpUrl);
     }
   };
@@ -69,7 +67,10 @@ const ListMenu = props => {
   }
 
   return (
-    <Loading type="spin" color="#2d4182" height="20%" width="20%"></Loading>
+    <div>
+      <div className="noData">heintar valmynd, vinarliga bíða</div>
+      <Loading type="spin" color="#2d4182" height="5%" width="5%"></Loading>
+    </div>
   );
 };
 

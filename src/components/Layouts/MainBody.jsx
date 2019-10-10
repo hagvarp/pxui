@@ -4,9 +4,11 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 
+import DbSelector from "../DbSelector/DbSelector";
 import Selectors from "../Select/Selectors";
 import ListMenu from "../ListMenu/ListMenu";
 import TableData from "../TablesData/TablesData";
+import statBanks from "../../json/statBanks";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -22,6 +24,7 @@ const useStyles = makeStyles(theme => ({
 export default function MainBody() {
   const [url, setUrl] = useState("");
   const [data, setData] = useState("");
+  const [statBankUrl, setStatBankUrl] = useState(statBanks[0].value);
 
   const classes = useStyles();
 
@@ -33,13 +36,22 @@ export default function MainBody() {
     setData(e);
   };
 
+  const handleChangeStatBank = e => {
+    setStatBankUrl(e.value);
+  };
+
   return (
     <div className={classes.root}>
+      <Grid item xs={2}>
+        <div style={{ marginBottom: "0.5cm" }} className={classes.paper}>
+          <DbSelector onChange={handleChangeStatBank}></DbSelector>
+        </div>
+      </Grid>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={4}>
           <Paper className={classes.paper}>
             <Typography component={"span"}>
-              <ListMenu onClickItem={handleChangeUrl} />
+              <ListMenu onClickItem={handleChangeUrl} statBank={statBankUrl} />
             </Typography>
           </Paper>
         </Grid>

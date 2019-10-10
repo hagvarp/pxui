@@ -1,0 +1,14 @@
+[
+    {
+        "value": "https://statbank.hagstova.fo/api/v1/fo/H2/",
+        "label": "Hagstova Føroya"
+    },
+    {
+        "value": "https://bank.stat.gl/api/v1/en/Greenland/",
+        "label": "StatBank Greenland"
+    },
+    {
+        "value": "https://api.scb.se/OV0104/v1/doris/en/ssd/",
+        "label": "StatBank Sweden - Blocked by cors"
+    }
+]
