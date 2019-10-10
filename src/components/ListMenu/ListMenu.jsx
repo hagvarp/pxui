@@ -69,7 +69,7 @@ const ListMenu = props => {
   }
 
   return (
-    <Loading type="cylon" color="#2d4182" height="20%" width="20%"></Loading>
+    <Loading type="spin" color="#2d4182" height="20%" width="20%"></Loading>
   );
 };
 
