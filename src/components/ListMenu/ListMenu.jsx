@@ -22,7 +22,7 @@ const ListMenu = props => {
     const json = await response.json();
     return json;
   }
-  const mainUrl = "http://statbank.hagstova.fo/api/v1/fo/H2/";
+  const mainUrl = "https://statbank.hagstova.fo/api/v1/fo/H2/";
 
   const fetchDataTree = async url => {
     //i assume you will handle the fetch with your own method
