@@ -42,9 +42,11 @@ export default function MainBody() {
 
   return (
     <div className={classes.root}>
-      <Grid item xs={2}>
+      <Grid item xs={12} sm={3}>
         <div style={{ marginBottom: "0.5cm" }} className={classes.paper}>
-          <DbSelector onChange={handleChangeStatBank}></DbSelector>
+          <Typography component={"span"}>
+            <DbSelector onChange={handleChangeStatBank}>s</DbSelector>
+          </Typography>
         </div>
       </Grid>
       <Grid container spacing={2}>
