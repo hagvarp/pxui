@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
 import "font-awesome/css/font-awesome.min.css";
