@@ -52,9 +52,7 @@ export default function MainBody() {
       <Grid container spacing={2}>
         <Grid item xs={12} sm={4}>
           <Paper className={classes.paper}>
-            <Typography component={"span"}>
-              <ListMenu onClickItem={handleChangeUrl} statBank={statBankUrl} />
-            </Typography>
+            <ListMenu onClickItem={handleChangeUrl} statBank={statBankUrl} />
           </Paper>
         </Grid>
         <Grid item xs={12} sm={8}>
