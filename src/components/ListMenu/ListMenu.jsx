@@ -67,8 +67,13 @@ const ListMenu = props => {
 
   return (
     <div>
-      <div className="noData">heintar valmynd, vinarliga bíða</div>
-      <Loading type="spin" color="#2d4182" height="5%" width="5%"></Loading>
+      <TreeMenu
+        className="tree-item"
+        data={staticData}
+        onClickItem={handleClick}
+      />
+      {/* <div className="noData">heintar valmynd, vinarliga bíða</div>
+      <Loading type="spin" color="#2d4182" height="5%" width="5%"></Loading> */}
     </div>
   );
 };
