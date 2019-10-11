@@ -62,7 +62,7 @@ export default function MainBody() {
           <Paper className={classes.paper}>
             <Typography component={"span"}>
               <TableData data={data}></TableData>
-              <div style={{ fontSize: "1vw" }} id="tableResult"></div>
+              <div style={{ fontSize: "1em" }} id="tableResult"></div>
             </Typography>
           </Paper>
         </Grid>
