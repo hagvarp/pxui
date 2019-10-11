@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Px from "./px";
 import $ from "jquery";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Loading from "../Loading/Loading";
 
 export default function TablesData(props) {
   let contentElement = $("#tableResult");
@@ -244,5 +245,10 @@ export default function TablesData(props) {
       </div>
     );
   }
-  return <div>test</div>;
+  return (
+    <div className="noData">
+      Einki dáta
+      <Loading type="cylon" color="#2d4182" height="3%" width="3%"></Loading>
+    </div>
+  );
 }

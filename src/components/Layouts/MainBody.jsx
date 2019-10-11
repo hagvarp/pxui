@@ -62,8 +62,10 @@ export default function MainBody() {
             <Selectors onChange={handleChangeData} url={url} />
           </Paper>
           <Paper className={classes.paper}>
-            <TableData data={data}></TableData>
-            <div style={{ fontSize: "1vw" }} id="tableResult"></div>
+            <Typography component={"span"}>
+              <TableData data={data}></TableData>
+              <div style={{ fontSize: "2vw" }} id="tableResult"></div>
+            </Typography>
           </Paper>
         </Grid>
       </Grid>
