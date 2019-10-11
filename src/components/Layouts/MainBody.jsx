@@ -62,7 +62,8 @@ export default function MainBody() {
             <Selectors onChange={handleChangeData} url={url} />
           </Paper>
           <Paper className={classes.paper}>
-            <TableData data={data} />
+            <TableData data={data}></TableData>
+            <div style={{ fontSize: "1vw" }} id="tableResult"></div>
           </Paper>
         </Grid>
       </Grid>

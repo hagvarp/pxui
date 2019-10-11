@@ -23,7 +23,6 @@ const ListMenu = props => {
     const json = await response.json();
     return json;
   }
-  const mainUrl = props.url;
 
   const fetchDataTree = async url => {
     //i assume you will handle the fetch with your own method
