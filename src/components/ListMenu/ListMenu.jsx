@@ -40,6 +40,8 @@ const ListMenu = props => {
 
   async function getDataTree(statBankUrl) {
     const yourDataTree = await fetchDataTree(statBankUrl);
+    console.log(yourDataTree);
+
     await setData(yourDataTree);
   }
 

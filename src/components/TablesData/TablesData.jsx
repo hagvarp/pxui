@@ -32,9 +32,9 @@ export default function TablesData(props) {
     let stub;
 
     //Setting laguage code depending of datafile, element 1
-    let languageISOCode;
+    let languageISOCode = metadata["LANGUAGES"] || null;
 
-    if (metadata["LANGUAGES"].TABLE[1]) {
+    if (languageISOCode !== null) {
       languageISOCode = metadata["LANGUAGES"].TABLE[1];
 
       //Load headings (by culture if available)
