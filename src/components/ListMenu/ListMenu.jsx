@@ -40,7 +40,7 @@ const ListMenu = props => {
 
   async function getDataTree(statBankUrl) {
     const yourDataTree = await fetchDataTree(statBankUrl);
-    setData(yourDataTree);
+    await setData(yourDataTree);
   }
 
   useEffect(() => {

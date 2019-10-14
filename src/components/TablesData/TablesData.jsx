@@ -1,15 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Px from "./px";
 import $ from "jquery";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Loading from "../Loading/Loading";
 
 export default function TablesData(props) {
+  const [data, setData] = useState(null);
   let contentElement = $("#tableResult");
-  let languageISOCode = "fo";
+
+  useEffect(() => {
+    console.log(props.data);
+    setData(props.data);
+  }, [props.data]);
 
   function renderTable(pxFile, tableContainer) {
-    console.log(pxFile);
     //Check if pxFile has data and metadata and report error
     if (!pxFile["data"] || !pxFile["metadata"]) {
       tableContainer.append("<h2>Kann ikki vísa. Onki 'úrslit' funni</h2>");
@@ -22,29 +26,55 @@ export default function TablesData(props) {
     let data = pxFile["data"];
     let metadata = pxFile["metadata"];
 
+    let heading;
+    let headings;
+    let values;
+    let stub;
+
+    //Setting laguage code depending of datafile, element 1
+    let languageISOCode;
+
+    if (metadata["LANGUAGES"].TABLE[1]) {
+      languageISOCode = metadata["LANGUAGES"].TABLE[1];
+
+      //Load headings (by culture if available)
+      heading = metadata["HEADING[" + languageISOCode + "]"];
+      if (!heading) heading = metadata["HEADING"];
+
+      //Load headings from TABLE in HEADING
+      headings = heading["TABLE"];
+      if (!Array.isArray(headings)) {
+        headings = [headings]; //Force to array
+      }
+
+      //Read values (by culture if available)
+      values = metadata["VALUES[" + languageISOCode + "]"];
+      if (!values) values = metadata["VALUES"];
+
+      //Read Stub (by culture if available)
+      stub = metadata["STUB[" + languageISOCode + "]"];
+      if (!heading) stub = metadata["STUB"];
+    } else {
+      //Load headings (by culture if available)
+      heading = metadata["HEADING"];
+
+      //Load headings from TABLE in HEADING
+      headings = heading["TABLE"];
+      if (!Array.isArray(headings)) {
+        headings = [headings]; //Force to array
+      }
+      //Read values (by culture if available)
+      values = metadata["VALUES"];
+
+      //Read Stub (by culture if available)
+      stub = metadata["STUB"];
+    }
+
     //Check if any decimals are in the data set by checking the first value
     let hasAnyDecimals = false;
     if (data.length > 0) {
       hasAnyDecimals = data[0] % 1 !== 0;
     }
-
-    //Load headings (by culture if available)
-    let heading = metadata["HEADING[" + languageISOCode + "]"];
-    if (!heading) heading = metadata["HEADING"];
-
-    //Load headings from TABLE in HEADING
-    let headings = heading["TABLE"];
-    if (!Array.isArray(headings)) {
-      headings = [headings]; //Force to array
-    }
-
-    //Read values (by culture if available)
-    let values = metadata["VALUES[" + languageISOCode + "]"];
-    if (!values) values = metadata["VALUES"];
-
-    //Read Stub (by culture if available)
-    let stub = metadata["STUB[" + languageISOCode + "]"];
-    if (!heading) stub = metadata["STUB"];
 
     let stubs = stub["TABLE"];
     if (!Array.isArray(stubs)) {
@@ -229,19 +259,18 @@ export default function TablesData(props) {
     tableContainer.html(html.join(""));
   }
 
-  function loadPxFile(address, callback) {
+  function loadPxFile(callback) {
     return callback(new Px(props.data));
   }
 
-  if (props.data) {
+  if (data) {
+    console.log(data);
+
     return (
       <div>
-        {loadPxFile(
-          "http://statbank.hagstova.fo/sq/74e7ed93-db6c-4bb8-99e3-8170a6f9a30a",
-          function(result) {
-            renderTable(result, contentElement);
-          }
-        )}
+        {loadPxFile(function(result) {
+          renderTable(result, contentElement);
+        })}
       </div>
     );
   }

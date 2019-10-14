@@ -355,7 +355,7 @@
             exports = module.exports = Px;
         }
         exports.Px = Px;
-        _ = require('underscore');
+        _ = require('./underscore.js');
     } else {
         root.Px = Px;
     }

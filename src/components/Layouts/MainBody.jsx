@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function MainBody() {
   const [url, setUrl] = useState("");
-  const [data, setData] = useState("");
+  const [data, setData] = useState(null);
   const [statBankUrl, setStatBankUrl] = useState(statBanks[0].value);
 
   const classes = useStyles();
@@ -35,7 +35,6 @@ export default function MainBody() {
   const handleChangeData = e => {
     setData(e);
   };
-
   const handleChangeStatBank = e => {
     setStatBankUrl(e.value);
   };

@@ -9,6 +9,10 @@
     },
     {
         "value": "https://api.scb.se/OV0104/v1/doris/en/ssd/",
-        "label": "StatBank Sweden - Blocked by cors"
+        "label": "StatBank Sweden - Unstable fetching tables"
+    },
+    {
+        "value": "http://openstat.psa.gov.ph/PXWeb/api/v1/en/DB/",
+        "label": "StatBank Philippines "
     }
 ]
