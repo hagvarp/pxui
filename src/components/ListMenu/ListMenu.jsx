@@ -4,7 +4,7 @@ import Loading from "../Loading/Loading";
 import TreeMenu from "react-simple-tree-menu";
 
 //Json file of treeMenu
-//import staticData from "../../json/menu";
+import staticData from "../../json/menu";
 
 //CSS from the library
 //import "../../../node_modules/react-simple-tree-menu/dist/main.css";
@@ -45,8 +45,11 @@ const ListMenu = props => {
 
   useEffect(() => {
     setData(null);
-    console.log("useEffect", props.statBank);
-    getDataTree(props.statBank);
+    if (props.statBank === "https://statbank.hagstova.fo/api/v1/fo/H2/") {
+      setData(staticData);
+    } else {
+      getDataTree(props.statBank);
+    }
   }, [props.statBank]);
 
   const handleClick = e => {
