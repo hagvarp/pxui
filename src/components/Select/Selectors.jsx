@@ -18,7 +18,6 @@ const Selectors = props => {
     selectorArray = [];
     query.length = 0;
     setIsLoading(true);
-    console.log(props);
     fetch(props.url)
       .then(response => {
         if (!response.ok) {

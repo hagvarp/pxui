@@ -9,7 +9,6 @@ export default function TablesData(props) {
   let contentElement = $("#tableResult");
 
   useEffect(() => {
-    console.log(props.data);
     setData(props.data);
   }, [props.data]);
 
@@ -264,8 +263,6 @@ export default function TablesData(props) {
   }
 
   if (data) {
-    console.log(data);
-
     return (
       <div>
         {loadPxFile(function(result) {
