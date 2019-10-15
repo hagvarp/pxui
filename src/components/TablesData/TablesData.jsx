@@ -277,7 +277,7 @@ export default function TablesData(props) {
   return (
     <div className="noData">
       Einki dáta
-      <Loading type="cylon" color="#2d4182" height="3%" width="3%"></Loading>
+      {/* <Loading type="cylon" color="#2d4182" height="3%" width="3%"></Loading> */}
     </div>
   );
 }

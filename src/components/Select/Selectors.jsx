@@ -18,10 +18,11 @@ const Selectors = props => {
     selectorArray = [];
     query.length = 0;
     setIsLoading(true);
+    console.log(props);
     fetch(props.url)
       .then(response => {
         if (!response.ok) {
-          throw new Error("Failed to fetch.");
+          throw new Error("Selectors", "Failed to fetch.");
         }
         return response.json();
       })
@@ -148,7 +149,7 @@ const Selectors = props => {
   return (
     <div className="noData">
       Eingin talva vald
-      <Loading type="cylon" color="#2d4182" height="3%" width="3%"></Loading>
+      {/* <Loading type="cylon" color="#2d4182" height="3%" width="3%"></Loading> */}
     </div>
   );
 };

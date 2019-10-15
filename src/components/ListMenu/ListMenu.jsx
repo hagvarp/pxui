@@ -14,16 +14,18 @@ Files: walk.d.ts, main.js
 "key" to "id"
 "label" to "text"
 */
+let tmpCounter = 0;
 
 const ListMenu = props => {
   const [data, setData] = useState(null);
+  const [counter, setCounter] = useState(0);
 
   async function fetchData(url) {
     const response = await fetch(url);
     const json = await response.json();
     return json;
   }
-
+  console.log("her", props);
   const fetchDataTree = async url => {
     //i assume you will handle the fetch with your own method
     let menuArray = await fetchData(url);
@@ -35,36 +37,42 @@ const ListMenu = props => {
         );
       }
     }
+    tmpCounter = tmpCounter + menuArray.length;
+    setCounter(tmpCounter);
     return menuArray;
   };
 
-  async function getDataTree(statBankUrl) {
-    const yourDataTree = await fetchDataTree(statBankUrl);
-    console.log(yourDataTree);
-
-    await setData(yourDataTree);
+  async function getDataTree(statBank) {
+    const dataTree = await fetchDataTree(statBank);
+    await setData(dataTree);
+    tmpCounter = 0;
   }
 
   useEffect(() => {
     setData(null);
-    if (props.statBank === "https://statbank.hagstova.fo/api/v1/fo/H2/") {
+    if (
+      props.statBank === "https://statbank.hagstova.fo/api/v1/fo/H2/" ||
+      props.statBank.value === "https://statbank.hagstova.fo/api/v1/fo/H2/"
+    ) {
       setData(staticData);
     } else {
-      getDataTree(props.statBank);
+      getDataTree(props.statBank.value);
     }
   }, [props.statBank]);
 
   const handleClick = e => {
     if (e.type === "t") {
+      const mainUrl = props.statBank.value || props.statBank;
       const tmpId = e.id;
-      const tmpUrl = props.statBank + tmpId;
+      const tmpUrl = mainUrl + tmpId;
       props.onClickItem(tmpUrl);
     }
   };
+  let headline = props.statBank.label || "Hagtalsgrunnurin";
   if (data) {
     return (
       <Fragment>
-        <div className="headLine">Hagtalsgrunnur</div>
+        <div className="headLine">{headline}</div>
         <TreeMenu className="tree-item" data={data} onClickItem={handleClick} />
       </Fragment>
     );
@@ -77,7 +85,9 @@ const ListMenu = props => {
         data={staticData}
         onClickItem={handleClick}
       /> */}
-      <div className="noData">heintar valmynd, vinarliga bíða</div>
+      <div className="noData">
+        heintar valmynda listan, vinarliga bíða: {counter}
+      </div>
       <Loading type="spin" color="#2d4182" height="5%" width="5%"></Loading>
     </div>
   );

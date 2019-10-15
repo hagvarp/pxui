@@ -8,6 +8,7 @@ const animatedComponents = makeAnimated();
 
 export default function DbSelector(props) {
   const handleChange = e => {
+    console.log(e);
     props.onChange(e);
   };
 
