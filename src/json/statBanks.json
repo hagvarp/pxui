@@ -14,9 +14,5 @@
     {
         "value": "https://openstat.psa.gov.ph/PXWeb/api/v1/en/DB/",
         "label": "Statistics Philippines"
-    },
-    {
-        "value": "https://pxnet2.stat.fi/PXWeb/api/v1/en/StatFin/",
-        "label": "Statistics Finland"
     }
 ]
