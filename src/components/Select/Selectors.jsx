@@ -142,7 +142,7 @@ const Selectors = props => {
       ></Loading>
     );
   }
-  if (selectorArray) {
+  if (selectorArray.length > 0) {
     return <div onChange={onChangeData(postData)}>{selectorArray}</div>;
   }
   return (

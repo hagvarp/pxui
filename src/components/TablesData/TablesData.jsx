@@ -9,16 +9,12 @@ export default function TablesData(props) {
   let contentElement = $("#tableResult");
 
   useEffect(() => {
-    console.log(props.data);
     setData(props.data);
   }, [props.data]);
 
   function renderTable(pxFile, tableContainer) {
     //Check if pxFile has data and metadata and report error
     let html = [];
-    console.log("PXFILE DATA", pxFile["data"]);
-    let x = pxFile["data"];
-    console.log(x);
 
     if (!pxFile["data"] || !pxFile["metadata"]) {
       html = [];
@@ -268,7 +264,6 @@ export default function TablesData(props) {
       return callback(new Px(props.data));
     } else return callback("");
   }
-  console.log("DATA", data);
   if (data) {
     return (
       <div>

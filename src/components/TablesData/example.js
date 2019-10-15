@@ -15,7 +15,6 @@ var loadPxFile = function (address, callback) {
 }
 
 var renderTable = function (pxFile, tableContainer) {
-  console.log(pxFile)
   //Check if pxFile has data and metadata and report error
   if (!pxFile["data"] || !pxFile["metadata"]) {
     tableContainer.append("<h2>Kann ikki vísa. Onki 'úrslit' funni</h2>");

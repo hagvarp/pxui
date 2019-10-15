@@ -14,8 +14,9 @@ Files: walk.d.ts, main.js
 "key" to "id"
 "label" to "text"
 */
-let tmpCounter = 0;
 //let proxyUrl = "https://cors-anywhere.herokuapp.com/";
+let tmpCounter;
+
 const ListMenu = props => {
   const [data, setData] = useState(null);
   const [counter, setCounter] = useState(0);
@@ -36,7 +37,12 @@ const ListMenu = props => {
         );
       }
     }
-    tmpCounter = tmpCounter + menuArray.length;
+    if (isNaN(menuArray.length)) {
+      tmpCounter = "Error - Database blocking fetch";
+    } else {
+      tmpCounter = tmpCounter + menuArray.length;
+    }
+
     setCounter(tmpCounter);
     return menuArray;
   };
@@ -55,6 +61,7 @@ const ListMenu = props => {
     ) {
       setData(staticData);
     } else {
+      tmpCounter = 0;
       getDataTree(props.statBank.value);
     }
   }, [props.statBank]);
