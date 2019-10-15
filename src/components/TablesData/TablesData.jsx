@@ -9,14 +9,21 @@ export default function TablesData(props) {
   let contentElement = $("#tableResult");
 
   useEffect(() => {
+    console.log(props.data);
     setData(props.data);
   }, [props.data]);
 
   function renderTable(pxFile, tableContainer) {
     //Check if pxFile has data and metadata and report error
+    let html = [];
+    console.log("PXFILE DATA", pxFile["data"]);
+    let x = pxFile["data"];
+    console.log(x);
+
     if (!pxFile["data"] || !pxFile["metadata"]) {
-      tableContainer.append("<h2>Kann ikki vísa. Onki 'úrslit' funni</h2>");
-      return;
+      html = [];
+      html.push("<div>Vinarliga fill teir kravdu gervisveljararnir</div>");
+      return tableContainer.html(html.join(""));
     }
 
     // ------------------------------------------------------------------------------- //
@@ -89,8 +96,6 @@ export default function TablesData(props) {
     // ------------------------------------------------------------------------------- //
     //                                  Start render                                   //
     // ------------------------------------------------------------------------------- //
-
-    let html = [];
 
     html.push(
       "<table class='pxtable table table-striped table-responsive'><colgroup><col width='100%'/></colgroup>"
@@ -259,9 +264,11 @@ export default function TablesData(props) {
   }
 
   function loadPxFile(callback) {
-    return callback(new Px(props.data));
+    if (props.data) {
+      return callback(new Px(props.data));
+    } else return callback("");
   }
-
+  console.log("DATA", data);
   if (data) {
     return (
       <div>

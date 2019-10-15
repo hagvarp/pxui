@@ -119,7 +119,6 @@ const Selectors = props => {
     })
       .then(response => {
         if (!response.ok) {
-          console.log("Failed response", response);
           throw new Error("POST Failed to fetch.");
         }
         return response.text();
@@ -129,6 +128,7 @@ const Selectors = props => {
       })
       .catch(err => {
         console.log(err);
+        setPostData(null);
       });
   }
 
@@ -142,7 +142,7 @@ const Selectors = props => {
       ></Loading>
     );
   }
-  if (selectorArray && postData) {
+  if (selectorArray) {
     return <div onChange={onChangeData(postData)}>{selectorArray}</div>;
   }
   return (

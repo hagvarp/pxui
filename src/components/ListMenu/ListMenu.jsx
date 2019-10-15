@@ -15,7 +15,7 @@ Files: walk.d.ts, main.js
 "label" to "text"
 */
 let tmpCounter = 0;
-
+//let proxyUrl = "https://cors-anywhere.herokuapp.com/";
 const ListMenu = props => {
   const [data, setData] = useState(null);
   const [counter, setCounter] = useState(0);

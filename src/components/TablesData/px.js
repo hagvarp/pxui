@@ -8,8 +8,9 @@
     var root = this;
 
     var Px = (function () {
-
         function Px(pxString) {
+            console.log("this", pxString)
+
             this._ctor(pxString);
         }
 
