@@ -39,6 +39,38 @@ export default function MainBody() {
     setStatBankUrl(e.value);
   };
 
+  if (data || url) {
+    return (
+      <div className={classes.root}>
+        <Grid item xs={12} sm={3}>
+          <div style={{ marginBottom: "0.5cm" }} className={classes.paper}>
+            <Typography component={"span"}>
+              <DbSelector onChange={handleChangeStatBank}>s</DbSelector>
+            </Typography>
+          </div>
+        </Grid>
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm={4}>
+            <Paper className={classes.paper}>
+              <ListMenu onClickItem={handleChangeUrl} statBank={statBankUrl} />
+            </Paper>
+          </Grid>
+          <Grid item xs={12} sm={8}>
+            <Paper style={{ marginBottom: "0.5cm" }} className={classes.paper}>
+              <Selectors onChange={handleChangeData} url={url} />
+            </Paper>
+            <Paper className={classes.paper}>
+              <Typography component={"span"}>
+                <TableData data={data}></TableData>
+                <div style={{ fontSize: "1em" }} id="tableResult"></div>
+              </Typography>
+            </Paper>
+          </Grid>
+        </Grid>
+      </div>
+    );
+  }
+
   return (
     <div className={classes.root}>
       <Grid item xs={12} sm={3}>
@@ -54,7 +86,7 @@ export default function MainBody() {
             <ListMenu onClickItem={handleChangeUrl} statBank={statBankUrl} />
           </Paper>
         </Grid>
-        <Grid item xs={12} sm={8}>
+        {/* <Grid item xs={12} sm={8}>
           <Paper style={{ marginBottom: "0.5cm" }} className={classes.paper}>
             <Selectors onChange={handleChangeData} url={url} />
           </Paper>
@@ -64,7 +96,7 @@ export default function MainBody() {
               <div style={{ fontSize: "1em" }} id="tableResult"></div>
             </Typography>
           </Paper>
-        </Grid>
+        </Grid> */}
       </Grid>
     </div>
   );
