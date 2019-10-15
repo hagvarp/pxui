@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import "../../styles/style.css";
 import Loading from "../Loading/Loading";
 import TreeMenu from "react-simple-tree-menu";
-
+import axios from "axios";
 //Json file of treeMenu
 import staticData from "../../json/menu";
 
@@ -22,9 +22,16 @@ const ListMenu = props => {
   const [counter, setCounter] = useState(0);
 
   async function fetchData(url) {
-    const response = await fetch(url);
-    const json = await response.json();
-    return json;
+    let fData;
+    await axios
+      .get(url)
+      .then(response => {
+        fData = response.data;
+      })
+      .catch(error => {
+        setCounter(error.response.data.error);
+      });
+    return fData;
   }
   const fetchDataTree = async url => {
     //i assume you will handle the fetch with your own method
@@ -37,13 +44,11 @@ const ListMenu = props => {
         );
       }
     }
-    if (isNaN(menuArray.length)) {
-      tmpCounter = "Error - Database blocking fetch";
-    } else {
+    if (menuArray !== undefined) {
       tmpCounter = tmpCounter + menuArray.length;
+      setCounter(tmpCounter);
     }
 
-    setCounter(tmpCounter);
     return menuArray;
   };
 
@@ -91,9 +96,8 @@ const ListMenu = props => {
         data={staticData}
         onClickItem={handleClick}
       /> */}
-      <div className="noData">
-        heintar valmynda listan, vinarliga bíða: {counter}
-      </div>
+      <div className="noData">heintar valmynda listan, vinarliga bíða</div>
+      <div>{counter}</div>
       <Loading type="spin" color="#2d4182" height="5%" width="5%"></Loading>
     </div>
   );
