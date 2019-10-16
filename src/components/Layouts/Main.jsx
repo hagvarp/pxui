@@ -87,9 +87,7 @@ export default function MainBody() {
       <footer className={classes.footer}>
         <Container maxWidth="m">
           <Typography variant="body1">
-            <Divider
-              style={{ textAlign: "center", color: "#2d4182" }}
-            ></Divider>
+            <Divider></Divider>
             <Footer></Footer>
           </Typography>
         </Container>

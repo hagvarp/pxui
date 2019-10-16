@@ -1,5 +1,6 @@
 .tree-item {
   text-align: left;
+
   font-size: 1em;
   cursor: pointer;
   color: #333;
@@ -20,7 +21,7 @@
   }
   &-group {
     padding: 0;
-    margin: 0;
+    margin: 1;
     list-style: none;
     list-style-type: none;
   }
