@@ -34,7 +34,6 @@ const ListMenu = props => {
     return fData;
   }
   const fetchDataTree = async url => {
-    //i assume you will handle the fetch with your own method
     let menuArray = await fetchData(url);
 
     for (let key in menuArray) {
