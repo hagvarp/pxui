@@ -5,6 +5,9 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import Divider from "@material-ui/core/Divider";
+import Modal from "@material-ui/core/Modal";
+import Backdrop from "@material-ui/core/Backdrop";
+import Fade from "@material-ui/core/Fade";
 import Header from "./Header";
 
 import DbSelector from "../DbSelector/DbSelector";
@@ -33,6 +36,19 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2),
     textAlign: "center",
     color: theme.palette.text.primary
+  },
+  modal: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  paperX: {
+    backgroundColor: theme.palette.background.paper,
+    border: "2px solid #2d4182",
+    boxShadow: theme.shadows[1],
+    padding: theme.spacing(2, 4, 3),
+    width: "90%",
+    height: "90%"
   }
 }));
 
@@ -40,6 +56,7 @@ export default function MainBody() {
   const [url, setUrl] = useState(null);
   const [data, setData] = useState(null);
   const [statBankUrl, setStatBankUrl] = useState(statBanks[0].value);
+  const [open, setOpen] = React.useState(false);
 
   const classes = useStyles();
 
@@ -52,6 +69,10 @@ export default function MainBody() {
   };
   const handleChangeStatBank = e => {
     setStatBankUrl(e);
+  };
+
+  const handleOpen = () => {
+    setOpen(!open);
   };
 
   return (
@@ -76,14 +97,35 @@ export default function MainBody() {
               <Selectors onChange={handleChangeData} url={url} />
             </Paper>
             <Paper className={classes.paper}>
-              <Typography component={"span"}>
-                <TableData data={data}></TableData>
+              <Typography onClick={handleOpen} component={"span"}>
+                <TableData
+                  data={data}
+                  contentElement="#tableResult"
+                ></TableData>
                 <div style={{ fontSize: "1em" }} id="tableResult"></div>
               </Typography>
             </Paper>
           </Grid>
         </Grid>
       </Container>
+      <Modal
+        onClick={handleOpen}
+        className={classes.modal}
+        open={open}
+        onClose={open}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500
+        }}
+      >
+        <Fade in={open}>
+          <div id="x" className={classes.paperX}>
+            <TableData data={data} contentElement="#x"></TableData>
+            <div style={{ fontSize: "1em" }} id="x"></div>
+          </div>
+        </Fade>
+      </Modal>
       <footer className={classes.footer}>
         <Container maxWidth="m">
           <Typography variant="body1">
