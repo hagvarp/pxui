@@ -8,7 +8,6 @@ import Divider from "@material-ui/core/Divider";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
-import Header from "./Header";
 
 import DbSelector from "../DbSelector/DbSelector";
 import Selectors from "../Select/Selectors";
@@ -16,6 +15,7 @@ import ListMenu from "../ListMenu/ListMenu";
 import TableData from "../TablesData/TablesData";
 import statBanks from "../../json/statBanks";
 import Footer from "./Footer";
+import Header from "./Header";
 
 const useStyles = makeStyles(theme => ({
   root: {
