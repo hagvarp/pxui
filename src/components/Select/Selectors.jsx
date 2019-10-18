@@ -6,7 +6,7 @@ let mainObject = {};
 let selectorArray = [];
 let query = [];
 
-const Selectors = props => {
+export default function Selectors(props) {
   const [postData, setPostData] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
 
@@ -151,5 +151,4 @@ const Selectors = props => {
       {/* <Loading type="cylon" color="#2d4182" height="3%" width="3%"></Loading> */}
     </div>
   );
-};
-export default Selectors;
+}

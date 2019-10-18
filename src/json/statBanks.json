@@ -9,6 +9,6 @@
     },
     {
         "value": "https://cors-anywhere.herokuapp.com/https://api.scb.se/OV0104/v1/doris/en/ssd/",
-        "label": "Statistics Sweden - Takes a long time" 
+        "label": "Statistics Sweden"
     }
 ]

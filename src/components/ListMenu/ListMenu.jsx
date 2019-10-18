@@ -3,6 +3,7 @@ import "../../styles/style.css";
 import Loading from "../Loading/Loading";
 import TreeMenu from "react-simple-tree-menu";
 import axios from "axios";
+
 //Json file of treeMenu
 import staticData from "../../json/menu";
 
@@ -15,9 +16,9 @@ Files: walk.d.ts, main.js
 "label" to "text"
 */
 //let proxyUrl = "https://cors-anywhere.herokuapp.com/";
-let tmpCounter;
+let tmpCounter = 0;
 
-const ListMenu = props => {
+export default function ListMenu(props) {
   const [data, setData] = useState(null);
   const [counter, setCounter] = useState(0);
 
@@ -28,27 +29,52 @@ const ListMenu = props => {
       .then(response => {
         fData = response.data;
       })
-      .catch(error => {
-        setCounter(error.response.data.error);
-      });
+      .catch(error => {});
     return fData;
   }
+  //----------------------------------------------------------------
+  //Without Promise.all
+  // const fetchDataTree = async url => {
+  //   //i assume you will handle the fetch with your own method
+  //   let menuArray = await fetchData(url);
+
+  //   for (let key in menuArray) {
+  //     if (menuArray[key].type === "l") {
+  //       menuArray[key].nodes = await fetchDataTree(
+  //         url + "/" + menuArray[key].id
+  //       );
+  //     }
+  //   }
+  //Shows liveupdate
+  //   if (menuArray !== undefined) {
+  //     tmpCounter = tmpCounter + menuArray.length;
+  //     setCounter(tmpCounter);
+  //   }
+
+  //   return menuArray;
+  // };
+  //----------------------------------------------------------------------
   const fetchDataTree = async url => {
     let menuArray = await fetchData(url);
-
-    for (let key in menuArray) {
-      if (menuArray[key].type === "l") {
-        menuArray[key].nodes = await fetchDataTree(
-          url + "/" + menuArray[key].id
-        );
-      }
-    }
-    if (menuArray !== undefined) {
+    if (menuArray) {
+      Promise.all(
+        menuArray.map(async menuArray => {
+          try {
+            if (menuArray.type === "l") {
+              menuArray.nodes = await fetchDataTree(url + "/" + menuArray.id);
+            }
+          } catch (error) {
+            console.log(error);
+            throw error;
+          }
+        })
+      );
+      //Shows liveupdate
       tmpCounter = tmpCounter + menuArray.length;
       setCounter(tmpCounter);
-    }
 
-    return menuArray;
+      return menuArray;
+    }
   };
 
   async function getDataTree(statBank) {
@@ -59,15 +85,7 @@ const ListMenu = props => {
 
   useEffect(() => {
     setData(null);
-    if (
-      props.statBank === "https://statbank.hagstova.fo/api/v1/fo/H2/" ||
-      props.statBank.value === "https://statbank.hagstova.fo/api/v1/fo/H2/"
-    ) {
-      setData(staticData);
-    } else {
-      tmpCounter = 0;
-      getDataTree(props.statBank.value);
-    }
+    getDataTree(props.statBank.value || props.statBank);
   }, [props.statBank]);
 
   const handleClick = e => {
@@ -90,16 +108,10 @@ const ListMenu = props => {
 
   return (
     <div>
-      {/* <TreeMenu
-        className="tree-item"
-        data={staticData}
-        onClickItem={handleClick}
-      /> */}
       <div className="noData">heintar valmynda listan, vinarliga bíða</div>
       <div>{counter}</div>
+
       <Loading type="spin" color="#2d4182" height="5%" width="5%"></Loading>
     </div>
   );
-};
-
-export default ListMenu;
+}
