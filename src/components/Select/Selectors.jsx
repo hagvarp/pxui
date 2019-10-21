@@ -124,6 +124,7 @@ export default function Selectors(props) {
         return response.text();
       })
       .then(response => {
+        console.log("postObject:\n", response);
         setPostData(response);
       })
       .catch(err => {
@@ -145,10 +146,5 @@ export default function Selectors(props) {
   if (selectorArray.length > 0) {
     return <div onChange={onChangeData(postData)}>{selectorArray}</div>;
   }
-  return (
-    <div className="noData">
-      Eingin talva vald
-      {/* <Loading type="cylon" color="#2d4182" height="3%" width="3%"></Loading> */}
-    </div>
-  );
+  return <div className="noData">Eingin talva vald</div>;
 }

@@ -51,6 +51,7 @@ Replace the variables:
 - [Material-UI](https://material-ui.com/) - React components for faster and easier web development
 - [React Simple Tree Menu](https://www.npmjs.com/package/react-simple-tree-menu) - A simple, data-driven, light-weight React Tree Menu component
 - [React Select](https://react-select.com/home) - A flexible and beautiful Select Input control for ReactJS with multiselect, autocomplete, async and creatable support.
+- [React Loading](https://www.npmjs.com/package/react-loading) - Easy to use loading animations for React projects
 - [Font Awesome](https://fontawesome.com/) - Icons
 - [Axios](https://www.npmjs.com/package/axios) - Promise based HTTP client for the browser and node.js
 - [Bootstrap](https://getbootstrap.com/) - Bootstrap is an open source toolkit for developing with HTML, CSS, and JS.
