@@ -32,31 +32,7 @@ export default function ListMenu(props) {
   async function getDataTree(statBank) {
     const dataTree = await fetchDataTree(statBank);
     await setData(dataTree);
-    tmpCounter = 0;
   }
-
-  //----------------------------------------------------------------
-  //Without Promise.all
-  // const fetchDataTree = async url => {
-  //   //i assume you will handle the fetch with your own method
-  //   let menuArray = await fetchData(url);
-
-  //   for (let key in menuArray) {
-  //     if (menuArray[key].type === "l") {
-  //       menuArray[key].nodes = await fetchDataTree(
-  //         url + "/" + menuArray[key].id
-  //       );
-  //     }
-  //   }
-  //   //Shows liveupdate
-  //   if (menuArray !== undefined) {
-  //     tmpCounter = tmpCounter + menuArray.length;
-  //     setCounter(tmpCounter);
-  //   }
-
-  //   return menuArray;
-  // };
-  //----------------------------------------------------------------------
 
   //Recursive function
   const fetchDataTree = async url => {
@@ -76,9 +52,8 @@ export default function ListMenu(props) {
           }, 0);
         })
       );
-      //Shows liveupdate
-      tmpCounter = tmpCounter + menuArray.length;
-      setCounter(tmpCounter);
+      //Show menu being fetched
+      setCounter(tmpCounter++);
       return menuArray;
     }
   };
@@ -106,8 +81,6 @@ export default function ListMenu(props) {
   return (
     <div>
       <div className="noData">heintar valmynda listan, vinarliga bíða</div>
-      <div>{counter}</div>
-
       <Loading type="spin" color="#2d4182" height="5%" width="5%"></Loading>
     </div>
   );

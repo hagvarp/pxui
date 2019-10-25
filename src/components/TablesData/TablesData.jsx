@@ -26,6 +26,8 @@ export default function TablesData(props) {
     // ------------------------------------------------------------------------------- //
     let data = pxFile["data"];
     let metadata = pxFile["metadata"];
+    console.log(pxFile["data"]);
+    console.log(pxFile["metadata"]);
 
     let heading;
     let headings;
@@ -76,10 +78,14 @@ export default function TablesData(props) {
     if (data.length > 0) {
       hasAnyDecimals = data[0] % 1 !== 0;
     }
-
-    let stubs = stub["TABLE"];
-    if (!Array.isArray(stubs)) {
-      stubs = [stubs]; //Force to array
+    let stubs = [];
+    try {
+      stubs = stub["TABLE"];
+      if (!Array.isArray(stubs)) {
+        stubs = [stubs]; //Force to array
+      }
+    } catch (e) {
+      console.log("Stub is undefined");
     }
 
     let hasAnyStubs = stubs !== null;
@@ -189,9 +195,12 @@ export default function TablesData(props) {
           //Clear rowElements
           rowElements = [];
         }
-
         let stubName = stubs[i];
+
         let stubValues = values[stubName];
+        if (stubValues == undefined) {
+          stubValues = "";
+        }
         if (!Array.isArray(stubValues)) {
           stubValues = [stubValues];
         }
@@ -272,5 +281,6 @@ export default function TablesData(props) {
       </div>
     );
   }
-  return <div className="noData">Einki dáta</div>;
+  //Return nothing since Greenland API doesn't give POST error
+  return <div></div>;
 }

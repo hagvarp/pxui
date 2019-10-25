@@ -53,7 +53,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function MainBody() {
-  const [url, setUrl] = useState(null);
+  const [pxTable, setPxTable] = useState(null);
   const [data, setData] = useState(null);
   const [statBankUrl, setStatBankUrl] = useState(statBanks[0].value);
   const [open, setOpen] = React.useState(false);
@@ -61,7 +61,7 @@ export default function MainBody() {
   const classes = useStyles();
 
   const handleChangeUrl = e => {
-    setUrl(e);
+    setPxTable(e);
   };
 
   const handleChangeData = e => {
@@ -94,7 +94,7 @@ export default function MainBody() {
           </Grid>
           <Grid item xs={12} sm={8}>
             <Paper style={{ marginBottom: "0.5cm" }} className={classes.paper}>
-              <Selectors onChange={handleChangeData} url={url} />
+              <Selectors onChange={handleChangeData} pxTable={pxTable} />
             </Paper>
             <Paper className={classes.paper}>
               <Typography onClick={handleOpen} component={"span"}>

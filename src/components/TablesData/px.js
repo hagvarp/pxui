@@ -303,35 +303,39 @@
                     var keyOptVal =
                         pxMetadata[i]
                             .match(/^(.+?)(?:\((.+?)\))?=(.+)$/);
+                    //Fix for Greenland API
+                    if (keyOptVal != null) {
+                        if (!keyOptVal[2]) {
+                            keyOptVal[2] = 'TABLE';
+                        }
 
-                    if (!keyOptVal[2]) {
-                        keyOptVal[2] = 'TABLE';
-                    }
+                        var key = keyOptVal[1];
+                        var vals = keyOptVal[3].replace(/^"|"$/g, '').split(/","/g);
+                        var opt = keyOptVal[2].replace(/"/g, '');
 
-                    var key = keyOptVal[1];
-                    var vals = keyOptVal[3].replace(/^"|"$/g, '').split(/","/g);
-                    var opt = keyOptVal[2].replace(/"/g, '');
+                        if (!metadata[key]) {
+                            metadata[key] = {};
+                        }
 
-                    if (!metadata[key]) {
-                        metadata[key] = {};
-                    }
-
-                    if (key !== 'VALUES') { // ensure that a single VALUES option still gets assigned to an array
-                        metadata[key][opt] = vals.length === 1 ? vals[0] : vals;
-                    }
-                    else {
-                        metadata[key][opt] = vals;
+                        if (key !== 'VALUES') { // ensure that a single VALUES option still gets assigned to an array
+                            metadata[key][opt] = vals.length === 1 ? vals[0] : vals;
+                        }
+                        else {
+                            metadata[key][opt] = vals;
+                        }
                     }
 
                 }
 
                 // parse data
-                data =
-                    pxData
-                        .replace(/(\r\n|\r|\n)/g, '')
-                        .replace(/;\s*/, '')
-                        .split(/\s+/);
-
+                // Fix for Greenland API
+                try {
+                    data =
+                        pxData
+                            .replace(/(\r\n|\r|\n)/g, '')
+                            .replace(/;\s*/, '')
+                            .split(/\s+/);
+                } catch{ }
                 // Fix for bad files with no HEADING
                 if (!metadata.HEADING) {
                     metadata.HEADING = { TABLE: [] };

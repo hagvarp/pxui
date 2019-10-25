@@ -18,7 +18,7 @@ export default function Selectors(props) {
     selectorArray = [];
     query.length = 0;
     setIsLoading(true);
-    fetch(props.url)
+    fetch(props.pxTable)
       .then(response => {
         if (!response.ok) {
           throw new Error("Selectors", "Failed to fetch.");
@@ -82,13 +82,13 @@ export default function Selectors(props) {
         }
         const response = { px: "" };
         mainObject = { query, response };
-        fetchPostHttp(mainObject);
+        postRequest(mainObject);
       })
       .catch(err => {
         console.log(err);
         setIsLoading(false);
       });
-  }, [props.url]);
+  }, [props.pxTable]);
 
   function handleChange(code, variables) {
     const values = [];
@@ -109,11 +109,11 @@ export default function Selectors(props) {
     }
     const response = { px: "" };
     mainObject = { query, response };
-    fetchPostHttp(mainObject, code);
+    postRequest(mainObject, code);
   }
 
-  async function fetchPostHttp(obj) {
-    await fetch(props.url, {
+  async function postRequest(obj) {
+    await fetch(props.pxTable, {
       body: JSON.stringify(obj),
       method: "post"
     })
@@ -124,7 +124,7 @@ export default function Selectors(props) {
         return response.text();
       })
       .then(response => {
-        console.log("postObject:\n", response);
+        console.log(response);
         setPostData(response);
       })
       .catch(err => {
