@@ -26,8 +26,6 @@ export default function TablesData(props) {
     // ------------------------------------------------------------------------------- //
     let data = pxFile["data"];
     let metadata = pxFile["metadata"];
-    console.log(pxFile["data"]);
-    console.log(pxFile["metadata"]);
 
     let heading;
     let headings;
@@ -78,7 +76,7 @@ export default function TablesData(props) {
     if (data.length > 0) {
       hasAnyDecimals = data[0] % 1 !== 0;
     }
-    let stubs = [];
+    let stubs = ["a"];
     try {
       stubs = stub["TABLE"];
       if (!Array.isArray(stubs)) {
