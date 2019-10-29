@@ -194,12 +194,13 @@ export default function MainBody() {
           <Grid container spacing={1}>
             <Grid item xs={12} sm={12}>
               <Paper
-                style={{ marginBottom: "0.5cm" }}
+                elevation={6}
+                style={{ marginBottom: "1cm" }}
                 className={classes.paper}
               >
                 <Selectors onChange={handleChangeData} pxTable={pxTable} />
               </Paper>
-              <Paper className={classes.paper}>
+              <Paper elevation={6} className={classes.paper}>
                 <Typography component={"span"}>
                   <TableData
                     data={data}
