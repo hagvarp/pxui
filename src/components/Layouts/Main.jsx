@@ -112,9 +112,9 @@ export default function MainBody() {
   const [data, setData] = useState(null);
   const [statBankUrl, setStatBankUrl] = useState(statBanks[0].value);
   const theme = useTheme();
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = useState(true);
   const [itemSelected, setItemSelected] = useState("");
-  const [checked, setChecked] = React.useState(false);
+  const [checked, setChecked] = useState(false);
 
   const classes = useStyles();
 
@@ -139,6 +139,10 @@ export default function MainBody() {
   };
   const handleChangeStatBank = e => {
     setStatBankUrl(e);
+  };
+
+  const test = () => {
+    setOpen(false);
   };
 
   return (
@@ -172,6 +176,7 @@ export default function MainBody() {
         variant="persistent"
         anchor="left"
         open={open}
+        onClose={test}
         classes={{
           paper: classes.drawerPaper
         }}
