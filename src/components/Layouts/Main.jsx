@@ -9,13 +9,13 @@ import Divider from "@material-ui/core/Divider";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 import Grid from "@material-ui/core/Grid";
 import IconButton from "@material-ui/core/IconButton";
-import Fade from "@material-ui/core/Fade";
 
 import MenuIcon from "@material-ui/icons/Menu";
 import Paper from "@material-ui/core/Paper";
 import React, { useState } from "react";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
+import Grow from "@material-ui/core/Grow";
 
 import DbSelector from "../DbSelector/DbSelector";
 import Selectors from "../Select/Selectors";
@@ -203,7 +203,11 @@ export default function MainBody() {
         <Divider />
         <ListMenu onClickItem={handleChangeUrl} statBank={statBankUrl} />
       </SwipeableDrawer>
-      <Fade in={checked}>
+      <Grow
+        in={checked}
+        style={{ transformOrigin: "0 0 0" }}
+        {...(checked ? { timeout: 2000 } : {})}
+      >
         <Container component="main" className={classes.main} maxWidth="m">
           <Grid container spacing={1}>
             <Grid item xs={12} sm={12}>
@@ -226,7 +230,7 @@ export default function MainBody() {
             </Grid>
           </Grid>
         </Container>
-      </Fade>
+      </Grow>
 
       <footer className={classes.footer}>
         <Container maxWidth="m">
