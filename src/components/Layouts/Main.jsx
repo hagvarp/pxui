@@ -5,9 +5,6 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import Divider from "@material-ui/core/Divider";
-import Modal from "@material-ui/core/Modal";
-import Backdrop from "@material-ui/core/Backdrop";
-import Fade from "@material-ui/core/Fade";
 
 import DbSelector from "../DbSelector/DbSelector";
 import Selectors from "../Select/Selectors";
@@ -36,11 +33,6 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2),
     textAlign: "center",
     color: theme.palette.text.primary
-  },
-  modal: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center"
   },
   paperX: {
     backgroundColor: theme.palette.background.paper,
@@ -71,10 +63,6 @@ export default function MainBody() {
     setStatBankUrl(e);
   };
 
-  const handleOpen = () => {
-    setOpen(!open);
-  };
-
   return (
     <div className={classes.root}>
       <Header></Header>
@@ -97,7 +85,7 @@ export default function MainBody() {
               <Selectors onChange={handleChangeData} pxTable={pxTable} />
             </Paper>
             <Paper className={classes.paper}>
-              <Typography onClick={handleOpen} component={"span"}>
+              <Typography component={"span"}>
                 <TableData
                   data={data}
                   contentElement="#tableResult"
@@ -108,24 +96,6 @@ export default function MainBody() {
           </Grid>
         </Grid>
       </Container>
-      <Modal
-        onClick={handleOpen}
-        className={classes.modal}
-        open={open}
-        onClose={open}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500
-        }}
-      >
-        <Fade in={open}>
-          <div id="x" className={classes.paperX}>
-            <TableData data={data} contentElement="#x"></TableData>
-            <div style={{ fontSize: "1em" }} id="x"></div>
-          </div>
-        </Fade>
-      </Modal>
       <footer className={classes.footer}>
         <Container maxWidth="m">
           <Typography variant="body1">
