@@ -115,6 +115,7 @@ export default function MainBody() {
   const [open, setOpen] = useState(true);
   const [itemSelected, setItemSelected] = useState("");
   const [checked, setChecked] = useState(false);
+  const [fullHeadLine, setFullHeadLine] = useState(true);
 
   const classes = useStyles();
 
@@ -145,6 +146,10 @@ export default function MainBody() {
     setOpen(false);
   };
 
+  const displayFullHeadline = () => {
+    setFullHeadLine(!fullHeadLine);
+  };
+
   return (
     <div className={classes.root}>
       <Header></Header>
@@ -166,7 +171,11 @@ export default function MainBody() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" wrap>
+          <Typography
+            onClick={displayFullHeadline}
+            variant="h6"
+            noWrap={fullHeadLine}
+          >
             {itemSelected}
           </Typography>
         </Toolbar>
