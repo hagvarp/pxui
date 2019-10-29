@@ -4,6 +4,7 @@ import Loading from "../Loading/Loading";
 
 let mainObject = {};
 let selectorArray = [];
+
 let query = [];
 
 export default function Selectors(props) {
@@ -82,6 +83,7 @@ export default function Selectors(props) {
 
           selectorCounter++;
         }
+
         const response = { px: "" };
         mainObject = { query, response };
         postRequest(mainObject);
@@ -147,7 +149,9 @@ export default function Selectors(props) {
   }
   if (selectorArray.length > 0) {
     return (
-      <div onChange={onChangeData(postData, tableName)}>{selectorArray}</div>
+      <div className="row" onChange={onChangeData(postData, tableName)}>
+        {selectorArray}
+      </div>
     );
   }
   return <div className="noData">Eingin talva vald</div>;
