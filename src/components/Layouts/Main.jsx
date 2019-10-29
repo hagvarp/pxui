@@ -162,7 +162,7 @@ export default function MainBody() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
+          <Typography variant="h6" wrap>
             {itemSelected}
           </Typography>
         </Toolbar>
