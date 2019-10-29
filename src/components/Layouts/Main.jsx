@@ -6,7 +6,7 @@ import clsx from "clsx";
 import Container from "@material-ui/core/Container";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Divider from "@material-ui/core/Divider";
-import Drawer from "@material-ui/core/Drawer";
+import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 import Grid from "@material-ui/core/Grid";
 import IconButton from "@material-ui/core/IconButton";
 import Fade from "@material-ui/core/Fade";
@@ -167,7 +167,7 @@ export default function MainBody() {
           </Typography>
         </Toolbar>
       </AppBar>
-      <Drawer
+      <SwipeableDrawer
         className={classes.drawer}
         variant="persistent"
         anchor="left"
@@ -188,7 +188,7 @@ export default function MainBody() {
         <DbSelector onChange={handleChangeStatBank}></DbSelector>
         <Divider />
         <ListMenu onClickItem={handleChangeUrl} statBank={statBankUrl} />
-      </Drawer>
+      </SwipeableDrawer>
       <Fade in={checked}>
         <Container component="main" className={classes.main} maxWidth="m">
           <Grid container spacing={1}>
