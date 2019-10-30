@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "05f536412526a968ad8c2aa5aba0bb97",
+    "revision": "cf40bc5d575ec84029016009973bce84",
     "url": "/pxui/index.html"
   },
   {
-    "revision": "75f4348d4c880c5cfe13",
+    "revision": "7f3c9a2c0f3cec418ff3",
     "url": "/pxui/static/css/2.a9cee8aa.chunk.css"
   },
   {
-    "revision": "5ab54175cf27350d732a",
+    "revision": "97b226c1de7956aeddea",
     "url": "/pxui/static/css/main.1e46e981.chunk.css"
   },
   {
-    "revision": "75f4348d4c880c5cfe13",
-    "url": "/pxui/static/js/2.55d0b120.chunk.js"
+    "revision": "7f3c9a2c0f3cec418ff3",
+    "url": "/pxui/static/js/2.93049d8c.chunk.js"
   },
   {
-    "revision": "5ab54175cf27350d732a",
-    "url": "/pxui/static/js/main.840f1f3f.chunk.js"
+    "revision": "97b226c1de7956aeddea",
+    "url": "/pxui/static/js/main.7550d5fc.chunk.js"
   },
   {
     "revision": "9dfee86e7a3161578646",
@@ -42,6 +42,14 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "fee66e712a8a08eef5805a46892932ad",
     "url": "/pxui/static/media/fontawesome-webfont.fee66e71.woff"
+  },
+  {
+    "revision": "47af88e48da857dfbdf9dd2d777520cc",
+    "url": "/pxui/static/media/greenland.47af88e4.png"
+  },
+  {
+    "revision": "c347cb8e1cc861222993af74011f9a19",
+    "url": "/pxui/static/media/hagstova_foroya.c347cb8e.svg"
   },
   {
     "revision": "565f9a196fcb9823f67f3a9f01e6f2bd",
