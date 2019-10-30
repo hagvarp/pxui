@@ -25,6 +25,9 @@ import statBanks from "../../json/statBanks";
 import Footer from "./Footer";
 import Header from "./Header";
 
+import StatisticGreenland from "../../img/greenland.png";
+import StatisticFaroeIslands from "../../img/hagstova_foroya.svg";
+
 const drawerWidth = 400;
 
 const useStyles = makeStyles(theme => ({
@@ -38,6 +41,7 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(2)
   },
   appBar: {
+    backgroundColor: "#2d4182",
     transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
@@ -113,10 +117,12 @@ export default function MainBody() {
   const [statBankUrl, setStatBankUrl] = useState(statBanks[0].value);
   const theme = useTheme();
   const [open, setOpen] = useState(true);
-  const [itemSelected, setItemSelected] = useState("");
+  const [itemSelected, setItemSelected] = useState(
+    "Vælkomin til Hagtalsgrunnin"
+  );
   const [checked, setChecked] = useState(false);
   const [fullHeadLine, setFullHeadLine] = useState(true);
-
+  const [img, setImg] = useState(StatisticFaroeIslands);
   const classes = useStyles();
 
   const handleDrawerOpen = () => {
@@ -139,6 +145,12 @@ export default function MainBody() {
     setData(e);
   };
   const handleChangeStatBank = e => {
+    console.log(e);
+    if (e.label === "Statistics Greenland") {
+      setImg(StatisticGreenland);
+    } else {
+      setImg(StatisticFaroeIslands);
+    }
     setStatBankUrl(e);
   };
 
@@ -148,6 +160,13 @@ export default function MainBody() {
 
   const displayFullHeadline = () => {
     setFullHeadLine(!fullHeadLine);
+  };
+  const divStyle = {
+    /* Full height */
+    height: "50px",
+    width: "50px",
+    /* Center and scale the image nicely */
+    backgroundRepeat: "no-repeat"
   };
 
   return (
@@ -197,9 +216,12 @@ export default function MainBody() {
             ) : (
               <ChevronRightIcon />
             )}
+            <img src={img} style={divStyle} alt={"logo"} />
           </IconButton>
         </div>
+
         <DbSelector onChange={handleChangeStatBank}></DbSelector>
+
         <Divider />
         <ListMenu onClickItem={handleChangeUrl} statBank={statBankUrl} />
       </SwipeableDrawer>

@@ -280,5 +280,7 @@ export default function TablesData(props) {
     );
   }
   //Return nothing since Greenland API doesn't give POST error
-  return <div></div>;
+  return (
+    <Loading type="cylon" color="#2d4182" height="1%" width="1%"></Loading>
+  );
 }

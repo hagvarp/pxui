@@ -154,5 +154,5 @@ export default function Selectors(props) {
       </div>
     );
   }
-  return <div className="noData">Eingin talva vald</div>;
+  return <Loading type="spin" color="#2d4182" height="1%" width="1%"></Loading>;
 }
