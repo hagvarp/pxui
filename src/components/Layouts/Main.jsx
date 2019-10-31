@@ -9,7 +9,7 @@ import Divider from "@material-ui/core/Divider";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 import Grid from "@material-ui/core/Grid";
 import IconButton from "@material-ui/core/IconButton";
-
+import Axios from "axios";
 import MenuIcon from "@material-ui/icons/Menu";
 import Paper from "@material-ui/core/Paper";
 import React, { useState } from "react";
@@ -27,6 +27,8 @@ import Header from "./Header";
 
 import StatisticGreenland from "../../img/greenland.png";
 import StatisticFaroeIslands from "../../img/hagstova_foroya.svg";
+import StatisticIceland from "../../img/iceland.png";
+import SpecificDBSelecor from "../DbSelector/SpecificDBSelecor";
 
 const drawerWidth = 400;
 
@@ -111,6 +113,8 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+let urlForSpecificDB = "";
+
 export default function MainBody() {
   const [pxTable, setPxTable] = useState(null);
   const [data, setData] = useState(null);
@@ -123,6 +127,9 @@ export default function MainBody() {
   const [checked, setChecked] = useState(false);
   const [fullHeadLine, setFullHeadLine] = useState(true);
   const [img, setImg] = useState(StatisticFaroeIslands);
+  const [showing, setShowing] = useState(false);
+  const [sDB, setSDB] = useState(null);
+
   const classes = useStyles();
 
   const handleDrawerOpen = () => {
@@ -144,14 +151,38 @@ export default function MainBody() {
     setItemSelected(b);
     setData(e);
   };
-  const handleChangeStatBank = e => {
-    console.log(e);
+  const handleChangeStatBank = async e => {
     if (e.label === "Statistics Greenland") {
       setImg(StatisticGreenland);
-    } else {
-      setImg(StatisticFaroeIslands);
+      setShowing(false);
+      setStatBankUrl(e);
     }
-    setStatBankUrl(e);
+    if (e.label === "Hagtalsgrunnurin") {
+      setImg(StatisticFaroeIslands);
+      setShowing(false);
+      setStatBankUrl(e);
+    }
+    if (e.label === "Statistics Iceland") {
+      setImg(StatisticIceland);
+
+      let x = await Axios(e.value);
+
+      for (var i = 0; i < x.data.length; i++) {
+        x.data[i].value = x.data[i]["dbid"];
+        x.data[i].label = x.data[i]["text"];
+        delete x.data[i].text;
+        delete x.data[i].dbid;
+      }
+      setSDB(x);
+      setStatBankUrl(e.value + x.data[0].value);
+      urlForSpecificDB = e.value;
+      setShowing(true);
+    }
+  };
+
+  const handleChangeSpecificDB = e => {
+    console.log("here", e, urlForSpecificDB);
+    setStatBankUrl(urlForSpecificDB + e.value);
   };
 
   const test = () => {
@@ -221,7 +252,11 @@ export default function MainBody() {
         </div>
 
         <DbSelector onChange={handleChangeStatBank}></DbSelector>
-
+        {showing ? (
+          <SpecificDBSelecor db={sDB} onChange={handleChangeSpecificDB}>
+            This is visible
+          </SpecificDBSelecor>
+        ) : null}
         <Divider />
         <ListMenu onClickItem={handleChangeUrl} statBank={statBankUrl} />
       </SwipeableDrawer>
