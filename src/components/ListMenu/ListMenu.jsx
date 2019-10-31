@@ -30,6 +30,17 @@ export default function ListMenu(props) {
 
   async function getDataTree(statBank) {
     const dataTree = await fetchDataTree(statBank);
+    
+    //When there are many DataBases
+    for (var i = 0; i < dataTree.length; i++) {
+      if(dataTree[i]['dbid']){
+        dataTree[i].id = dataTree[i]['dbid'];
+        dataTree[i].type = "l"
+    delete dataTree[i].dbid;
+      }
+   
+}
+    
     await setData(dataTree);
   }
 

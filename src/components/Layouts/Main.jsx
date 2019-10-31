@@ -27,6 +27,7 @@ import Header from "./Header";
 
 import StatisticGreenland from "../../img/greenland.png";
 import StatisticFaroeIslands from "../../img/hagstova_foroya.svg";
+import StatisticIceland from "../../img/iceland.png";
 
 const drawerWidth = 400;
 
@@ -148,8 +149,12 @@ export default function MainBody() {
     console.log(e);
     if (e.label === "Statistics Greenland") {
       setImg(StatisticGreenland);
-    } else {
+    }
+    if (e.label === "Hagtalsgrunnurin") {
       setImg(StatisticFaroeIslands);
+    }
+    if (e.label === "Statistics Iceland") {
+      setImg(StatisticIceland);
     }
     setStatBankUrl(e);
   };
