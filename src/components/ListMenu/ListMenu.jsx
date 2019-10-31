@@ -12,7 +12,6 @@ let tmpCounter = 0;
 export default function ListMenu(props) {
   const [data, setData] = useState(null);
   const [counter, setCounter] = useState(0);
-
   let headline = props.statBank.label || "Hagtalsgrunnurin";
 
   useEffect(() => {
@@ -80,7 +79,6 @@ export default function ListMenu(props) {
 
   return (
     <div>
-      <div className="noData">heintar valmynda listan, vinarliga bíða</div>
       <Loading type="spin" color="#2d4182" height="5%" width="5%"></Loading>
     </div>
   );

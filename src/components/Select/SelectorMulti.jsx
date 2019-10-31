@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
 import "font-awesome/css/font-awesome.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Grid from "@material-ui/core/Grid";
 
 const animatedComponents = makeAnimated();
 
@@ -36,7 +38,7 @@ export default function SelectorMulti(props) {
     })
   };
   return (
-    <div>
+    <div className="col-sm-12 col-md-6 col-lg-4 col-xl-3">
       {codeRequired(elimination, code)}
       <Select
         styles={customStyles}

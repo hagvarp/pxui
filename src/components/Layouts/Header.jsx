@@ -9,11 +9,16 @@ export default () => (
         <a href="http://www.hagstova.fo">
           <img
             src={Logo}
-            style={{ height: "3em", alignIem: "left" }}
+            style={{
+              height: "3em",
+              display: "block",
+              marginLeft: "auto",
+              marginRight: "auto",
+              width: "50%"
+            }}
             alt="Hagstovan"
           />
         </a>
-        <hr />
       </Grid>
     </Grid>
   </div>

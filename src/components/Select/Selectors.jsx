@@ -4,14 +4,16 @@ import Loading from "../Loading/Loading";
 
 let mainObject = {};
 let selectorArray = [];
+
 let query = [];
 
 export default function Selectors(props) {
   const [postData, setPostData] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
+  const [tableName, setTableName] = useState("");
 
-  const onChangeData = e => {
-    props.onChange(e);
+  const onChangeData = (e, b) => {
+    props.onChange(e, b);
   };
 
   useEffect(() => {
@@ -33,7 +35,8 @@ export default function Selectors(props) {
         //----
 
         table = data.title;
-        selectorArray.push(<div className="headLine">{table}</div>);
+        setTableName(table);
+        // selectorArray.push(<div className="headLine">{table}</div>);
         //----
         let selectorCounter = 0;
         for (let i = 0; i < data.variables.length; i++) {
@@ -80,6 +83,7 @@ export default function Selectors(props) {
 
           selectorCounter++;
         }
+
         const response = { px: "" };
         mainObject = { query, response };
         postRequest(mainObject);
@@ -144,7 +148,11 @@ export default function Selectors(props) {
     );
   }
   if (selectorArray.length > 0) {
-    return <div onChange={onChangeData(postData)}>{selectorArray}</div>;
+    return (
+      <div className="row" onChange={onChangeData(postData, tableName)}>
+        {selectorArray}
+      </div>
+    );
   }
-  return <div className="noData">Eingin talva vald</div>;
+  return <Loading type="spin" color="#2d4182" height="1%" width="1%"></Loading>;
 }
