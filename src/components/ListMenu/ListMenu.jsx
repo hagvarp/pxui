@@ -41,7 +41,6 @@ const ListItem = ({
   >
     {hasNodes && (
       <div
-        style={{ display: "inline-block" }}
         onClick={e => {
           hasNodes && toggleNode && toggleNode();
           e.stopPropagation();
