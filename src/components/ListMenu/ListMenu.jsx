@@ -135,7 +135,8 @@ export default function ListMenu(props) {
         <TreeMenu data={data} debounceTime={500} onClickItem={handleClick}>
           {({ search, items }) => (
             <>
-              <Input
+              <input
+                type="text"
                 onChange={e => search(e.target.value)}
                 placeholder="Type and search"
               />

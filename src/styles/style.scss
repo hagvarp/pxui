@@ -17,6 +17,7 @@
   font-weight: bold;
   font-size: 1.5em;
   color: $primaryColor;
+  text-align: center;
 }
 
 hr {
@@ -30,4 +31,20 @@ hr {
 .footer {
   text-align: center;
   color: $primaryColor;
+}
+
+input[type="text"],
+select {
+  width: 90%;
+  padding: 8px 20px;
+  margin: 8px 20px;
+  display: inline-block;
+  border: 1px solid $primaryColor;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.selectors {
+  padding: 4px 10px;
+  margin: 4px 10px;
 }
