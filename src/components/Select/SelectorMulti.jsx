@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import Select from "react-select";
-import makeAnimated from "react-select/animated";
 import "font-awesome/css/font-awesome.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Grid from "@material-ui/core/Grid";
-
-const animatedComponents = makeAnimated();
 
 export default function SelectorMulti(props) {
   const [options] = useState(props.options);
@@ -44,7 +41,6 @@ export default function SelectorMulti(props) {
         styles={customStyles}
         onChange={handleChange(code)}
         closeMenuOnSelect={false}
-        components={animatedComponents}
         defaultValue={[options[0]]}
         isMulti
         options={options}

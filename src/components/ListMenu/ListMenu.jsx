@@ -1,13 +1,13 @@
 import React, { Fragment, useEffect, useState } from "react";
 import "../../styles/style.css";
-import { ListGroupItem, Input, ListGroup } from "reactstrap";
+import { ListGroupItem } from "reactstrap";
 
 import Loading from "../Loading/Loading";
-import TreeMenu, { ItemComponent } from "react-simple-tree-menu";
+import TreeMenu from "react-simple-tree-menu";
 import axios from "axios";
 //Json object of Hagstovan menu
 import staticData from "../../json/menu";
-import G from "../../img/greenland.png";
+
 const DEFAULT_PADDING = 16;
 const ICON_SIZE = 4;
 const LEVEL_SPACE = 16;
