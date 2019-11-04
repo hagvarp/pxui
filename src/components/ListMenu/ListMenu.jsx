@@ -1,11 +1,64 @@
 import React, { Fragment, useEffect, useState } from "react";
 import "../../styles/style.css";
+import { ListGroupItem } from "reactstrap";
+
 import Loading from "../Loading/Loading";
 import TreeMenu from "react-simple-tree-menu";
 import axios from "axios";
-
 //Json object of Hagstovan menu
 import staticData from "../../json/menu";
+
+const DEFAULT_PADDING = 16;
+const ICON_SIZE = 4;
+const LEVEL_SPACE = 16;
+
+const openedIcon = <i class="fa fa-caret-up" aria-hidden="true" alt="-"></i>;
+
+const closedIcon = <i class="fa fa-caret-down" aria-hidden="true" alt="+"></i>;
+
+const ToggleIcon = ({ on }) => (
+  <span style={{ marginRight: 8 }}>{on ? openedIcon : closedIcon}</span>
+);
+
+const ListItem = ({
+  level = 0,
+  hasNodes,
+  isOpen,
+  label,
+  searchTerm,
+  openNodes,
+  toggleNode,
+  matchSearch,
+  focused,
+  ...props
+}) => (
+  <ListGroupItem
+    {...props}
+    style={{
+      paddingLeft: DEFAULT_PADDING + ICON_SIZE + level * LEVEL_SPACE,
+      cursor: "pointer",
+      boxShadow: focused ? "0px 0px 5px 0px #222" : "none",
+      zIndex: focused ? 999 : "unset",
+      position: "relative",
+      fontFamily: "Open Sans,sans-serif"
+    }}
+  >
+    {hasNodes && (
+      <div
+        onClick={e => {
+          hasNodes && toggleNode && toggleNode();
+          e.stopPropagation();
+        }}
+      >
+        <div>
+          <ToggleIcon on={isOpen}></ToggleIcon>
+          {label}
+        </div>
+      </div>
+    )}
+    {hasNodes ? "" : <div>{label}</div>}
+  </ListGroupItem>
+);
 
 let tmpCounter = 0;
 
@@ -82,7 +135,24 @@ export default function ListMenu(props) {
     return (
       <Fragment>
         <div className="headLine">{headline}</div>
-        <TreeMenu className="tree-item" data={data} onClickItem={handleClick} />
+        {/* <TreeMenu className="tree-item" data={data} onClickItem={handleClick} /> */}
+
+        <TreeMenu data={data} debounceTime={500} onClickItem={handleClick}>
+          {({ search, items }) => (
+            <>
+              <input
+                type="text"
+                onChange={e => search(e.target.value)}
+                placeholder="Type and search"
+              />
+              <ListGroupItem>
+                {items.map(({ reset, ...props }) => (
+                  <ListItem {...props}></ListItem>
+                ))}
+              </ListGroupItem>
+            </>
+          )}
+        </TreeMenu>
       </Fragment>
     );
   }

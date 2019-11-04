@@ -55,8 +55,10 @@
   text-transform: capitalize;
 }
 
-.App {
-  text-align: center;
+.app {
+  text-align: left;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.3em;
 }
 
 .noData {
@@ -66,9 +68,11 @@
 }
 
 .headLine {
+  padding: 8px;
   font-weight: bold;
   font-size: 1.5em;
   color: #2d4182;
+  text-align: center;
 }
 
 hr {
@@ -83,5 +87,23 @@ hr {
 .footer {
   text-align: center;
   color: #2d4182;
+  font-family: "Open Sans", sans-serif;
+}
+
+input[type="text"],
+select {
+  width: 90%;
+  padding: 8px 20px;
+  margin: 8px 20px;
+  display: inline-block;
+  border: 1px solid #2d4182;
+  border-radius: 4px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.selectors {
+  padding: 4px 10px;
+  margin: 4px 10px;
 }
 /*# sourceMappingURL=style.css.map */

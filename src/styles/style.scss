@@ -3,8 +3,10 @@
 @import "./_menuTree";
 @import "./_selectors";
 
-.App {
-  text-align: center;
+.app {
+  text-align: left;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.3em;
 }
 
 .noData {
@@ -14,9 +16,12 @@
 }
 
 .headLine {
+  padding: 8px;
+
   font-weight: bold;
   font-size: 1.5em;
   color: $primaryColor;
+  text-align: center;
 }
 
 hr {
@@ -30,4 +35,21 @@ hr {
 .footer {
   text-align: center;
   color: $primaryColor;
+  font-family: "Open Sans", sans-serif;
+}
+
+input[type="text"],
+select {
+  width: 90%;
+  padding: 8px 20px;
+  margin: 8px 20px;
+  display: inline-block;
+  border: 1px solid $primaryColor;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.selectors {
+  padding: 4px 10px;
+  margin: 4px 10px;
 }

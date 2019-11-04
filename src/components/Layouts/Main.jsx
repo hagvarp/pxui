@@ -253,9 +253,10 @@ export default function MainBody() {
 
         <DbSelector onChange={handleChangeStatBank}></DbSelector>
         {showing ? (
-          <SpecificDBSelecor db={sDB} onChange={handleChangeSpecificDB}>
-            This is visible
-          </SpecificDBSelecor>
+          <SpecificDBSelecor
+            db={sDB}
+            onChange={handleChangeSpecificDB}
+          ></SpecificDBSelecor>
         ) : null}
         <Divider />
         <ListMenu onClickItem={handleChangeUrl} statBank={statBankUrl} />

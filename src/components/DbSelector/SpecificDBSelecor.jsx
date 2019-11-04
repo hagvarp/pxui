@@ -12,8 +12,7 @@ export default function SpecificDBSelecor(props) {
   console.log(props.db.data);
   return (
     <Select
-      className="basic-single"
-      classNamePrefix="select"
+      className="selectors"
       onChange={handleChange}
       closeMenuOnSelect={true}
       components={animatedComponents}
