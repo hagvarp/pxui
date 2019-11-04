@@ -225,6 +225,7 @@ export default function MainBody() {
             onClick={displayFullHeadline}
             variant="h6"
             noWrap={fullHeadLine}
+            style={{ fontSize: "1.2em", fontFamily: "Open Sans, sans-serif" }}
           >
             {itemSelected}
           </Typography>
