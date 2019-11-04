@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/pxui/static/css/main.b8c8546d.chunk.css",
+    "main.css": "/pxui/static/css/main.cef24c5a.chunk.css",
     "main.js": "/pxui/static/js/main.4cf5a671.chunk.js",
     "main.js.map": "/pxui/static/js/main.4cf5a671.chunk.js.map",
     "runtime~main.js": "/pxui/static/js/runtime~main.1114999b.js",
@@ -9,10 +9,10 @@
     "static/js/2.cc77c379.chunk.js": "/pxui/static/js/2.cc77c379.chunk.js",
     "static/js/2.cc77c379.chunk.js.map": "/pxui/static/js/2.cc77c379.chunk.js.map",
     "index.html": "/pxui/index.html",
-    "precache-manifest.fa1e6760fdaea5e7f02590606af565c3.js": "/pxui/precache-manifest.fa1e6760fdaea5e7f02590606af565c3.js",
+    "precache-manifest.29d0355730cfbb37ecbfee9812fda895.js": "/pxui/precache-manifest.29d0355730cfbb37ecbfee9812fda895.js",
     "service-worker.js": "/pxui/service-worker.js",
     "static/css/2.a9cee8aa.chunk.css.map": "/pxui/static/css/2.a9cee8aa.chunk.css.map",
-    "static/css/main.b8c8546d.chunk.css.map": "/pxui/static/css/main.b8c8546d.chunk.css.map",
+    "static/css/main.cef24c5a.chunk.css.map": "/pxui/static/css/main.cef24c5a.chunk.css.map",
     "static/media/font-awesome.min.css": "/pxui/static/media/fontawesome-webfont.fee66e71.woff",
     "static/media/greenland.png": "/pxui/static/media/greenland.47af88e4.png",
     "static/media/hagstova_foroya.svg": "/pxui/static/media/hagstova_foroya.c347cb8e.svg",
