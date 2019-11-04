@@ -3,18 +3,21 @@ import "../../styles/style.css";
 import { ListGroupItem, Input, ListGroup } from "reactstrap";
 
 import Loading from "../Loading/Loading";
-import TreeMenu from "react-simple-tree-menu";
+import TreeMenu, { ItemComponent } from "react-simple-tree-menu";
 import axios from "axios";
-
 //Json object of Hagstovan menu
 import staticData from "../../json/menu";
-
+import G from "../../img/greenland.png";
 const DEFAULT_PADDING = 16;
 const ICON_SIZE = 4;
 const LEVEL_SPACE = 16;
 
+const openedIcon = <i class="fa fa-caret-up" aria-hidden="true" alt="-"></i>;
+
+const closedIcon = <i class="fa fa-caret-down" aria-hidden="true" alt="+"></i>;
+
 const ToggleIcon = ({ on }) => (
-  <span style={{ marginRight: 8 }}>{on ? "-" : "+"}</span>
+  <span style={{ marginRight: 8 }}>{on ? openedIcon : closedIcon}</span>
 );
 
 const ListItem = ({
@@ -36,7 +39,8 @@ const ListItem = ({
       cursor: "pointer",
       boxShadow: focused ? "0px 0px 5px 0px #222" : "none",
       zIndex: focused ? 999 : "unset",
-      position: "relative"
+      position: "relative",
+      fontFamily: "Open Sans,sans-serif"
     }}
   >
     {hasNodes && (
@@ -47,7 +51,8 @@ const ListItem = ({
         }}
       >
         <div>
-          <ToggleIcon on={isOpen}></ToggleIcon> {label}
+          <ToggleIcon on={isOpen}></ToggleIcon>
+          {label}
         </div>
       </div>
     )}

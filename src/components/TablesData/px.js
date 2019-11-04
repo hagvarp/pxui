@@ -336,7 +336,7 @@
                             .replace(/;\s*/, '')
                             .split(/\s+/);
                 } catch{ }
-                // Fix for bad files with no HEADING
+                // Fix for files with no HEADING
                 if (!metadata.HEADING) {
                     metadata.HEADING = { TABLE: [] };
                 }

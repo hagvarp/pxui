@@ -3,8 +3,10 @@
 @import "./_menuTree";
 @import "./_selectors";
 
-.App {
-  text-align: center;
+.app {
+  text-align: left;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.3em;
 }
 
 .noData {
@@ -14,6 +16,8 @@
 }
 
 .headLine {
+  padding: 8px;
+
   font-weight: bold;
   font-size: 1.5em;
   color: $primaryColor;
@@ -31,6 +35,7 @@ hr {
 .footer {
   text-align: center;
   color: $primaryColor;
+  font-family: "Open Sans", sans-serif;
 }
 
 input[type="text"],
