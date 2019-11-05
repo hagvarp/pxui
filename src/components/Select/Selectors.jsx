@@ -20,6 +20,8 @@ export default function Selectors(props) {
     selectorArray = [];
     query.length = 0;
     setIsLoading(true);
+    console.log(props.pxTable);
+
     fetch(props.pxTable)
       .then(response => {
         if (!response.ok) {
@@ -36,7 +38,6 @@ export default function Selectors(props) {
 
         table = data.title;
         setTableName(table);
-        // selectorArray.push(<div className="headLine">{table}</div>);
         //----
         let selectorCounter = 0;
         for (let i = 0; i < data.variables.length; i++) {
@@ -89,7 +90,7 @@ export default function Selectors(props) {
         postRequest(mainObject);
       })
       .catch(err => {
-        console.log(err);
+        console.log("HERE", err);
         setIsLoading(false);
       });
   }, [props.pxTable]);
@@ -128,7 +129,6 @@ export default function Selectors(props) {
         return response.text();
       })
       .then(response => {
-        console.log(response);
         setPostData(response);
       })
       .catch(err => {

@@ -50,9 +50,13 @@
 
 .selectorsHeadLine {
   font-weight: bold;
-  font-size: 1.1em;
   text-align: left;
   text-transform: capitalize;
+}
+
+.selectors {
+  padding: 4px 10px;
+  margin: 4px 10px;
 }
 
 .app {
@@ -100,10 +104,5 @@ select {
   border-radius: 4px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-}
-
-.selectors {
-  padding: 4px 10px;
-  margin: 4px 10px;
 }
 /*# sourceMappingURL=style.css.map */

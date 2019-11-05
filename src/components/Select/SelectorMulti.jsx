@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Select from "react-select";
 import "font-awesome/css/font-awesome.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Grid from "@material-ui/core/Grid";
 
 export default function SelectorMulti(props) {
   const [options] = useState(props.options);

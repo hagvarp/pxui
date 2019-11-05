@@ -1,29 +1,30 @@
+import React, { useState } from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import Axios from "axios";
 import clsx from "clsx";
 import Container from "@material-ui/core/Container";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Divider from "@material-ui/core/Divider";
-import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 import Grid from "@material-ui/core/Grid";
+import Grow from "@material-ui/core/Grow";
 import IconButton from "@material-ui/core/IconButton";
-import Axios from "axios";
 import MenuIcon from "@material-ui/icons/Menu";
 import Paper from "@material-ui/core/Paper";
-import React, { useState } from "react";
+import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import Grow from "@material-ui/core/Grow";
+
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 
 import DbSelector from "../DbSelector/DbSelector";
-import Selectors from "../Select/Selectors";
-import ListMenu from "../ListMenu/ListMenu";
-import TableData from "../TablesData/TablesData";
-import statBanks from "../../json/statBanks";
 import Footer from "./Footer";
 import Header from "./Header";
+import ListMenu from "../ListMenu/ListMenu";
+import Selectors from "../Select/Selectors";
+import statBanks from "../../json/statBanks";
+import TableData from "../TablesData/TablesData";
 
 import StatisticGreenland from "../../img/greenland.png";
 import StatisticFaroeIslands from "../../img/hagstova_foroya.svg";
@@ -174,15 +175,16 @@ export default function MainBody() {
         delete x.data[i].dbid;
       }
       setSDB(x);
-      setStatBankUrl(e.value + x.data[0].value);
+      setStatBankUrl(e.value + x.data[0].value + "/");
       urlForSpecificDB = e.value;
+      console.log(urlForSpecificDB);
+
       setShowing(true);
     }
   };
 
   const handleChangeSpecificDB = e => {
-    console.log("here", e, urlForSpecificDB);
-    setStatBankUrl(urlForSpecificDB + e.value);
+    setStatBankUrl(urlForSpecificDB + e.value + "/");
   };
 
   const test = () => {
@@ -225,6 +227,7 @@ export default function MainBody() {
             onClick={displayFullHeadline}
             variant="h6"
             noWrap={fullHeadLine}
+            style={{ fontSize: "1.2em", fontFamily: "Open Sans, sans-serif" }}
           >
             {itemSelected}
           </Typography>
