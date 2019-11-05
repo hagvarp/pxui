@@ -67,7 +67,6 @@ export default function ListMenu(props) {
         position: "relative",
         fontFamily: "Open Sans,sans-serif",
         borderStyle: "none"
-
         // boolean to render list group items edge-to-edge in a parent container
       }}
     >
