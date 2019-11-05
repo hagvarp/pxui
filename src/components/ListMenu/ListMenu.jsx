@@ -63,11 +63,11 @@ export default function ListMenu(props) {
       style={{
         paddingLeft: DEFAULT_PADDING + ICON_SIZE + level * LEVEL_SPACE,
         cursor: "pointer",
-        boxShadow: focused ? "0px 0px 5px 0px #222" : "none",
         //zIndex: focused ? 999 : "unset",
         position: "relative",
         fontFamily: "Open Sans,sans-serif",
         borderStyle: "none"
+
         // boolean to render list group items edge-to-edge in a parent container
       }}
     >
@@ -174,7 +174,7 @@ export default function ListMenu(props) {
                 onChange={e => search(e.target.value)}
                 placeholder="Type and search"
               />
-              <ListGroupItem>
+              <ListGroupItem style={{ border: "none" }}>
                 {items.map(({ reset, ...props }) => (
                   <ListItem {...props}></ListItem>
                 ))}
