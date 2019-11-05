@@ -31,6 +31,7 @@ import StatisticFaroeIslands from "../../img/hagstova_foroya.svg";
 import StatisticIceland from "../../img/iceland.png";
 import SpecificDBSelecor from "../DbSelector/SpecificDBSelecor";
 
+let color = "";
 const drawerWidth = 400;
 
 const useStyles = makeStyles(theme => ({
@@ -130,9 +131,9 @@ export default function MainBody() {
   const [img, setImg] = useState(StatisticFaroeIslands);
   const [showing, setShowing] = useState(false);
   const [sDB, setSDB] = useState(null);
+  const [mainColor, setMainColor] = useState("#2d4182");
 
   const classes = useStyles();
-
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -153,19 +154,22 @@ export default function MainBody() {
     setData(e);
   };
   const handleChangeStatBank = async e => {
-    if (e.label === "Statistics Greenland") {
-      setImg(StatisticGreenland);
-      setShowing(false);
-      setStatBankUrl(e);
-    }
     if (e.label === "Hagtalsgrunnurin") {
+      setMainColor("#2d4182");
       setImg(StatisticFaroeIslands);
       setShowing(false);
       setStatBankUrl(e);
     }
-    if (e.label === "Statistics Iceland") {
-      setImg(StatisticIceland);
+    if (e.label === "Statistics Greenland") {
+      setMainColor("#F26222");
+      setImg(StatisticGreenland);
+      setShowing(false);
+      setStatBankUrl(e);
+    }
 
+    if (e.label === "Statistics Iceland") {
+      setMainColor("#3786C4");
+      setImg(StatisticIceland);
       let x = await Axios(e.value);
 
       for (var i = 0; i < x.data.length; i++) {
@@ -177,8 +181,6 @@ export default function MainBody() {
       setSDB(x);
       setStatBankUrl(e.value + x.data[0].value + "/");
       urlForSpecificDB = e.value;
-      console.log(urlForSpecificDB);
-
       setShowing(true);
     }
   };
@@ -208,6 +210,7 @@ export default function MainBody() {
       <CssBaseline />
 
       <AppBar
+        style={{ backgroundColor: mainColor }}
         position="relative"
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open
@@ -254,7 +257,10 @@ export default function MainBody() {
           </IconButton>
         </div>
 
-        <DbSelector onChange={handleChangeStatBank}></DbSelector>
+        <DbSelector
+          onChange={handleChangeStatBank}
+          mainColor={mainColor}
+        ></DbSelector>
         {showing ? (
           <SpecificDBSelecor
             db={sDB}
@@ -262,7 +268,11 @@ export default function MainBody() {
           ></SpecificDBSelecor>
         ) : null}
         <Divider />
-        <ListMenu onClickItem={handleChangeUrl} statBank={statBankUrl} />
+        <ListMenu
+          onClickItem={handleChangeUrl}
+          statBank={statBankUrl}
+          mainColor={mainColor}
+        />
       </SwipeableDrawer>
       <Grow
         in={checked}
