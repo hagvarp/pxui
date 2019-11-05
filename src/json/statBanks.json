@@ -6,7 +6,7 @@
     {
         "value": "https://bank.stat.gl/api/v1/en/Greenland/",
         "label": "Statistics Greenland"
-    },   
+    },
     {
         "value": "https://px.hagstofa.is/pxen/api/v1/en/",
         "label": "Statistics Iceland"

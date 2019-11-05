@@ -10,8 +10,31 @@ const DEFAULT_PADDING = 16;
 const ICON_SIZE = 4;
 const LEVEL_SPACE = 16;
 
-const openedIcon = <i class="fa fa-caret-up" aria-hidden="true" alt="-"></i>;
-const closedIcon = <i class="fa fa-caret-down" aria-hidden="true" alt="+"></i>;
+const openedIcon = (
+  <i
+    class="fa fa-caret-up"
+    style={{ color: "#2d4182" }}
+    aria-hidden="true"
+    alt="-"
+  ></i>
+);
+const closedIcon = (
+  <i
+    class="fa fa-caret-down"
+    style={{ color: "#2d4182" }}
+    aria-hidden="true"
+    alt="+"
+  ></i>
+);
+
+const tableIcon = (
+  <i
+    class="fa fa-table"
+    style={{ color: "#2d4182" }}
+    aria-hidden="true"
+    alt="table"
+  ></i>
+);
 
 const ToggleIcon = ({ on }) => (
   <span style={{ marginRight: 8 }}>{on ? openedIcon : closedIcon}</span>
@@ -55,7 +78,13 @@ const ListItem = ({
         </div>
       </div>
     )}
-    {hasNodes ? "" : <div>{label}</div>}
+    {hasNodes ? (
+      ""
+    ) : (
+      <div>
+        {tableIcon} {label}
+      </div>
+    )}
   </ListGroupItem>
 );
 

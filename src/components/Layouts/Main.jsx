@@ -175,15 +175,16 @@ export default function MainBody() {
         delete x.data[i].dbid;
       }
       setSDB(x);
-      setStatBankUrl(e.value + x.data[0].value);
+      setStatBankUrl(e.value + x.data[0].value + "/");
       urlForSpecificDB = e.value;
+      console.log(urlForSpecificDB);
+
       setShowing(true);
     }
   };
 
   const handleChangeSpecificDB = e => {
-    console.log("here", e, urlForSpecificDB);
-    setStatBankUrl(urlForSpecificDB + e.value);
+    setStatBankUrl(urlForSpecificDB + e.value + "/");
   };
 
   const test = () => {
