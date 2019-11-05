@@ -16,7 +16,6 @@ export default function ListMenu(props) {
   const [data, setData] = useState(null);
   const [counter, setCounter] = useState(0);
   let headline = props.statBank.label || "Hagtalsgrunnurin";
-
   const openedIcon = (
     <i
       class="fa fa-caret-up"

@@ -9,7 +9,6 @@ export default function SpecificDBSelecor(props) {
   const handleChange = e => {
     props.onChange(e);
   };
-  console.log(props.db.data);
   return (
     <Select
       className="selectors"

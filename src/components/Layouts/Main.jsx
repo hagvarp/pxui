@@ -135,7 +135,6 @@ export default function MainBody() {
   const [showing, setShowing] = useState(false);
   const [sDB, setSDB] = useState(null);
   const [mainColor, setMainColor] = useState("#2d4182");
-
   const classes = useStyles();
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -168,11 +167,14 @@ export default function MainBody() {
       setImg(StatisticGreenland);
       setShowing(false);
       setStatBankUrl(e);
+      setItemSelected("Welcome to Statistics Greenland");
     }
 
     if (e.label === "Statistics Iceland") {
       setMainColor("#3786C4");
       setImg(StatisticIceland);
+      setItemSelected("Welcome to Statistics Iceland");
+
       let x = await Axios(e.value);
 
       for (var i = 0; i < x.data.length; i++) {
@@ -182,7 +184,10 @@ export default function MainBody() {
         delete x.data[i].dbid;
       }
       setSDB(x);
-      setStatBankUrl(e.value + x.data[0].value + "/");
+      setStatBankUrl({
+        value: e.value + x.data[0].value + "/",
+        label: "Statistics Iceland"
+      });
       urlForSpecificDB = e.value;
       setShowing(true);
     }
