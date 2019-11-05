@@ -38,7 +38,9 @@ const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
     flexDirection: "column",
-    minHeight: "100vh"
+    minHeight: "100vh",
+    overflowX: "hidden",
+    overflowY: "hidden"
   },
   main: {
     marginTop: theme.spacing(8),
@@ -70,7 +72,8 @@ const useStyles = makeStyles(theme => ({
     flexShrink: 0
   },
   drawerPaper: {
-    width: drawerWidth
+    width: drawerWidth,
+    overflowX: "hidden"
   },
   drawerHeader: {
     display: "flex",
