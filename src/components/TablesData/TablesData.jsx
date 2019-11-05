@@ -6,6 +6,7 @@ import Loading from "../Loading/Loading";
 
 export default function TablesData(props) {
   const [data, setData] = useState(null);
+
   let contentElement = $(props.contentElement);
   useEffect(() => {
     setData(props.data);
