@@ -209,7 +209,6 @@ export default function MainBody() {
 
   return (
     <div className={classes.root}>
-      <Header></Header>
       <CssBaseline />
 
       <AppBar
