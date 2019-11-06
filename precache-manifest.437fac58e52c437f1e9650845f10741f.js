@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8a7cd80c7cdce671e22f762fbe237157",
+    "revision": "9bd623bef431a15f55dda50f45dc9f0a",
     "url": "/pxui/index.html"
   },
   {
-    "revision": "bf7a02bad66db239030b",
+    "revision": "2e7f41b8960ac7cfd383",
     "url": "/pxui/static/css/2.a9cee8aa.chunk.css"
   },
   {
-    "revision": "1da7a434c92847a2d146",
+    "revision": "5be3f257e99632e73e92",
     "url": "/pxui/static/css/main.1ca78e38.chunk.css"
   },
   {
-    "revision": "bf7a02bad66db239030b",
-    "url": "/pxui/static/js/2.6acd2999.chunk.js"
+    "revision": "2e7f41b8960ac7cfd383",
+    "url": "/pxui/static/js/2.5ef2cb23.chunk.js"
   },
   {
-    "revision": "1da7a434c92847a2d146",
-    "url": "/pxui/static/js/main.7b85ea60.chunk.js"
+    "revision": "5be3f257e99632e73e92",
+    "url": "/pxui/static/js/main.2c6eca01.chunk.js"
   },
   {
     "revision": "9dfee86e7a3161578646",
@@ -50,9 +50,5 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "c347cb8e1cc861222993af74011f9a19",
     "url": "/pxui/static/media/hagstova_foroya.c347cb8e.svg"
-  },
-  {
-    "revision": "565f9a196fcb9823f67f3a9f01e6f2bd",
-    "url": "/pxui/static/media/logo.565f9a19.svg"
   }
 ]);

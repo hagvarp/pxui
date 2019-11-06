@@ -1,21 +1,20 @@
 {
   "files": {
     "main.css": "/pxui/static/css/main.1ca78e38.chunk.css",
-    "main.js": "/pxui/static/js/main.7b85ea60.chunk.js",
-    "main.js.map": "/pxui/static/js/main.7b85ea60.chunk.js.map",
+    "main.js": "/pxui/static/js/main.2c6eca01.chunk.js",
+    "main.js.map": "/pxui/static/js/main.2c6eca01.chunk.js.map",
     "runtime~main.js": "/pxui/static/js/runtime~main.1114999b.js",
     "runtime~main.js.map": "/pxui/static/js/runtime~main.1114999b.js.map",
     "static/css/2.a9cee8aa.chunk.css": "/pxui/static/css/2.a9cee8aa.chunk.css",
-    "static/js/2.6acd2999.chunk.js": "/pxui/static/js/2.6acd2999.chunk.js",
-    "static/js/2.6acd2999.chunk.js.map": "/pxui/static/js/2.6acd2999.chunk.js.map",
+    "static/js/2.5ef2cb23.chunk.js": "/pxui/static/js/2.5ef2cb23.chunk.js",
+    "static/js/2.5ef2cb23.chunk.js.map": "/pxui/static/js/2.5ef2cb23.chunk.js.map",
     "index.html": "/pxui/index.html",
-    "precache-manifest.3590dff3c6ad9f4fc7d7a9e25a7406f3.js": "/pxui/precache-manifest.3590dff3c6ad9f4fc7d7a9e25a7406f3.js",
+    "precache-manifest.437fac58e52c437f1e9650845f10741f.js": "/pxui/precache-manifest.437fac58e52c437f1e9650845f10741f.js",
     "service-worker.js": "/pxui/service-worker.js",
     "static/css/2.a9cee8aa.chunk.css.map": "/pxui/static/css/2.a9cee8aa.chunk.css.map",
     "static/css/main.1ca78e38.chunk.css.map": "/pxui/static/css/main.1ca78e38.chunk.css.map",
     "static/media/font-awesome.min.css": "/pxui/static/media/fontawesome-webfont.fee66e71.woff",
     "static/media/greenland.png": "/pxui/static/media/greenland.47af88e4.png",
-    "static/media/hagstova_foroya.svg": "/pxui/static/media/hagstova_foroya.c347cb8e.svg",
-    "static/media/logo.svg": "/pxui/static/media/logo.565f9a19.svg"
+    "static/media/hagstova_foroya.svg": "/pxui/static/media/hagstova_foroya.c347cb8e.svg"
   }
 }
