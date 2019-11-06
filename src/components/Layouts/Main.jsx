@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Axios from "axios";
@@ -29,93 +29,9 @@ import StatisticGreenland from "../../img/greenland.png";
 import StatisticFaroeIslands from "../../img/hagstova_foroya.svg";
 import StatisticIceland from "../../img/iceland.png";
 import SpecificDBSelecor from "../DbSelector/SpecificDBSelecor";
+import $ from "jquery";
 
 //iphone 6 and bigger
-const drawerWidth = 375;
-
-const useStyles = makeStyles(theme => ({
-  root: {
-    display: "flex",
-    flexDirection: "column",
-    minHeight: "100vh",
-    overflowX: "hidden",
-    overflowY: "hidden"
-  },
-  main: {
-    marginTop: theme.spacing(8),
-    marginBottom: theme.spacing(2)
-  },
-  appBar: {
-    backgroundColor: "#2d4182",
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
-    })
-  },
-  appBarShift: {
-    width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: drawerWidth,
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen
-    })
-  },
-  menuButton: {
-    marginRight: theme.spacing(2)
-  },
-  hide: {
-    display: "none"
-  },
-  drawer: {
-    width: drawerWidth,
-    flexShrink: 0
-  },
-  drawerPaper: {
-    width: drawerWidth,
-    overflowX: "hidden"
-  },
-  drawerHeader: {
-    display: "flex",
-    alignItems: "center",
-    padding: theme.spacing(0, 1),
-    ...theme.mixins.toolbar,
-    justifyContent: "flex-end"
-  },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(3),
-    transition: theme.transitions.create("margin", {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
-    }),
-    marginLeft: -drawerWidth
-  },
-  contentShift: {
-    transition: theme.transitions.create("margin", {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen
-    }),
-    marginLeft: 0
-  },
-  footer: {
-    padding: theme.spacing(2),
-    marginTop: "auto",
-    backgroundColor: "white"
-  },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: "center",
-    color: theme.palette.text.primary
-  },
-  paperX: {
-    backgroundColor: theme.palette.background.paper,
-    border: "2px solid #2d4182",
-    boxShadow: theme.shadows[1],
-    padding: theme.spacing(2, 4, 3),
-    width: "90%",
-    height: "90%"
-  }
-}));
 
 let urlForSpecificDB = "";
 
@@ -134,11 +50,113 @@ export default function MainBody() {
   const [showing, setShowing] = useState(false);
   const [sDB, setSDB] = useState(null);
   const [mainColor, setMainColor] = useState("#2d4182");
+  const [width, setWidth] = useState(window.innerWidth);
+
+  let drawerWidth;
+
+  if (width < 1000) {
+    drawerWidth = width;
+  } else {
+    drawerWidth = 500;
+  }
+
+  let useStyles = makeStyles(theme => ({
+    root: {
+      display: "flex",
+      flexDirection: "column",
+      minHeight: "100vh",
+      overflowX: "hidden",
+      overflowY: "hidden"
+    },
+    main: {
+      marginTop: theme.spacing(8),
+      marginBottom: theme.spacing(2)
+    },
+    appBar: {
+      backgroundColor: "#2d4182",
+      transition: theme.transitions.create(["margin", "width"], {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.leavingScreen
+      })
+    },
+    appBarShift: {
+      width: `calc(100% - ${drawerWidth}px)`,
+      marginLeft: drawerWidth,
+      transition: theme.transitions.create(["margin", "width"], {
+        easing: theme.transitions.easing.easeOut,
+        duration: theme.transitions.duration.enteringScreen
+      })
+    },
+    menuButton: {
+      marginRight: theme.spacing(2)
+    },
+    hide: {
+      display: "none"
+    },
+    drawer: {
+      width: drawerWidth,
+      flexShrink: 0
+    },
+    drawerPaper: {
+      width: drawerWidth,
+      overflowX: "hidden"
+    },
+    drawerHeader: {
+      display: "flex",
+      alignItems: "center",
+      padding: theme.spacing(0, 1),
+      ...theme.mixins.toolbar,
+      justifyContent: "flex-end"
+    },
+    content: {
+      flexGrow: 1,
+      padding: theme.spacing(3),
+      transition: theme.transitions.create("margin", {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.leavingScreen
+      }),
+      marginLeft: -drawerWidth
+    },
+    contentShift: {
+      transition: theme.transitions.create("margin", {
+        easing: theme.transitions.easing.easeOut,
+        duration: theme.transitions.duration.enteringScreen
+      }),
+      marginLeft: 0
+    },
+    footer: {
+      padding: theme.spacing(2),
+      marginTop: "auto",
+      backgroundColor: "white"
+    },
+    paper: {
+      padding: theme.spacing(2),
+      textAlign: "center",
+      color: theme.palette.text.primary
+    },
+    paperX: {
+      backgroundColor: theme.palette.background.paper,
+      border: "2px solid #2d4182",
+      boxShadow: theme.shadows[1],
+      padding: theme.spacing(2, 4, 3),
+      width: "90%",
+      height: "90%"
+    }
+  }));
   const classes = useStyles();
+
+  useEffect(() => {
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
+  }, []);
+  const updateWidth = () => {
+    setWidth(window.innerWidth);
+    drawerWidth = window.innerWidth;
+    console.log(drawerWidth);
+  };
   const handleDrawerOpen = () => {
     setOpen(true);
   };
-
   const handleDrawerClose = () => {
     setOpen(false);
   };
