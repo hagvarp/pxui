@@ -144,8 +144,8 @@ export default function MainBody() {
     }
   }));
   const classes = useStyles();
-
-  useEffect(() => {
+  //www.pluralsight.com/guides/render-window-resize-react
+  https: useEffect(() => {
     window.addEventListener("resize", updateWidth);
     return () => window.removeEventListener("resize", updateWidth);
   }, []);
