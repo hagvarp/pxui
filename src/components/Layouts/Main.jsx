@@ -31,7 +31,7 @@ import StatisticIceland from "../../img/iceland.png";
 import SpecificDBSelecor from "../DbSelector/SpecificDBSelecor";
 
 //width of drawer to fit phones
-const drawerWidth = 375;
+const drawerWidth = 350;
 
 const useStyles = makeStyles(theme => ({
   root: {
