@@ -20,7 +20,6 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 
 import DbSelector from "../DbSelector/DbSelector";
 import Footer from "./Footer";
-import Header from "./Header";
 import ListMenu from "../ListMenu/ListMenu";
 import Selectors from "../Select/Selectors";
 import statBanks from "../../json/statBanks";
@@ -31,8 +30,7 @@ import StatisticFaroeIslands from "../../img/hagstova_foroya.svg";
 import StatisticIceland from "../../img/iceland.png";
 import SpecificDBSelecor from "../DbSelector/SpecificDBSelecor";
 
-let color = "";
-const drawerWidth = 400;
+const drawerWidth = 350;
 
 const useStyles = makeStyles(theme => ({
   root: {
