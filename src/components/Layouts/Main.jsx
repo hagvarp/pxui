@@ -161,6 +161,7 @@ export default function MainBody() {
       setImg(StatisticFaroeIslands);
       setShowing(false);
       setStatBankUrl(e);
+      setItemSelected("Vælkomin til Hagtalsgrunnin");
     }
     if (e.label === "Statistics Greenland") {
       setMainColor("#F26222");
@@ -272,6 +273,7 @@ export default function MainBody() {
           <SpecificDBSelecor
             db={sDB}
             onChange={handleChangeSpecificDB}
+            mainColor={mainColor}
           ></SpecificDBSelecor>
         ) : null}
         <Divider />
@@ -294,7 +296,11 @@ export default function MainBody() {
                 style={{ marginBottom: "1cm" }}
                 className={classes.paper}
               >
-                <Selectors onChange={handleChangeData} pxTable={pxTable} />
+                <Selectors
+                  onChange={handleChangeData}
+                  pxTable={pxTable}
+                  mainColor={mainColor}
+                />
               </Paper>
               <Paper elevation={6} className={classes.paper}>
                 <Typography component={"span"}>

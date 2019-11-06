@@ -77,6 +77,7 @@ export default function Selectors(props) {
               text={text}
               elimination={elimination}
               callBack={handleChange}
+              mainColor={props.mainColor}
             />
           );
           selectorName = [];

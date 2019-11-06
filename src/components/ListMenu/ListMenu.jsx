@@ -169,6 +169,7 @@ export default function ListMenu(props) {
           {({ search, items }) => (
             <>
               <input
+                style={{ borderColor: props.mainColor }}
                 type="text"
                 onChange={e => search(e.target.value)}
                 placeholder="Type and search"

@@ -57,6 +57,12 @@
 .selectors {
   padding: 4px 10px;
   margin: 4px 10px;
+  font-family: open-sans;
+}
+
+.selectorMulti {
+  font-family: open-sans;
+  font-size: 1em;
 }
 
 .app {
@@ -104,5 +110,9 @@ select {
   border-radius: 4px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+.iconColor {
+  color: #2d4182;
 }
 /*# sourceMappingURL=style.css.map */
