@@ -30,7 +30,7 @@ import StatisticFaroeIslands from "../../img/hagstova_foroya.svg";
 import StatisticIceland from "../../img/iceland.png";
 import SpecificDBSelecor from "../DbSelector/SpecificDBSelecor";
 
-//width of drawer to fit phones
+//iphone 6 and bigger
 const drawerWidth = 375;
 
 const useStyles = makeStyles(theme => ({
