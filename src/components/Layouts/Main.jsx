@@ -81,7 +81,7 @@ export default function MainBody() {
       overflowY: "hidden"
     },
     main: {
-      marginTop: theme.spacing(8),
+      marginTop: theme.spacing(4),
       marginBottom: theme.spacing(2)
     },
     appBar: {
@@ -342,7 +342,7 @@ export default function MainBody() {
               ></InformationModal>
               <Paper
                 elevation={6}
-                style={{ marginBottom: "1cm" }}
+                style={{ marginBottom: "0.5cm" }}
                 className={classes.paper}
               >
                 <Selectors
