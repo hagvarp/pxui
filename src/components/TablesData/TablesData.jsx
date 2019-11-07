@@ -18,7 +18,7 @@ export default function TablesData(props) {
 
     if (!pxFile["data"] || !pxFile["metadata"]) {
       html = [];
-      html.push("<div>Vinarliga fill teir kravdu gervisveljararnir</div>");
+      html.push("<div>Please fill the required selectors</div>");
       return tableContainer.html(html.join(""));
     }
 
