@@ -320,20 +320,6 @@ export default function MainBody() {
         <Container component="main" className={classes.main} maxWidth="m">
           <Grid container spacing={1}>
             <Grid item xs={12} sm={12}>
-              {showingInformationButton ? (
-                <Button
-                  onClick={handleOpenModal}
-                  style={{
-                    position: "relative",
-                    backgroundColor: mainColor,
-                    color: "white",
-                    marginBottom: "0.4cm"
-                  }}
-                  variant="contained"
-                >
-                  About Table
-                </Button>
-              ) : null}
               <InformationModal
                 open={openModal}
                 onChange={handleCloseModal}
@@ -360,6 +346,18 @@ export default function MainBody() {
                   <div style={{ fontSize: "1em" }} id="tableResult"></div>
                 </Typography>
               </Paper>
+              {showingInformationButton ? (
+                <Button
+                  onClick={handleOpenModal}
+                  style={{
+                    backgroundColor: mainColor,
+                    color: "white",
+                    marginTop: "0.4cm"
+                  }}
+                >
+                  About Table
+                </Button>
+              ) : null}
             </Grid>
           </Grid>
         </Container>
