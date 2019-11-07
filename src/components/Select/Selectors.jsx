@@ -20,7 +20,6 @@ export default function Selectors(props) {
     selectorArray = [];
     query.length = 0;
     setIsLoading(true);
-    console.log(props.pxTable);
 
     fetch(props.pxTable)
       .then(response => {
@@ -91,7 +90,7 @@ export default function Selectors(props) {
         postRequest(mainObject);
       })
       .catch(err => {
-        console.log("HERE", err);
+        console.log(err);
         setIsLoading(false);
       });
   }, [props.pxTable]);

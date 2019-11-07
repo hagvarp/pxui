@@ -27,7 +27,6 @@ export default function TablesData(props) {
     // ------------------------------------------------------------------------------- //
     let data = pxFile["data"];
     let metadata = pxFile["metadata"];
-
     let heading;
     let headings;
     let values;
@@ -37,8 +36,7 @@ export default function TablesData(props) {
     let languageISOCode = metadata["LANGUAGES"] || null;
 
     if (languageISOCode !== null) {
-      languageISOCode = metadata["LANGUAGES"].TABLE[1];
-
+      languageISOCode = metadata["LANGUAGES"].TABLE[0];
       //Load headings (by culture if available)
       heading = metadata["HEADING[" + languageISOCode + "]"];
       if (!heading) heading = metadata["HEADING"];
@@ -53,8 +51,12 @@ export default function TablesData(props) {
       values = metadata["VALUES[" + languageISOCode + "]"];
       if (!values) values = metadata["VALUES"];
 
+      //---------------------------------------------------
+      stub = metadata["STUB"]; //English
       //Read Stub (by culture if available)
-      stub = metadata["STUB[" + languageISOCode + "]"];
+      //stub = metadata["STUB[" + languageISOCode + "]"];
+      //---------------------------------------------------
+
       if (!heading) stub = metadata["STUB"];
     } else {
       //Load headings (by culture if available)

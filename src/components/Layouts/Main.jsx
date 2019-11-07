@@ -42,7 +42,7 @@ export default function MainBody() {
   const theme = useTheme();
   const [open, setOpen] = useState(true);
   const [itemSelected, setItemSelected] = useState(
-    "Vælkomin til Hagtalsgrunnin"
+    "Welcome to Statistics Faroe Islands"
   );
   const [checked, setChecked] = useState(false);
   const [fullHeadLine, setFullHeadLine] = useState(true);
@@ -152,7 +152,6 @@ export default function MainBody() {
   const updateWidth = () => {
     setWidth(window.innerWidth);
     drawerWidth = window.innerWidth;
-    console.log(drawerWidth);
   };
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -173,12 +172,12 @@ export default function MainBody() {
     setData(e);
   };
   const handleChangeStatBank = async e => {
-    if (e.label === "Hagtalsgrunnurin") {
+    if (e.label === "Statistics Faroe Islands") {
       setMainColor("#2d4182");
       setImg(StatisticFaroeIslands);
       setShowing(false);
       setStatBankUrl(e);
-      setItemSelected("Vælkomin til Hagtalsgrunnin");
+      setItemSelected("Welcome to Statistics Faroe Islands");
     }
     if (e.label === "Statistics Greenland") {
       setMainColor("#F26222");
