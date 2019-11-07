@@ -14,6 +14,7 @@ import Paper from "@material-ui/core/Paper";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
 
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
@@ -24,12 +25,12 @@ import ListMenu from "../ListMenu/ListMenu";
 import Selectors from "../Select/Selectors";
 import statBanks from "../../json/statBanks";
 import TableData from "../TablesData/TablesData";
+import InformationModal from "../Modal/InformationModal";
 
 import StatisticGreenland from "../../img/greenland.png";
 import StatisticFaroeIslands from "../../img/hagstova_foroya.svg";
 import StatisticIceland from "../../img/iceland.png";
 import SpecificDBSelecor from "../DbSelector/SpecificDBSelecor";
-import $ from "jquery";
 
 //iphone 6 and bigger
 
@@ -51,6 +52,17 @@ export default function MainBody() {
   const [sDB, setSDB] = useState(null);
   const [mainColor, setMainColor] = useState("#2d4182");
   const [width, setWidth] = useState(window.innerWidth);
+  const [showingInformationButton, setShowingInformationButton] = useState(
+    false
+  );
+  const [openModal, setOpenModal] = React.useState(false);
+
+  const handleOpenModal = () => {
+    setOpenModal(true);
+  };
+  const handleCloseModal = () => {
+    setOpenModal(false);
+  };
 
   let drawerWidth;
 
@@ -165,6 +177,7 @@ export default function MainBody() {
     setOpen(!open);
     setChecked(false);
     setChecked(true);
+    setShowingInformationButton(true);
   };
 
   const handleChangeData = (e, b) => {
@@ -307,6 +320,26 @@ export default function MainBody() {
         <Container component="main" className={classes.main} maxWidth="m">
           <Grid container spacing={1}>
             <Grid item xs={12} sm={12}>
+              {showingInformationButton ? (
+                <Button
+                  onClick={handleOpenModal}
+                  style={{
+                    position: "relative",
+                    backgroundColor: mainColor,
+                    color: "white",
+                    marginBottom: "0.4cm"
+                  }}
+                  variant="contained"
+                >
+                  About Table
+                </Button>
+              ) : null}
+              <InformationModal
+                open={openModal}
+                onChange={handleCloseModal}
+                data={data}
+                mainColor={mainColor}
+              ></InformationModal>
               <Paper
                 elevation={6}
                 style={{ marginBottom: "1cm" }}
