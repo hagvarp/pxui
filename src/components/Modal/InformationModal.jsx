@@ -5,14 +5,10 @@ import Px from "./px";
 import { Markup } from "interweave";
 import Button from "@material-ui/core/Button";
 
-function rand() {
-  return Math.round(Math.random() * 20) - 10;
-}
-
 const useStyles = makeStyles(theme => ({
   paperModal: {
     position: "absolute",
-    width: "70%",
+    width: "60%",
     height: "70%",
     backgroundColor: theme.palette.background.paper,
     border: "2px solid #000",
@@ -25,7 +21,7 @@ const useStyles = makeStyles(theme => ({
 
 function getModalStyle() {
   const top = 50;
-  const left = 50 + rand();
+  const left = 50;
 
   return {
     top: `${top}%`,
@@ -100,7 +96,7 @@ export default function InformationModal(props) {
               position: "relative",
               backgroundColor: props.mainColor,
               color: "white",
-              marginTop: "0.2cm"
+              marginTop: "0.3cm"
             }}
             variant="contained"
           >

@@ -234,6 +234,7 @@ export default function MainBody() {
   const displayFullHeadline = () => {
     setFullHeadLine(!fullHeadLine);
   };
+  //icon
   const divStyle = {
     /* Full height */
     height: "50px",
@@ -352,7 +353,8 @@ export default function MainBody() {
                   style={{
                     backgroundColor: mainColor,
                     color: "white",
-                    marginTop: "0.4cm"
+                    marginTop: "0.4cm",
+                    float: "right"
                   }}
                 >
                   About Table
