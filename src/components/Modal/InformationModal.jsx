@@ -106,5 +106,5 @@ export default function InformationModal(props) {
       </Modal>
     );
   }
-  return <div>empty</div>;
+  return <div></div>;
 }
