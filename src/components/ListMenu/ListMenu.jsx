@@ -50,7 +50,7 @@ export default function ListMenu(props) {
     level = 0,
     hasNodes,
     isOpen,
-    label,
+    text,
     searchTerm,
     openNodes,
     toggleNode,
@@ -79,7 +79,7 @@ export default function ListMenu(props) {
         >
           <div>
             <ToggleIcon on={isOpen}></ToggleIcon>
-            {label}
+            {text}
           </div>
         </div>
       )}
@@ -87,7 +87,7 @@ export default function ListMenu(props) {
         ""
       ) : (
         <div>
-          {tableIcon} {label}
+          {tableIcon} {text}
         </div>
       )}
     </ListGroupItem>
