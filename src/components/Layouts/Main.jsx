@@ -375,7 +375,7 @@ export default function MainBody() {
           />
           <Route
             excat
-            path=""
+            path="/"
             render={props => (
               <Grow
                 in={checked}
