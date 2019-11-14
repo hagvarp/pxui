@@ -33,7 +33,7 @@ import StatisticIceland from "../../img/iceland.png";
 import SpecificDBSelecor from "../DbSelector/SpecificDBSelecor";
 import About from "./About";
 
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch,HashRouter } from "react-router-dom";
 let urlForSpecificDB = "";
 
 export default function MainBody() {
