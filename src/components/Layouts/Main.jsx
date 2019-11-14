@@ -18,6 +18,10 @@ import Button from "@material-ui/core/Button";
 
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import StatisticGreenland from "../../img/greenland.png";
+import StatisticFaroeIslands from "../../img/hagstova_foroya.svg";
+import StatisticIceland from "../../img/iceland.png";
+import SpecificDBSelecor from "../DbSelector/SpecificDBSelecor";
 
 import DbSelector from "../DbSelector/DbSelector";
 import Footer from "./Footer";
@@ -26,11 +30,6 @@ import Selectors from "../Select/Selectors";
 import statBanks from "../../json/statBanks";
 import TableData from "../TablesData/TablesData";
 import InformationModal from "../Modal/InformationModal";
-
-import StatisticGreenland from "../../img/greenland.png";
-import StatisticFaroeIslands from "../../img/hagstova_foroya.svg";
-import StatisticIceland from "../../img/iceland.png";
-import SpecificDBSelecor from "../DbSelector/SpecificDBSelecor";
 
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 let urlForSpecificDB = "";
@@ -165,16 +164,12 @@ export default function MainBody() {
     drawerWidth = window.innerWidth;
   };
   const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-  const handleDrawerClose = () => {
-    setOpen(false);
+    setOpen(!open);
   };
 
   const handleChangeUrl = e => {
     setPxTable(e);
     setOpen(false);
-    setChecked(false);
     setChecked(true);
     setShowingInformationButton(true);
   };
@@ -227,10 +222,6 @@ export default function MainBody() {
     setStatBankUrl(urlForSpecificDB + e.value + "/");
   };
 
-  const test = () => {
-    setOpen(false);
-  };
-
   const displayFullHeadline = () => {
     setFullHeadLine(!fullHeadLine);
   };
@@ -281,13 +272,13 @@ export default function MainBody() {
           variant="persistent"
           anchor="left"
           open={open}
-          onClose={test}
+          onClose={!open}
           classes={{
             paper: classes.drawerPaper
           }}
         >
           <div className={classes.drawerHeader}>
-            <IconButton onClick={handleDrawerClose}>
+            <IconButton onClick={handleDrawerOpen}>
               {theme.direction === "ltr" ? (
                 <ChevronLeftIcon />
               ) : (
@@ -447,8 +438,8 @@ export default function MainBody() {
         <footer className={classes.footer}>
           <Container maxWidth="m">
             <Typography variant="body1">
-              <Divider></Divider>
-              <Footer></Footer>
+              <Divider />
+              <Footer />
             </Typography>
           </Container>
         </footer>
