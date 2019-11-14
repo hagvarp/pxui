@@ -65,7 +65,7 @@ export default function ListMenu(props) {
         cursor: "pointer",
         //zIndex: focused ? 999 : "unset",
         position: "relative",
-        fontFamily: "Open Sans,sans-serif",
+        fontFamily: "open sans",
         borderStyle: "none"
         // boolean to render list group items edge-to-edge in a parent container
       }}

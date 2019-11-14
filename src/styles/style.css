@@ -67,7 +67,7 @@
 
 .app {
   text-align: left;
-  font-family: "Open Sans", sans-serif;
+  font-family: open sans;
   font-size: 1.3em;
 }
 
@@ -97,7 +97,6 @@ hr {
 .footer {
   text-align: center;
   color: #004c80;
-  font-family: "Open Sans", sans-serif;
 }
 
 input[type="text"],
