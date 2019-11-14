@@ -173,7 +173,6 @@ export default function MainBody() {
 
   const handleChangeUrl = e => {
     setPxTable(e);
-    console.log(e);
     setOpen(false);
     setChecked(false);
     setChecked(true);
@@ -183,7 +182,6 @@ export default function MainBody() {
   const handleChangeData = (e, b) => {
     setItemSelected(b);
     setData(e);
-    console.log(open);
     setShowingInformationButton(true);
   };
   const handleChangeStatBank = async e => {
