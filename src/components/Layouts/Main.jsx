@@ -31,7 +31,6 @@ import StatisticGreenland from "../../img/greenland.png";
 import StatisticFaroeIslands from "../../img/hagstova_foroya.svg";
 import StatisticIceland from "../../img/iceland.png";
 import SpecificDBSelecor from "../DbSelector/SpecificDBSelecor";
-import About from "./About";
 
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 let urlForSpecificDB = "";
