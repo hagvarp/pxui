@@ -50,7 +50,7 @@ export default function MainBody() {
   const [img, setImg] = useState(StatisticFaroeIslands);
   const [showing, setShowing] = useState(false);
   const [sDB, setSDB] = useState(null);
-  const [mainColor, setMainColor] = useState("#2d4182");
+  const [mainColor, setMainColor] = useState("#004c80");
   const [width, setWidth] = useState(window.innerWidth);
   const [showingInformationButton, setShowingInformationButton] = useState(
     false
@@ -85,7 +85,7 @@ export default function MainBody() {
       marginBottom: theme.spacing(2)
     },
     appBar: {
-      backgroundColor: "#2d4182",
+      backgroundColor: "#004c80",
       transition: theme.transitions.create(["margin", "width"], {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen
@@ -148,7 +148,7 @@ export default function MainBody() {
     },
     paperX: {
       backgroundColor: theme.palette.background.paper,
-      border: "2px solid #2d4182",
+      border: "2px solid #004c80",
       boxShadow: theme.shadows[1],
       padding: theme.spacing(2, 4, 3),
       width: "90%",
@@ -189,7 +189,7 @@ export default function MainBody() {
   };
   const handleChangeStatBank = async e => {
     if (e.label === "Statistics Faroe Islands") {
-      setMainColor("#2d4182");
+      setMainColor("#004c80");
       setImg(StatisticFaroeIslands);
       setShowing(false);
       setStatBankUrl(e);
