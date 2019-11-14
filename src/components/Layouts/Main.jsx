@@ -318,70 +318,11 @@ export default function MainBody() {
             mainColor={mainColor}
           />
         </SwipeableDrawer>
-        <Switch>
-          <Route
-            path="/:customPath"
-            render={props => (
-              <Container component="main" className={classes.main} maxWidth="m">
-                <Grid container spacing={1}>
-                  <Grid item xs={12} sm={12}>
-                    <InformationModal
-                      open={openModal}
-                      onChange={handleCloseModal}
-                      data={data}
-                      mainColor={mainColor}
-                    ></InformationModal>
-                    <Paper
-                      elevation={6}
-                      style={{ marginBottom: "0.5cm" }}
-                      className={classes.paper}
-                    >
-                      <Selectors
-                        onChange={handleChangeData}
-                        pxTable={
-                          pxTable ||
-                          "https://statbank.hagstova.fo/api/v1/en/H2/" +
-                            props.location.pathname.substr(1)
-                        }
-                        mainColor={mainColor}
-                      />
-                    </Paper>
-                    <Paper elevation={6} className={classes.paper}>
-                      <Typography component={"span"}>
-                        <TableData
-                          data={data}
-                          contentElement="#tableResult"
-                        ></TableData>
-                        <div style={{ fontSize: "1em" }} id="tableResult"></div>
-                      </Typography>
-                    </Paper>
-                    {showingInformationButton ? (
-                      <Button
-                        onClick={handleOpenModal}
-                        style={{
-                          backgroundColor: mainColor,
-                          color: "white",
-                          marginTop: "0.4cm",
-                          float: "right"
-                        }}
-                      >
-                        About Table
-                      </Button>
-                    ) : null}
-                  </Grid>
-                </Grid>
-              </Container>
-            )}
-          />
-          <Route
-            excat
-            path="/"
-            render={() => (
-              <Grow
-                in={checked}
-                style={{ transformOrigin: "0 0 0" }}
-                {...(checked ? { timeout: 2000 } : {})}
-              >
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
+          <Switch>
+            <Route
+              path="/:customPath"
+              render={props => (
                 <Container
                   component="main"
                   className={classes.main}
@@ -402,7 +343,11 @@ export default function MainBody() {
                       >
                         <Selectors
                           onChange={handleChangeData}
-                          pxTable={pxTable}
+                          pxTable={
+                            pxTable ||
+                            "https://statbank.hagstova.fo/api/v1/en/H2/" +
+                              props.location.pathname.substr(1)
+                          }
                           mainColor={mainColor}
                         />
                       </Paper>
@@ -434,11 +379,74 @@ export default function MainBody() {
                     </Grid>
                   </Grid>
                 </Container>
-              </Grow>
-            )}
-          />
-        </Switch>
-
+              )}
+            />
+            <Route
+              excat
+              path="/"
+              render={() => (
+                <Grow
+                  in={checked}
+                  style={{ transformOrigin: "0 0 0" }}
+                  {...(checked ? { timeout: 2000 } : {})}
+                >
+                  <Container
+                    component="main"
+                    className={classes.main}
+                    maxWidth="m"
+                  >
+                    <Grid container spacing={1}>
+                      <Grid item xs={12} sm={12}>
+                        <InformationModal
+                          open={openModal}
+                          onChange={handleCloseModal}
+                          data={data}
+                          mainColor={mainColor}
+                        ></InformationModal>
+                        <Paper
+                          elevation={6}
+                          style={{ marginBottom: "0.5cm" }}
+                          className={classes.paper}
+                        >
+                          <Selectors
+                            onChange={handleChangeData}
+                            pxTable={pxTable}
+                            mainColor={mainColor}
+                          />
+                        </Paper>
+                        <Paper elevation={6} className={classes.paper}>
+                          <Typography component={"span"}>
+                            <TableData
+                              data={data}
+                              contentElement="#tableResult"
+                            ></TableData>
+                            <div
+                              style={{ fontSize: "1em" }}
+                              id="tableResult"
+                            ></div>
+                          </Typography>
+                        </Paper>
+                        {showingInformationButton ? (
+                          <Button
+                            onClick={handleOpenModal}
+                            style={{
+                              backgroundColor: mainColor,
+                              color: "white",
+                              marginTop: "0.4cm",
+                              float: "right"
+                            }}
+                          >
+                            About Table
+                          </Button>
+                        ) : null}
+                      </Grid>
+                    </Grid>
+                  </Container>
+                </Grow>
+              )}
+            />
+          </Switch>
+        </BrowserRouter>
         <footer className={classes.footer}>
           <Container maxWidth="m">
             <Typography variant="body1">
