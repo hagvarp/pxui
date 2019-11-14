@@ -248,7 +248,7 @@ export default function MainBody() {
 
   return (
     <div className={classes.root}>
-      <BrowserRouter>
+      <Router>
         <CssBaseline />
 
         <AppBar
@@ -318,7 +318,7 @@ export default function MainBody() {
             mainColor={mainColor}
           />
         </SwipeableDrawer>
-        <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <Router basename={process.env.PUBLIC_URL}>
           <Switch>
             <Route
               path="/:customPath"
@@ -446,7 +446,7 @@ export default function MainBody() {
               )}
             />
           </Switch>
-        </BrowserRouter>
+        </Router>
         <footer className={classes.footer}>
           <Container maxWidth="m">
             <Typography variant="body1">
@@ -455,7 +455,7 @@ export default function MainBody() {
             </Typography>
           </Container>
         </footer>
-      </BrowserRouter>
+      </Router>
     </div>
   );
 }
