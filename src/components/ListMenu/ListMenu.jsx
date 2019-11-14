@@ -18,7 +18,7 @@ export default function ListMenu(props) {
   let headline = props.statBank.label || "Statistics Faroe Islands";
   const openedIcon = (
     <i
-      class="fa fa-caret-up"
+      className="fa fa-caret-up"
       style={{ color: props.mainColor }}
       aria-hidden="true"
       alt="-"
@@ -26,7 +26,7 @@ export default function ListMenu(props) {
   );
   const closedIcon = (
     <i
-      class="fa fa-caret-down"
+      className="fa fa-caret-down"
       style={{ color: props.mainColor }}
       aria-hidden="true"
       alt="+"
@@ -35,7 +35,7 @@ export default function ListMenu(props) {
 
   const tableIcon = (
     <i
-      class="fa fa-table"
+      className="fa fa-table"
       style={{ color: props.mainColor }}
       aria-hidden="true"
       alt="table"
@@ -50,7 +50,7 @@ export default function ListMenu(props) {
     level = 0,
     hasNodes,
     isOpen,
-    label,
+    text,
     searchTerm,
     openNodes,
     toggleNode,
@@ -65,7 +65,7 @@ export default function ListMenu(props) {
         cursor: "pointer",
         //zIndex: focused ? 999 : "unset",
         position: "relative",
-        fontFamily: "Open Sans,sans-serif",
+        fontFamily: "open sans",
         borderStyle: "none"
         // boolean to render list group items edge-to-edge in a parent container
       }}
@@ -79,7 +79,7 @@ export default function ListMenu(props) {
         >
           <div>
             <ToggleIcon on={isOpen}></ToggleIcon>
-            {label}
+            {text}
           </div>
         </div>
       )}
@@ -87,7 +87,7 @@ export default function ListMenu(props) {
         ""
       ) : (
         <div>
-          {tableIcon} {label}
+          {tableIcon} {text}
         </div>
       )}
     </ListGroupItem>

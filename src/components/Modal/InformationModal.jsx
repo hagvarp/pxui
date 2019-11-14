@@ -50,7 +50,6 @@ export default function InformationModal(props) {
     let matrix = "";
     let note;
 
-    console.log(x.metadata);
     try {
       contact = x.metadata["CONTACT"]["TABLE"];
       description = x.metadata["DESCRIPTION"]["TABLE"];

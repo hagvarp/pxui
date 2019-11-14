@@ -67,21 +67,21 @@
 
 .app {
   text-align: left;
-  font-family: "Open Sans", sans-serif;
+  font-family: open sans;
   font-size: 1.3em;
 }
 
 .noData {
   font-style: italic;
   font-size: 1.1em;
-  color: #2d4182;
+  color: #004c80;
 }
 
 .headLine {
   padding: 8px;
   font-weight: bold;
   font-size: 1.5em;
-  color: #2d4182;
+  color: #004c80;
   text-align: center;
 }
 
@@ -89,15 +89,14 @@ hr {
   display: block;
   height: 1px;
   border: 0;
-  border-top: 1px solid #2d4182;
+  border-top: 1px solid #004c80;
   margin: 1em 0;
   padding: 0;
 }
 
 .footer {
   text-align: center;
-  color: #2d4182;
-  font-family: "Open Sans", sans-serif;
+  color: #004c80;
 }
 
 input[type="text"],
@@ -106,13 +105,13 @@ select {
   padding: 8px 20px;
   margin: 8px 20px;
   display: inline-block;
-  border: 1px solid #2d4182;
+  border: 1px solid #004c80;
   border-radius: 4px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 
 .iconColor {
-  color: #2d4182;
+  color: #004c80;
 }
 /*# sourceMappingURL=style.css.map */

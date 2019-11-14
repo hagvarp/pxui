@@ -18,6 +18,10 @@ import Button from "@material-ui/core/Button";
 
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import StatisticGreenland from "../../img/greenland.png";
+import StatisticFaroeIslands from "../../img/hagstova_foroya.svg";
+import StatisticIceland from "../../img/iceland.png";
+import SpecificDBSelecor from "../DbSelector/SpecificDBSelecor";
 
 import DbSelector from "../DbSelector/DbSelector";
 import Footer from "./Footer";
@@ -27,13 +31,7 @@ import statBanks from "../../json/statBanks";
 import TableData from "../TablesData/TablesData";
 import InformationModal from "../Modal/InformationModal";
 
-import StatisticGreenland from "../../img/greenland.png";
-import StatisticFaroeIslands from "../../img/hagstova_foroya.svg";
-import StatisticIceland from "../../img/iceland.png";
-import SpecificDBSelecor from "../DbSelector/SpecificDBSelecor";
-
-//iphone 6 and bigger
-
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 let urlForSpecificDB = "";
 
 export default function MainBody() {
@@ -41,7 +39,7 @@ export default function MainBody() {
   const [data, setData] = useState(null);
   const [statBankUrl, setStatBankUrl] = useState(statBanks[0].value);
   const theme = useTheme();
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const [itemSelected, setItemSelected] = useState(
     "Welcome to Statistics Faroe Islands"
   );
@@ -50,7 +48,7 @@ export default function MainBody() {
   const [img, setImg] = useState(StatisticFaroeIslands);
   const [showing, setShowing] = useState(false);
   const [sDB, setSDB] = useState(null);
-  const [mainColor, setMainColor] = useState("#2d4182");
+  const [mainColor, setMainColor] = useState("#004c80");
   const [width, setWidth] = useState(window.innerWidth);
   const [showingInformationButton, setShowingInformationButton] = useState(
     false
@@ -85,7 +83,7 @@ export default function MainBody() {
       marginBottom: theme.spacing(2)
     },
     appBar: {
-      backgroundColor: "#2d4182",
+      backgroundColor: "#004c80",
       transition: theme.transitions.create(["margin", "width"], {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen
@@ -148,7 +146,7 @@ export default function MainBody() {
     },
     paperX: {
       backgroundColor: theme.palette.background.paper,
-      border: "2px solid #2d4182",
+      border: "2px solid #004c80",
       boxShadow: theme.shadows[1],
       padding: theme.spacing(2, 4, 3),
       width: "90%",
@@ -166,16 +164,12 @@ export default function MainBody() {
     drawerWidth = window.innerWidth;
   };
   const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-  const handleDrawerClose = () => {
-    setOpen(false);
+    setOpen(!open);
   };
 
   const handleChangeUrl = e => {
     setPxTable(e);
-    setOpen(!open);
-    setChecked(false);
+    setOpen(false);
     setChecked(true);
     setShowingInformationButton(true);
   };
@@ -183,10 +177,11 @@ export default function MainBody() {
   const handleChangeData = (e, b) => {
     setItemSelected(b);
     setData(e);
+    setShowingInformationButton(true);
   };
   const handleChangeStatBank = async e => {
     if (e.label === "Statistics Faroe Islands") {
-      setMainColor("#2d4182");
+      setMainColor("#004c80");
       setImg(StatisticFaroeIslands);
       setShowing(false);
       setStatBankUrl(e);
@@ -227,10 +222,6 @@ export default function MainBody() {
     setStatBankUrl(urlForSpecificDB + e.value + "/");
   };
 
-  const test = () => {
-    setOpen(false);
-  };
-
   const displayFullHeadline = () => {
     setFullHeadLine(!fullHeadLine);
   };
@@ -245,134 +236,214 @@ export default function MainBody() {
 
   return (
     <div className={classes.root}>
-      <CssBaseline />
+      <Router>
+        <CssBaseline />
 
-      <AppBar
-        style={{ backgroundColor: mainColor }}
-        position="relative"
-        className={clsx(classes.appBar, {
-          [classes.appBarShift]: open
-        })}
-      >
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            className={clsx(classes.menuButton, open && classes.hide)}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography
-            onClick={displayFullHeadline}
-            variant="h6"
-            noWrap={fullHeadLine}
-            style={{ fontSize: "1.2em", fontFamily: "Open Sans, sans-serif" }}
-          >
-            {itemSelected}
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <SwipeableDrawer
-        className={classes.drawer}
-        variant="persistent"
-        anchor="left"
-        open={open}
-        onClose={test}
-        classes={{
-          paper: classes.drawerPaper
-        }}
-      >
-        <div className={classes.drawerHeader}>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === "ltr" ? (
-              <ChevronLeftIcon />
-            ) : (
-              <ChevronRightIcon />
-            )}
-            <img src={img} style={divStyle} alt={"logo"} />
-          </IconButton>
-        </div>
+        <AppBar
+          style={{ backgroundColor: mainColor }}
+          position="relative"
+          className={clsx(classes.appBar, {
+            [classes.appBarShift]: open
+          })}
+        >
+          <Toolbar>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              className={clsx(classes.menuButton, open && classes.hide)}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography
+              onClick={displayFullHeadline}
+              variant="h6"
+              noWrap={fullHeadLine}
+              style={{ fontSize: "1.2em", fontFamily: "open sans" }}
+            >
+              {itemSelected}
+            </Typography>
+          </Toolbar>
+        </AppBar>
 
-        <DbSelector
-          onChange={handleChangeStatBank}
-          mainColor={mainColor}
-        ></DbSelector>
-        {showing ? (
-          <SpecificDBSelecor
-            db={sDB}
-            onChange={handleChangeSpecificDB}
+        <SwipeableDrawer
+          className={classes.drawer}
+          variant="persistent"
+          anchor="left"
+          open={open}
+          onClose={!open}
+          classes={{
+            paper: classes.drawerPaper
+          }}
+        >
+          <div className={classes.drawerHeader}>
+            <IconButton onClick={handleDrawerOpen}>
+              {theme.direction === "ltr" ? (
+                <ChevronLeftIcon />
+              ) : (
+                <ChevronRightIcon />
+              )}
+              <img src={img} style={divStyle} alt={"logo"} />
+            </IconButton>
+          </div>
+
+          <DbSelector
+            onChange={handleChangeStatBank}
             mainColor={mainColor}
-          ></SpecificDBSelecor>
-        ) : null}
-        <Divider />
-        <ListMenu
-          onClickItem={handleChangeUrl}
-          statBank={statBankUrl}
-          mainColor={mainColor}
-        />
-      </SwipeableDrawer>
-      <Grow
-        in={checked}
-        style={{ transformOrigin: "0 0 0" }}
-        {...(checked ? { timeout: 2000 } : {})}
-      >
-        <Container component="main" className={classes.main} maxWidth="m">
-          <Grid container spacing={1}>
-            <Grid item xs={12} sm={12}>
-              <InformationModal
-                open={openModal}
-                onChange={handleCloseModal}
-                data={data}
-                mainColor={mainColor}
-              ></InformationModal>
-              <Paper
-                elevation={6}
-                style={{ marginBottom: "0.5cm" }}
-                className={classes.paper}
-              >
-                <Selectors
-                  onChange={handleChangeData}
-                  pxTable={pxTable}
-                  mainColor={mainColor}
-                />
-              </Paper>
-              <Paper elevation={6} className={classes.paper}>
-                <Typography component={"span"}>
-                  <TableData
-                    data={data}
-                    contentElement="#tableResult"
-                  ></TableData>
-                  <div style={{ fontSize: "1em" }} id="tableResult"></div>
-                </Typography>
-              </Paper>
-              {showingInformationButton ? (
-                <Button
-                  onClick={handleOpenModal}
-                  style={{
-                    backgroundColor: mainColor,
-                    color: "white",
-                    marginTop: "0.4cm",
-                    float: "right"
-                  }}
+          ></DbSelector>
+          {showing ? (
+            <SpecificDBSelecor
+              db={sDB}
+              onChange={handleChangeSpecificDB}
+              mainColor={mainColor}
+            ></SpecificDBSelecor>
+          ) : null}
+          <Divider />
+          <ListMenu
+            onClickItem={handleChangeUrl}
+            statBank={statBankUrl}
+            mainColor={mainColor}
+          />
+        </SwipeableDrawer>
+        <Router basename={process.env.PUBLIC_URL}>
+          <Switch>
+            <Route
+              path="/:customPath"
+              render={props => (
+                <Container
+                  component="main"
+                  className={classes.main}
+                  maxWidth="m"
                 >
-                  About Table
-                </Button>
-              ) : null}
-            </Grid>
-          </Grid>
-        </Container>
-      </Grow>
-
-      <footer className={classes.footer}>
-        <Container maxWidth="m">
-          <Typography variant="body1">
-            <Divider></Divider>
-            <Footer></Footer>
-          </Typography>
-        </Container>
-      </footer>
+                  <Grid container spacing={1}>
+                    <Grid item xs={12} sm={12}>
+                      <InformationModal
+                        open={openModal}
+                        onChange={handleCloseModal}
+                        data={data}
+                        mainColor={mainColor}
+                      ></InformationModal>
+                      <Paper
+                        elevation={6}
+                        style={{ marginBottom: "0.5cm" }}
+                        className={classes.paper}
+                      >
+                        <Selectors
+                          onChange={handleChangeData}
+                          pxTable={
+                            pxTable ||
+                            "https://statbank.hagstova.fo/api/v1/en/H2/" +
+                              props.location.pathname.substr(1)
+                          }
+                          mainColor={mainColor}
+                        />
+                      </Paper>
+                      <Paper elevation={6} className={classes.paper}>
+                        <Typography component={"span"}>
+                          <TableData
+                            data={data}
+                            contentElement="#tableResult"
+                          ></TableData>
+                          <div
+                            style={{ fontSize: "1em" }}
+                            id="tableResult"
+                          ></div>
+                        </Typography>
+                      </Paper>
+                      {showingInformationButton ? (
+                        <Button
+                          onClick={handleOpenModal}
+                          style={{
+                            backgroundColor: mainColor,
+                            color: "white",
+                            marginTop: "0.4cm",
+                            float: "right"
+                          }}
+                        >
+                          About Table
+                        </Button>
+                      ) : null}
+                    </Grid>
+                  </Grid>
+                </Container>
+              )}
+            />
+            <Route
+              excat
+              path="/"
+              render={() => (
+                <Grow
+                  in={checked}
+                  style={{ transformOrigin: "0 0 0" }}
+                  {...(checked ? { timeout: 2000 } : {})}
+                >
+                  <Container
+                    component="main"
+                    className={classes.main}
+                    maxWidth="m"
+                  >
+                    <Grid container spacing={1}>
+                      <Grid item xs={12} sm={12}>
+                        <InformationModal
+                          open={openModal}
+                          onChange={handleCloseModal}
+                          data={data}
+                          mainColor={mainColor}
+                        ></InformationModal>
+                        <Paper
+                          elevation={6}
+                          style={{ marginBottom: "0.5cm" }}
+                          className={classes.paper}
+                        >
+                          <Selectors
+                            onChange={handleChangeData}
+                            pxTable={pxTable}
+                            mainColor={mainColor}
+                          />
+                        </Paper>
+                        <Paper elevation={6} className={classes.paper}>
+                          <Typography component={"span"}>
+                            <TableData
+                              data={data}
+                              contentElement="#tableResult"
+                            ></TableData>
+                            <div
+                              style={{ fontSize: "1em" }}
+                              id="tableResult"
+                            ></div>
+                          </Typography>
+                        </Paper>
+                        {showingInformationButton ? (
+                          <Button
+                            onClick={handleOpenModal}
+                            style={{
+                              backgroundColor: mainColor,
+                              color: "white",
+                              marginTop: "0.4cm",
+                              float: "right"
+                            }}
+                          >
+                            About Table
+                          </Button>
+                        ) : null}
+                      </Grid>
+                    </Grid>
+                  </Container>
+                </Grow>
+              )}
+            />
+          </Switch>
+        </Router>
+        <footer className={classes.footer}>
+          <Container maxWidth="m">
+            <Typography variant="body1">
+              <Divider />
+              <Footer />
+            </Typography>
+          </Container>
+        </footer>
+      </Router>
     </div>
   );
 }
