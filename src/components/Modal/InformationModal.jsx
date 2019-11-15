@@ -1,6 +1,6 @@
 import React from "react";
 import Modal from "@material-ui/core/Modal";
-import Px from "./px";
+import Px from "../Px/px";
 import { Markup } from "interweave";
 import Button from "@material-ui/core/Button";
 

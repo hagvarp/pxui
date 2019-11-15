@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Px from "./px";
+import Px from "../Px/px";
 import $ from "jquery";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Loading from "../Loading/Loading";

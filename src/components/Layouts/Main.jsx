@@ -54,22 +54,14 @@ export default function MainBody() {
     false
   );
   const [openModal, setOpenModal] = React.useState(false);
-
-  const handleOpenModal = () => {
-    setOpenModal(true);
-  };
-  const handleCloseModal = () => {
-    setOpenModal(false);
-  };
-
   let drawerWidth;
 
+  //Must be placed here
   if (width < 1000) {
     drawerWidth = width;
   } else {
     drawerWidth = 500;
   }
-
   let useStyles = makeStyles(theme => ({
     root: {
       display: "flex",
@@ -154,6 +146,7 @@ export default function MainBody() {
     }
   }));
   const classes = useStyles();
+
   //https://www.pluralsight.com/guides/render-window-resize-react
   useEffect(() => {
     const updateWidth = () => {
@@ -164,6 +157,13 @@ export default function MainBody() {
     window.addEventListener("resize", updateWidth);
     return () => window.removeEventListener("resize", updateWidth);
   }, []);
+
+  const handleOpenModal = () => {
+    setOpenModal(true);
+  };
+  const handleCloseModal = () => {
+    setOpenModal(false);
+  };
 
   const handleDrawerOpen = () => {
     setOpen(!open);
@@ -438,7 +438,14 @@ export default function MainBody() {
           </Switch>
         </Router>
         <footer className={classes.footer}>
-          <Container maxWidth="m">
+          <Container
+            position="relative"
+            className={clsx({
+              [classes.appBarShift]: open
+            })}
+            maxWidth="xl"
+            color="white"
+          >
             <Typography variant="body1">
               <Divider />
               <Footer />
