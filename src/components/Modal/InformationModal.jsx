@@ -1,38 +1,14 @@
-import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import React from "react";
 import Modal from "@material-ui/core/Modal";
 import Px from "./px";
 import { Markup } from "interweave";
 import Button from "@material-ui/core/Button";
 
-const useStyles = makeStyles(theme => ({
-  paperModal: {
-    position: "absolute",
-    width: "60%",
-    height: "70%",
-    backgroundColor: theme.palette.background.paper,
-    border: "2px solid #000",
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
-    overflow: "scroll",
-    itemAlign: "center"
-  }
-}));
-
-function getModalStyle() {
-  const top = 50;
-  const left = 50;
-
-  return {
-    top: `${top}%`,
-    left: `${left}%`,
-    transform: `translate(-${top}%, -${left}%)`
-  };
-}
+import { useStyles, getModalStyle } from "./Style";
 
 export default function InformationModal(props) {
   const classes = useStyles();
-  const [modalStyle] = useState(getModalStyle);
+  const modalStyle = getModalStyle();
 
   const handleCloseModal = () => {
     props.onChange();

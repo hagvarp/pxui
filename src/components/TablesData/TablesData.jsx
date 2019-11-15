@@ -199,7 +199,7 @@ export default function TablesData(props) {
         let stubName = stubs[i];
 
         let stubValues = values[stubName];
-        if (stubValues == undefined) {
+        if (stubValues === undefined) {
           stubValues = "";
         }
         if (!Array.isArray(stubValues)) {
@@ -219,7 +219,7 @@ export default function TablesData(props) {
       let dataIndex = 0;
       while (rowElementsToProcess.length > 0) {
         let rowElement = rowElementsToProcess.shift();
-        let isLeaf = rowElement.elements.length == 0;
+        let isLeaf = rowElement.elements.length === 0;
 
         html.push("<tr>");
         html.push("<td>" + rowElement.stubValue + "</td>");

@@ -156,13 +156,15 @@ export default function MainBody() {
   const classes = useStyles();
   //https://www.pluralsight.com/guides/render-window-resize-react
   useEffect(() => {
+    const updateWidth = () => {
+      setWidth(window.innerWidth);
+      drawerWidth = window.innerWidth;
+    };
+
     window.addEventListener("resize", updateWidth);
     return () => window.removeEventListener("resize", updateWidth);
   }, []);
-  const updateWidth = () => {
-    setWidth(window.innerWidth);
-    drawerWidth = window.innerWidth;
-  };
+
   const handleDrawerOpen = () => {
     setOpen(!open);
   };

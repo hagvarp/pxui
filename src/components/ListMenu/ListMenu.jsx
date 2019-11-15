@@ -5,7 +5,8 @@ import Loading from "../Loading/Loading";
 import TreeMenu from "react-simple-tree-menu";
 import "../../styles/style.css";
 
-// https://github.com/iannbing/react-simple-tree-menu/blob/master/stories/index.stories.js
+import { openedIcon, closedIcon, tableIcon } from "./Icons";
+
 const DEFAULT_PADDING = 16;
 const ICON_SIZE = 4;
 const LEVEL_SPACE = 16;
@@ -16,35 +17,14 @@ export default function ListMenu(props) {
   const [data, setData] = useState(null);
   const [counter, setCounter] = useState(0);
   let headline = props.statBank.label || "Statistics Faroe Islands";
-  const openedIcon = (
-    <i
-      className="fa fa-caret-up"
-      style={{ color: props.mainColor }}
-      aria-hidden="true"
-      alt="-"
-    ></i>
-  );
-  const closedIcon = (
-    <i
-      className="fa fa-caret-down"
-      style={{ color: props.mainColor }}
-      aria-hidden="true"
-      alt="+"
-    ></i>
-  );
-
-  const tableIcon = (
-    <i
-      className="fa fa-table"
-      style={{ color: props.mainColor }}
-      aria-hidden="true"
-      alt="table"
-    ></i>
-  );
 
   const ToggleIcon = ({ on }) => (
-    <span style={{ marginRight: 8 }}>{on ? openedIcon : closedIcon}</span>
+    <span style={{ marginRight: 8 }}>
+      {on ? openedIcon(props.mainColor) : closedIcon(props.mainColor)}
+    </span>
   );
+
+  // https://github.com/iannbing/react-simple-tree-menu/blob/master/stories/index.stories.js
 
   const ListItem = ({
     level = 0,
@@ -87,14 +67,13 @@ export default function ListMenu(props) {
         ""
       ) : (
         <div>
-          {tableIcon} {text}
+          {tableIcon()} {text}
         </div>
       )}
     </ListGroupItem>
   );
 
   useEffect(() => {
-    setData(null);
     getDataTree(props.statBank.value || props.statBank);
   }, [props.statBank]);
 
@@ -147,20 +126,19 @@ export default function ListMenu(props) {
   };
 
   async function fetchData(url) {
-    let fData;
-    await axios
-      .get(url)
-      .then(response => {
-        fData = response.data;
-      })
-      .catch(error => {});
-    return fData;
+    let fData = await axios.get(url);
+    return fData.data;
   }
 
   if (data) {
     return (
       <Fragment>
-        <div className="headLine" style={{ color: props.mainColor }}>
+        <div
+          className="headLine"
+          style={{
+            color: props.mainColor
+          }}
+        >
           {headline}
         </div>
         {/* <TreeMenu className="tree-item" data={data} onClickItem={handleClick} /> */}
@@ -169,12 +147,18 @@ export default function ListMenu(props) {
           {({ search, items }) => (
             <>
               <input
-                style={{ borderColor: props.mainColor }}
+                style={{
+                  borderColor: props.mainColor
+                }}
                 type="text"
                 onChange={e => search(e.target.value)}
                 placeholder="Type and search"
               />
-              <ListGroupItem style={{ border: "none" }}>
+              <ListGroupItem
+                style={{
+                  border: "none"
+                }}
+              >
                 {items.map(({ reset, ...props }) => (
                   <ListItem {...props}></ListItem>
                 ))}

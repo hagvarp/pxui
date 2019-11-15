@@ -93,49 +93,49 @@ export default function Selectors(props) {
         console.log(err);
         setIsLoading(false);
       });
-  }, [props.pxTable]);
 
-  function handleChange(code, variables) {
-    const values = [];
-    if (variables != null) {
-      for (let i = 0; i < variables.length; i++) {
-        values.push(variables[i].value);
-      }
-    }
-    const filter = "item";
-    const selection = { filter, values };
-    const obj = { code, selection };
-
-    var i = query.findIndex(o => o.code === obj.code);
-    if (query[i]) {
-      query[i] = obj;
-    } else {
-      query.push(obj);
-    }
-    const response = { px: "" };
-    mainObject = { query, response };
-    postRequest(mainObject, code);
-  }
-
-  async function postRequest(obj) {
-    await fetch(props.pxTable, {
-      body: JSON.stringify(obj),
-      method: "post"
-    })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error("POST Failed to fetch.");
+    function handleChange(code, variables) {
+      const values = [];
+      if (variables != null) {
+        for (let i = 0; i < variables.length; i++) {
+          values.push(variables[i].value);
         }
-        return response.text();
+      }
+      const filter = "item";
+      const selection = { filter, values };
+      const obj = { code, selection };
+
+      var i = query.findIndex(o => o.code === obj.code);
+      if (query[i]) {
+        query[i] = obj;
+      } else {
+        query.push(obj);
+      }
+      const response = { px: "" };
+      mainObject = { query, response };
+      postRequest(mainObject, code);
+    }
+
+    async function postRequest(obj) {
+      await fetch(props.pxTable, {
+        body: JSON.stringify(obj),
+        method: "post"
       })
-      .then(response => {
-        setPostData(response);
-      })
-      .catch(err => {
-        console.log(err);
-        setPostData(null);
-      });
-  }
+        .then(response => {
+          if (!response.ok) {
+            throw new Error("POST Failed to fetch.");
+          }
+          return response.text();
+        })
+        .then(response => {
+          setPostData(response);
+        })
+        .catch(err => {
+          console.log(err);
+          setPostData(null);
+        });
+    }
+  }, [props.pxTable, props.mainColor]);
 
   if (isLoading) {
     return (
