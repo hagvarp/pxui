@@ -135,7 +135,7 @@ export default function Selectors(props) {
           setPostData(null);
         });
     }
-  }, [props.pxTable, props.mainColor]);
+  }, [props.pxTable]);
 
   if (isLoading) {
     return (
