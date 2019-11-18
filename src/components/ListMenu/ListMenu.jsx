@@ -1,10 +1,10 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState, useContext } from "react";
 import { ListGroupItem } from "reactstrap";
 import axios from "axios";
 import Loading from "../Loading/Loading";
 import TreeMenu from "react-simple-tree-menu";
 import "../../styles/style.css";
-
+import { ColorContext } from "../Layouts/Main";
 import { openedIcon, closedIcon, tableIcon } from "./Icons";
 
 const DEFAULT_PADDING = 16;
@@ -19,9 +19,15 @@ export default function ListMenu(props) {
   let headline = props.statBank.label || "Statistics Faroe Islands";
 
   const ToggleIcon = ({ on }) => (
-    <span style={{ marginRight: 8 }}>
-      {on ? openedIcon(props.mainColor) : closedIcon(props.mainColor)}
-    </span>
+    <ColorContext.Consumer>
+      {color => {
+        return (
+          <span style={{ marginRight: 8 }}>
+            {on ? openedIcon(color) : closedIcon(color)}
+          </span>
+        );
+      }}
+    </ColorContext.Consumer>
   );
 
   // https://github.com/iannbing/react-simple-tree-menu/blob/master/stories/index.stories.js
@@ -57,10 +63,8 @@ export default function ListMenu(props) {
             e.stopPropagation();
           }}
         >
-          <div>
-            <ToggleIcon on={isOpen}></ToggleIcon>
-            {text}
-          </div>
+          <ToggleIcon on={isOpen}></ToggleIcon>
+          {text}
         </div>
       )}
       {hasNodes ? (
@@ -132,47 +136,64 @@ export default function ListMenu(props) {
 
   if (data) {
     return (
-      <Fragment>
-        <div
-          className="headLine"
-          style={{
-            color: props.mainColor
-          }}
-        >
-          {headline}
-        </div>
-        {/* <TreeMenu className="tree-item" data={data} onClickItem={handleClick} /> */}
-
-        <TreeMenu data={data} debounceTime={500} onClickItem={handleClick}>
-          {({ search, items }) => (
-            <>
-              <input
+      <ColorContext.Consumer>
+        {color => {
+          return (
+            <Fragment>
+              <div
+                className="headLine"
                 style={{
-                  borderColor: props.mainColor
-                }}
-                type="text"
-                onChange={e => search(e.target.value)}
-                placeholder="Type and search"
-              />
-              <ListGroupItem
-                style={{
-                  border: "none"
+                  color: color
                 }}
               >
-                {items.map(({ reset, ...props }) => (
-                  <ListItem {...props}></ListItem>
-                ))}
-              </ListGroupItem>
-            </>
-          )}
-        </TreeMenu>
-      </Fragment>
+                {headline}
+              </div>
+              ;
+              {/* <TreeMenu className="tree-item" data={data} onClickItem={handleClick} /> */}
+              <TreeMenu
+                data={data}
+                debounceTime={500}
+                onClickItem={handleClick}
+              >
+                {({ search, items }) => (
+                  <>
+                    <input
+                      style={{
+                        borderColor: color
+                      }}
+                      type="text"
+                      onChange={e => search(e.target.value)}
+                      placeholder="Type and search"
+                    />
+                    <ListGroupItem
+                      style={{
+                        border: "none"
+                      }}
+                    >
+                      {items.map(({ reset, ...props }) => (
+                        <ListItem {...props}></ListItem>
+                      ))}
+                    </ListGroupItem>
+                  </>
+                )}
+              </TreeMenu>
+              ;
+            </Fragment>
+          );
+        }}
+      </ColorContext.Consumer>
     );
   }
 
   return (
-    <div>
-      <Loading type="spin" color="#2d4182" height="5%" width="5%"></Loading>
-    </div>
+    <ColorContext.Consumer>
+      {color => {
+        return (
+          <div>
+            <Loading type="spin" color={color} height="5%" width="5%"></Loading>
+          </div>
+        );
+      }}
+    </ColorContext.Consumer>
   );
 }

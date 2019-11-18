@@ -3,6 +3,7 @@ import Px from "../Px/px";
 import $ from "jquery";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Loading from "../Loading/Loading";
+import { ColorContext } from "../Layouts/Main";
 
 export default function TablesData(props) {
   const [data, setData] = useState(null);
@@ -284,6 +285,20 @@ export default function TablesData(props) {
   }
   //Return nothing since Greenland API doesn't give POST error
   return (
-    <Loading type="cylon" color="#2d4182" height="1%" width="1%"></Loading>
+    <ColorContext.Consumer>
+      {color => {
+        return (
+          <div>
+            <Loading
+              type="cylon"
+              color={color}
+              height="1%"
+              width="1%"
+            ></Loading>
+            ;
+          </div>
+        );
+      }}
+    </ColorContext.Consumer>
   );
 }

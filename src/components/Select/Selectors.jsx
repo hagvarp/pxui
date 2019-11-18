@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import SelectorMulti from "./SelectorMulti";
 import Loading from "../Loading/Loading";
+import { ColorContext } from "../Layouts/Main";
 
 let mainObject = {};
 let selectorArray = [];
@@ -154,5 +155,16 @@ export default function Selectors(props) {
       </div>
     );
   }
-  return <Loading type="spin" color="#2d4182" height="1%" width="1%"></Loading>;
+  return (
+    <ColorContext.Consumer>
+      {color => {
+        return (
+          <div>
+            <Loading type="spin" color={color} height="1%" width="1%"></Loading>
+            ;
+          </div>
+        );
+      }}
+    </ColorContext.Consumer>
+  );
 }
