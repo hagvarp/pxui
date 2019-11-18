@@ -138,16 +138,6 @@ export default function Selectors(props) {
     }
   }, [props.pxTable]);
 
-  if (isLoading) {
-    return (
-      <Loading
-        type="spinningBubbles"
-        color="#2d4182"
-        height="2%"
-        width="2%"
-      ></Loading>
-    );
-  }
   if (selectorArray.length > 0) {
     return (
       <div className="row" onChange={onChangeData(postData, tableName)}>
@@ -159,10 +149,7 @@ export default function Selectors(props) {
     <ColorContext.Consumer>
       {color => {
         return (
-          <div>
-            <Loading type="spin" color={color} height="1%" width="1%"></Loading>
-            ;
-          </div>
+          <Loading type="spin" color={color} height="1%" width="1%"></Loading>
         );
       }}
     </ColorContext.Consumer>
