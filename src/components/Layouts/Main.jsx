@@ -293,23 +293,15 @@ export default function MainBody() {
               </IconButton>
             </div>
 
-            <DbSelector
-              onChange={handleChangeStatBank}
-              mainColor={mainColor}
-            ></DbSelector>
+            <DbSelector onChange={handleChangeStatBank}></DbSelector>
             {showing ? (
               <SpecificDBSelecor
                 db={sDB}
                 onChange={handleChangeSpecificDB}
-                mainColor={mainColor}
               ></SpecificDBSelecor>
             ) : null}
             <Divider />
-            <ListMenu
-              onClickItem={handleChangeUrl}
-              statBank={statBankUrl}
-              mainColor={mainColor}
-            />
+            <ListMenu onClickItem={handleChangeUrl} statBank={statBankUrl} />
           </SwipeableDrawer>
           <Router basename={process.env.PUBLIC_URL}>
             <Switch>
@@ -327,7 +319,6 @@ export default function MainBody() {
                           open={openModal}
                           onChange={handleCloseModal}
                           data={data}
-                          mainColor={mainColor}
                         ></InformationModal>
                         <Paper
                           elevation={6}
@@ -394,7 +385,6 @@ export default function MainBody() {
                             open={openModal}
                             onChange={handleCloseModal}
                             data={data}
-                            mainColor={mainColor}
                           ></InformationModal>
                           <Paper
                             elevation={6}

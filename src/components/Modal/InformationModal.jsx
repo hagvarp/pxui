@@ -3,6 +3,7 @@ import Modal from "@material-ui/core/Modal";
 import Px from "../Px/px";
 import { Markup } from "interweave";
 import Button from "@material-ui/core/Button";
+import { ColorContext } from "../Layouts/Main";
 
 import { useStyles, getModalStyle } from "./Style";
 
@@ -47,38 +48,46 @@ export default function InformationModal(props) {
       creationDate.substring(0, 7) + "-" + creationDate.substring(7);
 
     return (
-      <Modal
-        aria-labelledby="simple-modal-title"
-        aria-describedby="simple-modal-description"
-        open={props.open}
-        onClose={handleCloseModal}
-      >
-        <div style={modalStyle} className={classes.paperModal}>
-          <h6 id="simple-modal-title">{description}</h6>
-          <p id="simple-modal-description">Last updated: {lastUpdated}</p>
-          <p id="simple-modal-description">Next update: {nextUpdate}</p>
-          <p id="simple-modal-description">Creation date: {creationDate}</p>
-          <p id="simple-modal-description">Source: {source}</p>
-          <p id="simple-modal-description">Matrix: {matrix}</p>
-          <p id="simple-modal-description">CONTACT: {contact}</p>
-          <br />
-          <div id="simple-modal-description">
-            <Markup content={note} />
-          </div>
-          <Button
-            onClick={handleCloseModal}
-            style={{
-              position: "relative",
-              backgroundColor: props.mainColor,
-              color: "white",
-              marginTop: "0.3cm"
-            }}
-            variant="contained"
-          >
-            Close
-          </Button>
-        </div>
-      </Modal>
+      <ColorContext.Consumer>
+        {color => {
+          return (
+            <Modal
+              aria-labelledby="simple-modal-title"
+              aria-describedby="simple-modal-description"
+              open={props.open}
+              onClose={handleCloseModal}
+            >
+              <div style={modalStyle} className={classes.paperModal}>
+                <h6 id="simple-modal-title">{description}</h6>
+                <p id="simple-modal-description">Last updated: {lastUpdated}</p>
+                <p id="simple-modal-description">Next update: {nextUpdate}</p>
+                <p id="simple-modal-description">
+                  Creation date: {creationDate}
+                </p>
+                <p id="simple-modal-description">Source: {source}</p>
+                <p id="simple-modal-description">Matrix: {matrix}</p>
+                <p id="simple-modal-description">CONTACT: {contact}</p>
+                <br />
+                <div id="simple-modal-description">
+                  <Markup content={note} />
+                </div>
+                <Button
+                  onClick={handleCloseModal}
+                  style={{
+                    position: "relative",
+                    backgroundColor: color,
+                    color: "white",
+                    marginTop: "0.3cm"
+                  }}
+                  variant="contained"
+                >
+                  Close
+                </Button>
+              </div>
+            </Modal>
+          );
+        }}
+      </ColorContext.Consumer>
     );
   }
   return <div></div>;
