@@ -34,6 +34,8 @@ import InformationModal from "../Modal/InformationModal";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 let urlForSpecificDB = "";
 
+export const ColorContext = React.createContext();
+
 export default function MainBody() {
   const [pxTable, setPxTable] = useState(null);
   const [data, setData] = useState(null);
@@ -54,22 +56,14 @@ export default function MainBody() {
     false
   );
   const [openModal, setOpenModal] = React.useState(false);
-
-  const handleOpenModal = () => {
-    setOpenModal(true);
-  };
-  const handleCloseModal = () => {
-    setOpenModal(false);
-  };
-
   let drawerWidth;
 
+  //Must be placed here
   if (width < 1000) {
     drawerWidth = width;
   } else {
     drawerWidth = 500;
   }
-
   let useStyles = makeStyles(theme => ({
     root: {
       display: "flex",
@@ -154,15 +148,25 @@ export default function MainBody() {
     }
   }));
   const classes = useStyles();
+
   //https://www.pluralsight.com/guides/render-window-resize-react
   useEffect(() => {
+    const updateWidth = () => {
+      setWidth(window.innerWidth);
+      drawerWidth = window.innerWidth;
+    };
+
     window.addEventListener("resize", updateWidth);
     return () => window.removeEventListener("resize", updateWidth);
   }, []);
-  const updateWidth = () => {
-    setWidth(window.innerWidth);
-    drawerWidth = window.innerWidth;
+
+  const handleOpenModal = () => {
+    setOpenModal(true);
   };
+  const handleCloseModal = () => {
+    setOpenModal(false);
+  };
+
   const handleDrawerOpen = () => {
     setOpen(!open);
   };
@@ -235,149 +239,75 @@ export default function MainBody() {
   };
 
   return (
-    <div className={classes.root}>
-      <Router>
-        <CssBaseline />
+    <ColorContext.Provider value={mainColor}>
+      <div className={classes.root}>
+        <Router>
+          <CssBaseline />
 
-        <AppBar
-          style={{ backgroundColor: mainColor }}
-          position="relative"
-          className={clsx(classes.appBar, {
-            [classes.appBarShift]: open
-          })}
-        >
-          <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              onClick={handleDrawerOpen}
-              edge="start"
-              className={clsx(classes.menuButton, open && classes.hide)}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography
-              onClick={displayFullHeadline}
-              variant="h6"
-              noWrap={fullHeadLine}
-              style={{ fontSize: "1.2em", fontFamily: "open sans" }}
-            >
-              {itemSelected}
-            </Typography>
-          </Toolbar>
-        </AppBar>
+          <AppBar
+            style={{ backgroundColor: mainColor }}
+            position="relative"
+            className={clsx(classes.appBar, {
+              [classes.appBarShift]: open
+            })}
+          >
+            <Toolbar>
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                onClick={handleDrawerOpen}
+                edge="start"
+                className={clsx(classes.menuButton, open && classes.hide)}
+              >
+                <MenuIcon />
+              </IconButton>
+              <Typography
+                onClick={displayFullHeadline}
+                variant="h6"
+                noWrap={fullHeadLine}
+                style={{ fontSize: "1.2em", fontFamily: "open sans" }}
+              >
+                {itemSelected}
+              </Typography>
+            </Toolbar>
+          </AppBar>
 
-        <SwipeableDrawer
-          className={classes.drawer}
-          variant="persistent"
-          anchor="left"
-          open={open}
-          onClose={!open}
-          classes={{
-            paper: classes.drawerPaper
-          }}
-        >
-          <div className={classes.drawerHeader}>
-            <IconButton onClick={handleDrawerOpen}>
-              {theme.direction === "ltr" ? (
-                <ChevronLeftIcon />
-              ) : (
-                <ChevronRightIcon />
-              )}
-              <img src={img} style={divStyle} alt={"logo"} />
-            </IconButton>
-          </div>
+          <SwipeableDrawer
+            className={classes.drawer}
+            variant="persistent"
+            anchor="left"
+            open={open}
+            onClose={!open}
+            classes={{
+              paper: classes.drawerPaper
+            }}
+          >
+            <div className={classes.drawerHeader}>
+              <IconButton onClick={handleDrawerOpen}>
+                {theme.direction === "ltr" ? (
+                  <ChevronLeftIcon />
+                ) : (
+                  <ChevronRightIcon />
+                )}
+                <img src={img} style={divStyle} alt={"logo"} />
+              </IconButton>
+            </div>
 
-          <DbSelector
-            onChange={handleChangeStatBank}
-            mainColor={mainColor}
-          ></DbSelector>
-          {showing ? (
-            <SpecificDBSelecor
-              db={sDB}
-              onChange={handleChangeSpecificDB}
-              mainColor={mainColor}
-            ></SpecificDBSelecor>
-          ) : null}
-          <Divider />
-          <ListMenu
-            onClickItem={handleChangeUrl}
-            statBank={statBankUrl}
-            mainColor={mainColor}
-          />
-        </SwipeableDrawer>
-        <Router basename={process.env.PUBLIC_URL}>
-          <Switch>
-            <Route
-              path="/:customPath"
-              render={props => (
-                <Container
-                  component="main"
-                  className={classes.main}
-                  maxWidth="m"
-                >
-                  <Grid container spacing={1}>
-                    <Grid item xs={12} sm={12}>
-                      <InformationModal
-                        open={openModal}
-                        onChange={handleCloseModal}
-                        data={data}
-                        mainColor={mainColor}
-                      ></InformationModal>
-                      <Paper
-                        elevation={6}
-                        style={{ marginBottom: "0.5cm" }}
-                        className={classes.paper}
-                      >
-                        <Selectors
-                          onChange={handleChangeData}
-                          pxTable={
-                            pxTable ||
-                            "https://statbank.hagstova.fo/api/v1/en/H2/" +
-                              props.location.pathname.substr(1)
-                          }
-                          mainColor={mainColor}
-                        />
-                      </Paper>
-                      <Paper elevation={6} className={classes.paper}>
-                        <Typography component={"span"}>
-                          <TableData
-                            data={data}
-                            contentElement="#tableResult"
-                          ></TableData>
-                          <div
-                            style={{ fontSize: "1em" }}
-                            id="tableResult"
-                          ></div>
-                        </Typography>
-                      </Paper>
-                      {showingInformationButton ? (
-                        <Button
-                          onClick={handleOpenModal}
-                          style={{
-                            backgroundColor: mainColor,
-                            color: "white",
-                            marginTop: "0.4cm",
-                            float: "right"
-                          }}
-                        >
-                          About Table
-                        </Button>
-                      ) : null}
-                    </Grid>
-                  </Grid>
-                </Container>
-              )}
-            />
-            <Route
-              excat
-              path="/"
-              render={() => (
-                <Grow
-                  in={checked}
-                  style={{ transformOrigin: "0 0 0" }}
-                  {...(checked ? { timeout: 2000 } : {})}
-                >
+            <DbSelector onChange={handleChangeStatBank}></DbSelector>
+            {showing ? (
+              <SpecificDBSelecor
+                db={sDB}
+                onChange={handleChangeSpecificDB}
+              ></SpecificDBSelecor>
+            ) : null}
+            <Divider />
+            <ListMenu onClickItem={handleChangeUrl} statBank={statBankUrl} />
+          </SwipeableDrawer>
+          <Router basename={process.env.PUBLIC_URL}>
+            <Switch>
+              <Route
+                path="/:customPath"
+                render={props => (
                   <Container
                     component="main"
                     className={classes.main}
@@ -389,7 +319,6 @@ export default function MainBody() {
                           open={openModal}
                           onChange={handleCloseModal}
                           data={data}
-                          mainColor={mainColor}
                         ></InformationModal>
                         <Paper
                           elevation={6}
@@ -398,7 +327,11 @@ export default function MainBody() {
                         >
                           <Selectors
                             onChange={handleChangeData}
-                            pxTable={pxTable}
+                            pxTable={
+                              pxTable ||
+                              "https://statbank.hagstova.fo/api/v1/en/H2/" +
+                                props.location.pathname.substr(1)
+                            }
                             mainColor={mainColor}
                           />
                         </Paper>
@@ -430,20 +363,90 @@ export default function MainBody() {
                       </Grid>
                     </Grid>
                   </Container>
-                </Grow>
-              )}
-            />
-          </Switch>
+                )}
+              />
+              <Route
+                excat
+                path="/"
+                render={() => (
+                  <Grow
+                    in={checked}
+                    style={{ transformOrigin: "0 0 0" }}
+                    {...(checked ? { timeout: 2000 } : {})}
+                  >
+                    <Container
+                      component="main"
+                      className={classes.main}
+                      maxWidth="m"
+                    >
+                      <Grid container spacing={1}>
+                        <Grid item xs={12} sm={12}>
+                          <InformationModal
+                            open={openModal}
+                            onChange={handleCloseModal}
+                            data={data}
+                          ></InformationModal>
+                          <Paper
+                            elevation={6}
+                            style={{ marginBottom: "0.5cm" }}
+                            className={classes.paper}
+                          >
+                            <Selectors
+                              onChange={handleChangeData}
+                              pxTable={pxTable}
+                              mainColor={mainColor}
+                            />
+                          </Paper>
+                          <Paper elevation={6} className={classes.paper}>
+                            <Typography component={"span"}>
+                              <TableData
+                                data={data}
+                                contentElement="#tableResult"
+                              ></TableData>
+                              <div
+                                style={{ fontSize: "1em" }}
+                                id="tableResult"
+                              ></div>
+                            </Typography>
+                          </Paper>
+                          {showingInformationButton ? (
+                            <Button
+                              onClick={handleOpenModal}
+                              style={{
+                                backgroundColor: mainColor,
+                                color: "white",
+                                marginTop: "0.4cm",
+                                float: "right"
+                              }}
+                            >
+                              About Table
+                            </Button>
+                          ) : null}
+                        </Grid>
+                      </Grid>
+                    </Container>
+                  </Grow>
+                )}
+              />
+            </Switch>
+          </Router>
+          <footer className={classes.footer}>
+            <Container
+              position="relative"
+              className={clsx({
+                [classes.appBarShift]: open
+              })}
+              maxWidth="xl"
+              color="white"
+            >
+              <Typography variant="body1">
+                <Divider />
+                <Footer />
+              </Typography>
+            </Container>
+          </footer>
         </Router>
-        <footer className={classes.footer}>
-          <Container maxWidth="m">
-            <Typography variant="body1">
-              <Divider />
-              <Footer />
-            </Typography>
-          </Container>
-        </footer>
-      </Router>
-    </div>
+      </div>
+    </ColorContext.Provider>
   );
 }

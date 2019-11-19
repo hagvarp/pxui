@@ -1,11 +1,12 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState, useContext } from "react";
 import { ListGroupItem } from "reactstrap";
 import axios from "axios";
 import Loading from "../Loading/Loading";
 import TreeMenu from "react-simple-tree-menu";
 import "../../styles/style.css";
+import { ColorContext } from "../Layouts/Main";
+import { openedIcon, closedIcon, tableIcon } from "./Icons";
 
-// https://github.com/iannbing/react-simple-tree-menu/blob/master/stories/index.stories.js
 const DEFAULT_PADDING = 16;
 const ICON_SIZE = 4;
 const LEVEL_SPACE = 16;
@@ -16,35 +17,20 @@ export default function ListMenu(props) {
   const [data, setData] = useState(null);
   const [counter, setCounter] = useState(0);
   let headline = props.statBank.label || "Statistics Faroe Islands";
-  const openedIcon = (
-    <i
-      className="fa fa-caret-up"
-      style={{ color: props.mainColor }}
-      aria-hidden="true"
-      alt="-"
-    ></i>
-  );
-  const closedIcon = (
-    <i
-      className="fa fa-caret-down"
-      style={{ color: props.mainColor }}
-      aria-hidden="true"
-      alt="+"
-    ></i>
-  );
-
-  const tableIcon = (
-    <i
-      className="fa fa-table"
-      style={{ color: props.mainColor }}
-      aria-hidden="true"
-      alt="table"
-    ></i>
-  );
 
   const ToggleIcon = ({ on }) => (
-    <span style={{ marginRight: 8 }}>{on ? openedIcon : closedIcon}</span>
+    <ColorContext.Consumer>
+      {color => {
+        return (
+          <span style={{ marginRight: 8 }}>
+            {on ? openedIcon(color) : closedIcon(color)}
+          </span>
+        );
+      }}
+    </ColorContext.Consumer>
   );
+
+  // https://github.com/iannbing/react-simple-tree-menu/blob/master/stories/index.stories.js
 
   const ListItem = ({
     level = 0,
@@ -77,24 +63,21 @@ export default function ListMenu(props) {
             e.stopPropagation();
           }}
         >
-          <div>
-            <ToggleIcon on={isOpen}></ToggleIcon>
-            {text}
-          </div>
+          <ToggleIcon on={isOpen}></ToggleIcon>
+          {text}
         </div>
       )}
       {hasNodes ? (
         ""
       ) : (
         <div>
-          {tableIcon} {text}
+          {tableIcon()} {text}
         </div>
       )}
     </ListGroupItem>
   );
 
   useEffect(() => {
-    setData(null);
     getDataTree(props.statBank.value || props.statBank);
   }, [props.statBank]);
 
@@ -147,48 +130,70 @@ export default function ListMenu(props) {
   };
 
   async function fetchData(url) {
-    let fData;
-    await axios
-      .get(url)
-      .then(response => {
-        fData = response.data;
-      })
-      .catch(error => {});
-    return fData;
+    let fData = await axios.get(url);
+    return fData.data;
   }
 
   if (data) {
     return (
-      <Fragment>
-        <div className="headLine" style={{ color: props.mainColor }}>
-          {headline}
-        </div>
-        {/* <TreeMenu className="tree-item" data={data} onClickItem={handleClick} /> */}
-
-        <TreeMenu data={data} debounceTime={500} onClickItem={handleClick}>
-          {({ search, items }) => (
-            <>
-              <input
-                style={{ borderColor: props.mainColor }}
-                type="text"
-                onChange={e => search(e.target.value)}
-                placeholder="Type and search"
-              />
-              <ListGroupItem style={{ border: "none" }}>
-                {items.map(({ reset, ...props }) => (
-                  <ListItem {...props}></ListItem>
-                ))}
-              </ListGroupItem>
-            </>
-          )}
-        </TreeMenu>
-      </Fragment>
+      <ColorContext.Consumer>
+        {color => {
+          return (
+            <Fragment>
+              <div
+                className="headLine"
+                style={{
+                  color: color
+                }}
+              >
+                {headline}
+              </div>
+              ;
+              {/* <TreeMenu className="tree-item" data={data} onClickItem={handleClick} /> */}
+              <TreeMenu
+                data={data}
+                debounceTime={500}
+                onClickItem={handleClick}
+              >
+                {({ search, items }) => (
+                  <>
+                    <input
+                      style={{
+                        borderColor: color
+                      }}
+                      type="text"
+                      onChange={e => search(e.target.value)}
+                      placeholder="Type and search"
+                    />
+                    <ListGroupItem
+                      style={{
+                        border: "none"
+                      }}
+                    >
+                      {items.map(({ reset, ...props }) => (
+                        <ListItem {...props}></ListItem>
+                      ))}
+                    </ListGroupItem>
+                  </>
+                )}
+              </TreeMenu>
+              ;
+            </Fragment>
+          );
+        }}
+      </ColorContext.Consumer>
     );
   }
 
   return (
-    <div>
-      <Loading type="spin" color="#2d4182" height="5%" width="5%"></Loading>
-    </div>
+    <ColorContext.Consumer>
+      {color => {
+        return (
+          <div>
+            <Loading type="spin" color={color} height="5%" width="5%"></Loading>
+          </div>
+        );
+      }}
+    </ColorContext.Consumer>
   );
 }

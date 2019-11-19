@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import Px from "./px";
+import Px from "../Px/px";
 import $ from "jquery";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Loading from "../Loading/Loading";
+import { ColorContext } from "../Layouts/Main";
 
 export default function TablesData(props) {
   const [data, setData] = useState(null);
@@ -199,7 +200,7 @@ export default function TablesData(props) {
         let stubName = stubs[i];
 
         let stubValues = values[stubName];
-        if (stubValues == undefined) {
+        if (stubValues === undefined) {
           stubValues = "";
         }
         if (!Array.isArray(stubValues)) {
@@ -219,7 +220,7 @@ export default function TablesData(props) {
       let dataIndex = 0;
       while (rowElementsToProcess.length > 0) {
         let rowElement = rowElementsToProcess.shift();
-        let isLeaf = rowElement.elements.length == 0;
+        let isLeaf = rowElement.elements.length === 0;
 
         html.push("<tr>");
         html.push("<td>" + rowElement.stubValue + "</td>");
@@ -284,6 +285,20 @@ export default function TablesData(props) {
   }
   //Return nothing since Greenland API doesn't give POST error
   return (
-    <Loading type="cylon" color="#2d4182" height="1%" width="1%"></Loading>
+    <ColorContext.Consumer>
+      {color => {
+        return (
+          <div>
+            <Loading
+              type="cylon"
+              color={color}
+              height="1%"
+              width="1%"
+            ></Loading>
+            ;
+          </div>
+        );
+      }}
+    </ColorContext.Consumer>
   );
 }
