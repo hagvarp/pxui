@@ -30,7 +30,7 @@ yarn build
 ```
 
 ### To get React Simple Tree Menu to work
-
+If menuList dosent't work 
 Go to:
 
 ```
@@ -38,11 +38,11 @@ node_modules/react-simple-tree-menu/dist/TreeMenu/walk.d.ts
 node_modules/react-simple-tree-menu/dist/main.js
 ```
 
-Replace the variables:
+Replace the variables: 
 
+If you are using VS Code go to files and press control+h and then replace them all that way.
 ```
 "key" -> "id"
-"label" -> "text"
 ```
 
 ### Built With
