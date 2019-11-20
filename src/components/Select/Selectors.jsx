@@ -145,6 +145,17 @@ export default function Selectors(props) {
       </div>
     );
   }
+  if (isLoading) {
+    return (
+      <ColorContext.Consumer>
+        {color => {
+          return (
+            <Loading type="spin" color={color} height="1%" width="1%"></Loading>
+          );
+        }}
+      </ColorContext.Consumer>
+    );
+  }
   return (
     <ColorContext.Consumer>
       {color => {
