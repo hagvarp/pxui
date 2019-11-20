@@ -150,7 +150,7 @@ export default function Selectors(props) {
       <ColorContext.Consumer>
         {color => {
           return (
-            <Loading type="spin" color={color} height="1%" width="1%"></Loading>
+            <Loading type="spin" color={color} height="2%" width="2%"></Loading>
           );
         }}
       </ColorContext.Consumer>
@@ -160,7 +160,7 @@ export default function Selectors(props) {
     <ColorContext.Consumer>
       {color => {
         return (
-          <Loading type="spin" color={color} height="1%" width="1%"></Loading>
+          <Loading type="spin" color={color} height="2%" width="2%"></Loading>
         );
       }}
     </ColorContext.Consumer>
