@@ -41,7 +41,7 @@ export default function MainBody() {
   const [data, setData] = useState(null);
   const [statBankUrl, setStatBankUrl] = useState(statBanks[0].value);
   const theme = useTheme();
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const [itemSelected, setItemSelected] = useState(
     "Welcome to Statistics Faroe Islands"
   );
