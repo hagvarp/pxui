@@ -59,16 +59,27 @@ export default function Selectors(props) {
           if (timeBoolean === true) {
             options.reverse();
           }
+
+          //Creating query
+          //-------------------
           if (query.length !== data.variables.length) {
             let value = options[0].value;
 
             const values = [];
             values.push(value);
             const filter = "item";
-            const selection = { filter, values };
-            const aa = { code, selection };
+            const selection = {
+              filter,
+              values
+            };
+            const aa = {
+              code,
+              selection
+            };
             query.push(aa);
           }
+          //-------------------
+
           selectorArray.push(
             <SelectorMulti
               options={options}
@@ -118,6 +129,7 @@ export default function Selectors(props) {
     }
 
     async function postRequest(obj) {
+      console.log(obj);
       await fetch(props.pxTable, {
         body: JSON.stringify(obj),
         method: "post"
