@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "45976a050a2aef236ddaa657656f55c5",
+    "revision": "259d11de47ad3b96007d8043b94b4aac",
     "url": "/pxui/index.html"
   },
   {
-    "revision": "77c163bde6f5b25463b8",
+    "revision": "96cab2fec8978bf1e0d5",
     "url": "/pxui/static/css/2.a9cee8aa.chunk.css"
   },
   {
-    "revision": "0b0316e80931e913888d",
-    "url": "/pxui/static/css/main.cabe4dfe.chunk.css"
+    "revision": "af9fa325f0aad584be93",
+    "url": "/pxui/static/css/main.63a6fc78.chunk.css"
   },
   {
-    "revision": "77c163bde6f5b25463b8",
-    "url": "/pxui/static/js/2.a6536e14.chunk.js"
+    "revision": "96cab2fec8978bf1e0d5",
+    "url": "/pxui/static/js/2.92d2663c.chunk.js"
   },
   {
-    "revision": "0b0316e80931e913888d",
-    "url": "/pxui/static/js/main.025c084b.chunk.js"
+    "revision": "af9fa325f0aad584be93",
+    "url": "/pxui/static/js/main.689c166f.chunk.js"
   },
   {
     "revision": "9dfee86e7a3161578646",
@@ -42,10 +42,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "fee66e712a8a08eef5805a46892932ad",
     "url": "/pxui/static/media/fontawesome-webfont.fee66e71.woff"
-  },
-  {
-    "revision": "47af88e48da857dfbdf9dd2d777520cc",
-    "url": "/pxui/static/media/greenland.47af88e4.png"
   },
   {
     "revision": "c347cb8e1cc861222993af74011f9a19",
