@@ -99,7 +99,7 @@ hr {
   color: #004c80;
 }
 
-input[type="text"],
+input[type="search"],
 select {
   width: 90%;
   padding: 8px 20px;
@@ -108,7 +108,7 @@ select {
   border: 1px solid #004c80;
   border-radius: 4px;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .iconColor {

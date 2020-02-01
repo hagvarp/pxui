@@ -1,14 +1,6 @@
 [
-    {
-        "value": "https://statbank.hagstova.fo/api/v1/en/H2/",
-        "label": "Statistics Faroe Islands"
-    },
-    {
-        "value": "https://bank.stat.gl/api/v1/en/Greenland/",
-        "label": "Statistics Greenland"
-    },
-    {
-        "value": "https://px.hagstofa.is/pxen/api/v1/en/",
-        "label": "Statistics Iceland"
-    }
+  {
+    "value": "https://statbank.hagstova.fo/api/v1/fo/H2/",
+    "label": "Hagtalsgrunnurin"
+  }
 ]

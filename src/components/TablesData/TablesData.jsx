@@ -37,7 +37,7 @@ export default function TablesData(props) {
     let languageISOCode = metadata["LANGUAGES"] || null;
 
     if (languageISOCode !== null) {
-      languageISOCode = metadata["LANGUAGES"].TABLE[0];
+      languageISOCode = metadata["LANGUAGES"].TABLE[1];
       //Load headings (by culture if available)
       heading = metadata["HEADING[" + languageISOCode + "]"];
       if (!heading) heading = metadata["HEADING"];
@@ -53,9 +53,9 @@ export default function TablesData(props) {
       if (!values) values = metadata["VALUES"];
 
       //---------------------------------------------------
-      stub = metadata["STUB"]; //English
+      //stub = metadata["STUB"]; //English
       //Read Stub (by culture if available)
-      //stub = metadata["STUB[" + languageISOCode + "]"];
+      stub = metadata["STUB[" + languageISOCode + "]"];
       //---------------------------------------------------
 
       if (!heading) stub = metadata["STUB"];

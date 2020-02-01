@@ -17,7 +17,7 @@ export default function InformationModal(props) {
 
   if (props.data) {
     let x = new Px(props.data);
-
+    console.log(x);
     let contact = "";
     let description = "";
     let nextUpdate = "";
@@ -28,14 +28,14 @@ export default function InformationModal(props) {
     let note;
 
     try {
-      contact = x.metadata["CONTACT"]["TABLE"];
-      description = x.metadata["DESCRIPTION"]["TABLE"];
+      contact = x.metadata["CONTACT[fo]"]["TABLE"];
+      description = x.metadata["DESCRIPTION[fo]"]["TABLE"];
       nextUpdate = x.metadata["NEXT-UPDATE"]["TABLE"];
       lastUpdated = x.metadata["LAST-UPDATED"]["TABLE"];
       creationDate = x.metadata["CREATION-DATE"]["TABLE"];
       source = x.metadata["SOURCE"]["TABLE"];
       matrix = x.metadata["MATRIX"]["TABLE"];
-      note = x.metadata["NOTE"]["TABLE"];
+      note = x.metadata["NOTE[fo]"]["TABLE"];
     } catch (e) {}
 
     lastUpdated = lastUpdated.substring(0, 4) + "-" + lastUpdated.substring(4);
@@ -59,14 +59,16 @@ export default function InformationModal(props) {
             >
               <div style={modalStyle} className={classes.paperModal}>
                 <h6 id="simple-modal-title">{description}</h6>
-                <p id="simple-modal-description">Last updated: {lastUpdated}</p>
-                <p id="simple-modal-description">Next update: {nextUpdate}</p>
                 <p id="simple-modal-description">
-                  Creation date: {creationDate}
+                  Seinast dagført: {lastUpdated}
                 </p>
-                <p id="simple-modal-description">Source: {source}</p>
-                <p id="simple-modal-description">Matrix: {matrix}</p>
-                <p id="simple-modal-description">CONTACT: {contact}</p>
+                <p id="simple-modal-description">
+                  Komandi dagføring : {nextUpdate}
+                </p>
+                <p id="simple-modal-description">Stovnað: {creationDate}</p>
+                <p id="simple-modal-description">Kelda: {source}</p>
+                <p id="simple-modal-description">Matrisa: {matrix}</p>
+                <p id="simple-modal-description">Samband: {contact}</p>
                 <br />
                 <div id="simple-modal-description">
                   <Markup content={note} />
@@ -81,7 +83,7 @@ export default function InformationModal(props) {
                   }}
                   variant="contained"
                 >
-                  Close
+                  lat aftur
                 </Button>
               </div>
             </Modal>
