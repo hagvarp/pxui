@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Fragment } from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Axios from "axios";
@@ -18,21 +18,15 @@ import Button from "@material-ui/core/Button";
 
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import StatisticGreenland from "../../img/greenland.png";
 import StatisticFaroeIslands from "../../img/hagstova_foroya.svg";
-import StatisticIceland from "../../img/iceland.png";
-import SpecificDBSelecor from "../DbSelector/SpecificDBSelecor";
 
-import DbSelector from "../DbSelector/DbSelector";
 import Footer from "./Footer";
 import ListMenu from "../ListMenu/ListMenu";
 import Selectors from "../Select/Selectors";
 import statBanks from "../../json/statBanks";
 import TableData from "../TablesData/TablesData";
 import InformationModal from "../Modal/InformationModal";
-
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
-let urlForSpecificDB = "";
 
 export const ColorContext = React.createContext();
 
@@ -43,13 +37,11 @@ export default function MainBody() {
   const theme = useTheme();
   const [open, setOpen] = useState(true);
   const [itemSelected, setItemSelected] = useState(
-    "Welcome to Statistics Faroe Islands"
+    "Vælkomin til hagtalsgrunnin"
   );
   const [checked, setChecked] = useState(false);
   const [fullHeadLine, setFullHeadLine] = useState(true);
   const [img, setImg] = useState(StatisticFaroeIslands);
-  const [showing, setShowing] = useState(false);
-  const [sDB, setSDB] = useState(null);
   const [mainColor, setMainColor] = useState("#004c80");
   const [width, setWidth] = useState(window.innerWidth);
   const [showingInformationButton, setShowingInformationButton] = useState(
@@ -57,7 +49,6 @@ export default function MainBody() {
   );
   const [openModal, setOpenModal] = React.useState(false);
   let drawerWidth;
-
   //Must be placed here
   if (width < 1000) {
     drawerWidth = width;
@@ -76,6 +67,15 @@ export default function MainBody() {
       marginTop: theme.spacing(4),
       marginBottom: theme.spacing(2)
     },
+    mainShift: {
+      width: `calc(100% - ${drawerWidth}px)`,
+      marginLeft: drawerWidth,
+      transition: theme.transitions.create(["margin", "width"], {
+        easing: theme.transitions.easing.easeOut,
+        duration: theme.transitions.duration.enteringScreen
+      })
+    },
+
     appBar: {
       backgroundColor: "#004c80",
       transition: theme.transitions.create(["margin", "width"], {
@@ -171,7 +171,10 @@ export default function MainBody() {
     setOpen(!open);
   };
 
-  const handleChangeUrl = e => {
+  const handleChangeUrl = (e, hrefToTable) => {
+    var baseUrl = window.location.origin + "/#/";
+    window.location = baseUrl + hrefToTable;
+    console.log("HERE", window.location.origin);
     setPxTable(e);
     setOpen(false);
     setChecked(true);
@@ -182,48 +185,6 @@ export default function MainBody() {
     setItemSelected(b);
     setData(e);
     setShowingInformationButton(true);
-  };
-  const handleChangeStatBank = async e => {
-    if (e.label === "Statistics Faroe Islands") {
-      setMainColor("#004c80");
-      setImg(StatisticFaroeIslands);
-      setShowing(false);
-      setStatBankUrl(e);
-      setItemSelected("Welcome to Statistics Faroe Islands");
-    }
-    if (e.label === "Statistics Greenland") {
-      setMainColor("#F26222");
-      setImg(StatisticGreenland);
-      setShowing(false);
-      setStatBankUrl(e);
-      setItemSelected("Welcome to Statistics Greenland");
-    }
-
-    if (e.label === "Statistics Iceland") {
-      setMainColor("#3786C4");
-      setImg(StatisticIceland);
-      setItemSelected("Welcome to Statistics Iceland");
-
-      let x = await Axios(e.value);
-
-      for (var i = 0; i < x.data.length; i++) {
-        x.data[i].value = x.data[i]["dbid"];
-        x.data[i].label = x.data[i]["text"];
-        delete x.data[i].text;
-        delete x.data[i].dbid;
-      }
-      setSDB(x);
-      setStatBankUrl({
-        value: e.value + x.data[0].value + "/",
-        label: "Statistics Iceland"
-      });
-      urlForSpecificDB = e.value;
-      setShowing(true);
-    }
-  };
-
-  const handleChangeSpecificDB = e => {
-    setStatBankUrl(urlForSpecificDB + e.value + "/");
   };
 
   const displayFullHeadline = () => {
@@ -241,68 +202,57 @@ export default function MainBody() {
   return (
     <ColorContext.Provider value={mainColor}>
       <div className={classes.root}>
+        <CssBaseline />
+        <AppBar
+          style={{ backgroundColor: mainColor }}
+          position="relative"
+          className={clsx(classes.appBar, {
+            [classes.appBarShift]: open
+          })}
+        >
+          <Toolbar>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              className={clsx(classes.menuButton, open && classes.hide)}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography
+              onClick={displayFullHeadline}
+              variant="h6"
+              noWrap={fullHeadLine}
+              style={{ fontSize: "1.2em", fontFamily: "open sans" }}
+            >
+              {itemSelected}
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        <SwipeableDrawer
+          className={classes.drawer}
+          variant="persistent"
+          anchor="left"
+          open={open}
+          onClose={!open}
+          classes={{
+            paper: classes.drawerPaper
+          }}
+        >
+          <div className={classes.drawerHeader}>
+            <IconButton onClick={handleDrawerOpen}>
+              {theme.direction === "ltr" ? (
+                <ChevronLeftIcon />
+              ) : (
+                <ChevronRightIcon />
+              )}
+              <img src={img} style={divStyle} alt={"logo"} />
+            </IconButton>
+          </div>
+          <ListMenu onClickItem={handleChangeUrl} statBank={statBankUrl} />
+        </SwipeableDrawer>
         <Router>
-          <CssBaseline />
-
-          <AppBar
-            style={{ backgroundColor: mainColor }}
-            position="relative"
-            className={clsx(classes.appBar, {
-              [classes.appBarShift]: open
-            })}
-          >
-            <Toolbar>
-              <IconButton
-                color="inherit"
-                aria-label="open drawer"
-                onClick={handleDrawerOpen}
-                edge="start"
-                className={clsx(classes.menuButton, open && classes.hide)}
-              >
-                <MenuIcon />
-              </IconButton>
-              <Typography
-                onClick={displayFullHeadline}
-                variant="h6"
-                noWrap={fullHeadLine}
-                style={{ fontSize: "1.2em", fontFamily: "open sans" }}
-              >
-                {itemSelected}
-              </Typography>
-            </Toolbar>
-          </AppBar>
-
-          <SwipeableDrawer
-            className={classes.drawer}
-            variant="persistent"
-            anchor="left"
-            open={open}
-            onClose={!open}
-            classes={{
-              paper: classes.drawerPaper
-            }}
-          >
-            <div className={classes.drawerHeader}>
-              <IconButton onClick={handleDrawerOpen}>
-                {theme.direction === "ltr" ? (
-                  <ChevronLeftIcon />
-                ) : (
-                  <ChevronRightIcon />
-                )}
-                <img src={img} style={divStyle} alt={"logo"} />
-              </IconButton>
-            </div>
-
-            <DbSelector onChange={handleChangeStatBank}></DbSelector>
-            {showing ? (
-              <SpecificDBSelecor
-                db={sDB}
-                onChange={handleChangeSpecificDB}
-              ></SpecificDBSelecor>
-            ) : null}
-            <Divider />
-            <ListMenu onClickItem={handleChangeUrl} statBank={statBankUrl} />
-          </SwipeableDrawer>
           <Router basename={process.env.PUBLIC_URL}>
             <Switch>
               <Route
@@ -310,8 +260,10 @@ export default function MainBody() {
                 render={props => (
                   <Container
                     component="main"
-                    className={classes.main}
                     maxWidth="m"
+                    className={clsx(classes.main, {
+                      [classes.mainShift]: open
+                    })}
                   >
                     <Grid container spacing={1}>
                       <Grid item xs={12} sm={12}>
@@ -329,7 +281,7 @@ export default function MainBody() {
                             onChange={handleChangeData}
                             pxTable={
                               pxTable ||
-                              "https://statbank.hagstova.fo/api/v1/en/H2/" +
+                              "https://statbank.hagstova.fo/api/v1/fo/H2/" +
                                 props.location.pathname.substr(1)
                             }
                             mainColor={mainColor}
@@ -357,7 +309,7 @@ export default function MainBody() {
                               float: "right"
                             }}
                           >
-                            About Table
+                            Um talvuna
                           </Button>
                         ) : null}
                       </Grid>
@@ -365,7 +317,7 @@ export default function MainBody() {
                   </Container>
                 )}
               />
-              <Route
+              {/* <Route
                 excat
                 path="/"
                 render={() => (
@@ -376,8 +328,10 @@ export default function MainBody() {
                   >
                     <Container
                       component="main"
-                      className={classes.main}
                       maxWidth="m"
+                      className={clsx(classes.main, {
+                        [classes.appBarShift]: open
+                      })}
                     >
                       <Grid container spacing={1}>
                         <Grid item xs={12} sm={12}>
@@ -419,7 +373,7 @@ export default function MainBody() {
                                 float: "right"
                               }}
                             >
-                              About Table
+                              Um talvuna
                             </Button>
                           ) : null}
                         </Grid>
@@ -427,7 +381,7 @@ export default function MainBody() {
                     </Container>
                   </Grow>
                 )}
-              />
+              /> */}
             </Switch>
           </Router>
           <footer className={classes.footer}>

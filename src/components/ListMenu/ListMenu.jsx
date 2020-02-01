@@ -16,7 +16,7 @@ let tmpCounter = 0;
 export default function ListMenu(props) {
   const [data, setData] = useState(null);
   const [counter, setCounter] = useState(0);
-  let headline = props.statBank.label || "Statistics Faroe Islands";
+  let headline = props.statBank.label || "Hagtalsgrunnurin";
 
   const ToggleIcon = ({ on }) => (
     <ColorContext.Consumer>
@@ -86,7 +86,7 @@ export default function ListMenu(props) {
       const mainUrl = props.statBank.value || props.statBank;
       const tmpId = e.key;
       const tmpUrl = mainUrl + tmpId;
-      props.onClickItem(tmpUrl);
+      props.onClickItem(tmpUrl, tmpId);
     }
   };
 
@@ -171,12 +171,13 @@ export default function ListMenu(props) {
                 {({ search, items }) => (
                   <>
                     <input
+                      type="search"
                       style={{
                         borderColor: color
                       }}
-                      type="text"
+                      type="search"
                       onChange={e => search(e.target.value)}
-                      placeholder="Type and search"
+                      placeholder="Leita eftir talvu"
                     />
                     <ListGroupItem
                       style={{
