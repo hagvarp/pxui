@@ -36,7 +36,7 @@ export default function ListMenu(props) {
     level = 0,
     hasNodes,
     isOpen,
-    text,
+    label,
     searchTerm,
     openNodes,
     toggleNode,
@@ -64,14 +64,14 @@ export default function ListMenu(props) {
           }}
         >
           <ToggleIcon on={isOpen}></ToggleIcon>
-          {text}
+          {label}
         </div>
       )}
       {hasNodes ? (
         ""
       ) : (
         <div>
-          {tableIcon()} {text}
+          {tableIcon()} {label}
         </div>
       )}
     </ListGroupItem>
@@ -84,7 +84,7 @@ export default function ListMenu(props) {
   const handleClick = e => {
     if (e.type === "t") {
       const mainUrl = props.statBank.value || props.statBank;
-      const tmpId = e.id;
+      const tmpId = e.key;
       const tmpUrl = mainUrl + tmpId;
       props.onClickItem(tmpUrl);
     }
@@ -114,7 +114,9 @@ export default function ListMenu(props) {
           setTimeout(async () => {
             try {
               if (menuArray.type === "l") {
-                menuArray.nodes = await fetchDataTree(url + "/" + menuArray.id);
+                menuArray.nodes = await fetchDataTree(
+                  url + "/" + menuArray.key
+                );
               }
             } catch (error) {
               console.log(error);
@@ -125,6 +127,18 @@ export default function ListMenu(props) {
       );
       //Show menu being fetched
       setCounter(tmpCounter++);
+      //Changing the object to fit react-simple-menu library
+      for (var i = 0; i < menuArray.length; i++) {
+        if (menuArray[i]["id"]) {
+          menuArray[i].key = menuArray[i]["id"];
+          delete menuArray[i].id;
+        }
+
+        if (menuArray[i]["text"]) {
+          menuArray[i].label = menuArray[i]["text"];
+          delete menuArray[i].text;
+        }
+      }
       return menuArray;
     }
   };
@@ -148,7 +162,6 @@ export default function ListMenu(props) {
               >
                 {headline}
               </div>
-              ;
               {/* <TreeMenu className="tree-item" data={data} onClickItem={handleClick} /> */}
               <TreeMenu
                 data={data}

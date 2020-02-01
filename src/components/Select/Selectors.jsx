@@ -21,7 +21,7 @@ export default function Selectors(props) {
     selectorArray = [];
     query.length = 0;
     setIsLoading(true);
-
+    console.log(props.pxTable);
     fetch(props.pxTable)
       .then(response => {
         if (!response.ok) {
