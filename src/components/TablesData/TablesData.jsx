@@ -7,11 +7,15 @@ import { ColorContext } from "../Layouts/Main";
 
 export default function TablesData(props) {
   const [data, setData] = useState(null);
+  const [language, setLanguage] = useState(null);
+
+  console.log(props.language);
 
   let contentElement = $(props.contentElement);
   useEffect(() => {
     setData(props.data);
-  }, [props.data]);
+    setLanguage(props.language);
+  }, [props.data, props.language]);
 
   function renderTable(pxFile, tableContainer) {
     //Check if pxFile has data and metadata and report error
@@ -37,7 +41,7 @@ export default function TablesData(props) {
     let languageISOCode = metadata["LANGUAGES"] || null;
 
     if (languageISOCode !== null) {
-      languageISOCode = metadata["LANGUAGES"].TABLE[1];
+      languageISOCode = metadata["LANGUAGES"].TABLE[language];
       //Load headings (by culture if available)
       heading = metadata["HEADING[" + languageISOCode + "]"];
       if (!heading) heading = metadata["HEADING"];
@@ -53,9 +57,9 @@ export default function TablesData(props) {
       if (!values) values = metadata["VALUES"];
 
       //---------------------------------------------------
-      //stub = metadata["STUB"]; //English
+      if (language === 0) stub = metadata["STUB"]; //English
       //Read Stub (by culture if available)
-      stub = metadata["STUB[" + languageISOCode + "]"];
+      if (language === 1) stub = metadata["STUB[" + languageISOCode + "]"];
       //---------------------------------------------------
 
       if (!heading) stub = metadata["STUB"];

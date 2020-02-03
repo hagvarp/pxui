@@ -7,7 +7,6 @@ import Container from "@material-ui/core/Container";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Divider from "@material-ui/core/Divider";
 import Grid from "@material-ui/core/Grid";
-import Grow from "@material-ui/core/Grow";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import Paper from "@material-ui/core/Paper";
@@ -15,10 +14,13 @@ import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
+import Switcher from "@material-ui/core/Switch";
 
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import StatisticFaroeIslands from "../../img/hagstova_foroya.svg";
+import fo from "../../img/fo.png";
+import en from "../../img/en.png";
 
 import Footer from "./Footer";
 import ListMenu from "../ListMenu/ListMenu";
@@ -30,6 +32,8 @@ import { HashRouter as Router, Route, Switch } from "react-router-dom";
 
 export const ColorContext = React.createContext();
 
+var btnAboutTable = "um talvuna";
+
 export default function MainBody() {
   const [pxTable, setPxTable] = useState(null);
   const [data, setData] = useState(null);
@@ -40,6 +44,8 @@ export default function MainBody() {
     "Vælkomin til hagtalsgrunnin"
   );
   const [checked, setChecked] = useState(false);
+  const [checkedA, setCheckedA] = useState(false);
+  const [lang, setLang] = useState(1);
   const [fullHeadLine, setFullHeadLine] = useState(true);
   const [img, setImg] = useState(StatisticFaroeIslands);
   const [mainColor, setMainColor] = useState("#004c80");
@@ -91,6 +97,7 @@ export default function MainBody() {
         duration: theme.transitions.duration.enteringScreen
       })
     },
+
     menuButton: {
       marginRight: theme.spacing(2)
     },
@@ -145,6 +152,45 @@ export default function MainBody() {
       padding: theme.spacing(2, 4, 3),
       width: "90%",
       height: "90%"
+    },
+    muiSwitchRoot: {
+      width: "58px",
+      height: "38px",
+      display: "inline-flex",
+      padding: "12px",
+      zIndex: "0",
+      overflow: "hidden",
+      position: "fixed",
+      boxSizing: "border-box",
+      flexShrink: "0",
+      verticalAlign: "middle",
+      left: 30
+    },
+    foFlag: {
+      width: "45px",
+      height: "38px",
+      display: "inline-flex",
+      padding: "12px",
+      zIndex: "0",
+      overflow: "hidden",
+      position: "fixed",
+      boxSizing: "border-box",
+      flexShrink: "0",
+      verticalAlign: "middle",
+      left: "0"
+    },
+    enFlag: {
+      width: "45px",
+      height: "38px",
+      display: "inline-flex",
+      padding: "12px",
+      zIndex: "0",
+      overflow: "hidden",
+      position: "fixed",
+      boxSizing: "border-box",
+      flexShrink: "0",
+      verticalAlign: "middle",
+      left: 70
     }
   }));
   const classes = useStyles();
@@ -189,6 +235,39 @@ export default function MainBody() {
   const displayFullHeadline = () => {
     setFullHeadLine(!fullHeadLine);
   };
+
+  const handleChangeSwitch = name => event => {
+    console.log(event.target.checked);
+    var x = statBankUrl;
+    var y = pxTable;
+
+    if (event.target.checked === false) {
+      x = x.replace("/en/", "/fo/");
+      btnAboutTable = "um talvuna";
+
+      setStatBankUrl(x);
+      if (pxTable != null) {
+        setItemSelected("Vælkomin til hagtalsgrunnin");
+        y = y.replace("/en/", "/fo/");
+        setPxTable(y);
+        setLang(1);
+      }
+    }
+    if (event.target.checked === true) {
+      x = x.replace("/fo/", "/en/");
+      setStatBankUrl(x);
+      setItemSelected("Welcome to Statistics Faroe Islands");
+      btnAboutTable = "about table";
+      if (pxTable != null) {
+        y = y.replace("/fo/", "/en/");
+        setPxTable(y);
+        setLang(0);
+      }
+    }
+
+    setCheckedA(event.target.checked);
+  };
+
   //icon
   const divStyle = {
     /* Full height */
@@ -240,7 +319,17 @@ export default function MainBody() {
           }}
         >
           <div className={classes.drawerHeader}>
-            <IconButton onClick={handleDrawerOpen}>
+            <img src={fo} className={classes.foFlag} alt={"fo"} />
+            <Switcher
+              checked={checkedA}
+              onChange={handleChangeSwitch("checkedA")}
+              value="checkedA"
+              color="default"
+              className={classes.muiSwitchRoot}
+            />
+            <img src={en} className={classes.enFlag} alt={"en"} />
+
+            <IconButton onClick={handleDrawerOpen} style={{}}>
               {theme.direction === "ltr" ? (
                 <ChevronLeftIcon />
               ) : (
@@ -290,6 +379,7 @@ export default function MainBody() {
                           <Typography component={"span"}>
                             <TableData
                               data={data}
+                              language={lang}
                               contentElement="#tableResult"
                             ></TableData>
                             <div
@@ -308,7 +398,7 @@ export default function MainBody() {
                               float: "right"
                             }}
                           >
-                            Um talvuna
+                            {btnAboutTable}
                           </Button>
                         ) : null}
                       </Grid>
