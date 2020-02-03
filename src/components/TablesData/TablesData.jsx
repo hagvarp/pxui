@@ -295,7 +295,6 @@ export default function TablesData(props) {
               height="1%"
               width="1%"
             ></Loading>
-            ;
           </div>
         );
       }}

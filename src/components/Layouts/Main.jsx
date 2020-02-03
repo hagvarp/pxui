@@ -172,9 +172,8 @@ export default function MainBody() {
   };
 
   const handleChangeUrl = (e, hrefToTable) => {
-    var baseUrl = window.location.origin + "/#/";
+    var baseUrl = window.location.origin + "/pxui/#/";
     window.location = baseUrl + hrefToTable;
-    console.log("HERE", window.location.origin);
     setPxTable(e);
     setOpen(false);
     setChecked(true);
