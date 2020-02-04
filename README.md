@@ -2,7 +2,7 @@
 
 This functional prototype is developed to make Px-statBanks more reactive and user friendly.
 
-PxUI is now rewritten to fit the statbank of Faroe Islands 
+PxUI is now rewritten to fit the statbank of Faroe Islands
 
 PxWeb: [Hagtalsgrunnurin](https://statbank.hagstova.fo/pxweb/fo/H2/)
 
@@ -14,7 +14,6 @@ Prototype: [PxUI](https://hagvarp.github.io/pxui/#/)
 
 - Nodejs
 - Yarn or npm
- 
 
 ### Installing
 
@@ -37,6 +36,7 @@ yarn start
 ### Deployment
 
 Use both just in case
+
 ```
 npm run deploy
 yarn run deploy
@@ -44,6 +44,7 @@ yarn run deploy
 
 ### Future Work
 
+- Find a solution about the menu problem (to many fetches)
 - Code clean
 - Fix errors in result table
 - Better way to use multi language
@@ -61,8 +62,10 @@ yarn run deploy
 - [Axios](https://www.npmjs.com/package/axios) - Promise based HTTP client for the browser and node.js
 - [Bootstrap](https://getbootstrap.com/) - Bootstrap is an open source toolkit for developing with HTML, CSS, and JS.
 - [jQuery](https://jquery.com/) - jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers
+- [npm-check](https://www.npmjs.com/package/npm-check) Keeping all dependencies up to date or see the ones you don't use anymore. Read npm-check documentation.
 
 ### Information
+
 The project report can be found in the extra folder
 
 Contact: helgipoulsen@hotmail.com
