@@ -12,6 +12,7 @@
     "gh-pages": "^2.1.1",
     "interweave": "^12.1.0",
     "jquery": "^3.4.1",
+    "npm-check": "^5.9.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-loading": "^2.0.3",
