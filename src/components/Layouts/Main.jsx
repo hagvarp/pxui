@@ -33,6 +33,7 @@ import { HashRouter as Router, Route, Switch } from "react-router-dom";
 export const ColorContext = React.createContext();
 
 var btnAboutTable = "um talvuna";
+var searchField = "Leita eftir talvu";
 
 export default function MainBody() {
   const [pxTable, setPxTable] = useState(null);
@@ -53,6 +54,7 @@ export default function MainBody() {
   const [showingInformationButton, setShowingInformationButton] = useState(
     false
   );
+
   const [openModal, setOpenModal] = React.useState(false);
   let drawerWidth;
   //Must be placed here
@@ -244,6 +246,7 @@ export default function MainBody() {
     if (event.target.checked === false) {
       x = x.replace("/en/", "/fo/");
       btnAboutTable = "um talvuna";
+      searchField = "Leita eftir talvu";
 
       setStatBankUrl(x);
       if (pxTable != null) {
@@ -258,6 +261,8 @@ export default function MainBody() {
       setStatBankUrl(x);
       setItemSelected("Welcome to Statistics Faroe Islands");
       btnAboutTable = "about table";
+      searchField = "Search";
+
       if (pxTable != null) {
         y = y.replace("/fo/", "/en/");
         setPxTable(y);
@@ -338,7 +343,11 @@ export default function MainBody() {
               <img src={img} style={divStyle} alt={"logo"} />
             </IconButton>
           </div>
-          <ListMenu onClickItem={handleChangeUrl} statBank={statBankUrl} />
+          <ListMenu
+            onClickItem={handleChangeUrl}
+            statBank={statBankUrl}
+            search={searchField}
+          />
         </SwipeableDrawer>
         <Router>
           <Router basename={process.env.PUBLIC_URL}>

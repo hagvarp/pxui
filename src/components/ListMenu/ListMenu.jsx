@@ -17,7 +17,6 @@ export default function ListMenu(props) {
   const [data, setData] = useState(null);
   const [counter, setCounter] = useState(0);
   let headline = props.statBank.label || "Hagtalsgrunnurin";
-
   const ToggleIcon = ({ on }) => (
     <ColorContext.Consumer>
       {color => {
@@ -177,7 +176,7 @@ export default function ListMenu(props) {
                       }}
                       type="search"
                       onChange={e => search(e.target.value)}
-                      placeholder="Leita eftir talvu"
+                      placeholder={props.search}
                     />
                     <ListGroupItem
                       style={{
