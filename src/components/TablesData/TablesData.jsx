@@ -9,8 +9,6 @@ export default function TablesData(props) {
   const [data, setData] = useState(null);
   const [language, setLanguage] = useState(null);
 
-  console.log(props.language);
-
   let contentElement = $(props.contentElement);
   useEffect(() => {
     setData(props.data);

@@ -17,7 +17,6 @@ export default function InformationModal(props) {
 
   if (props.data) {
     let x = new Px(props.data);
-    console.log(x);
     let contact = "";
     let description = "";
     let nextUpdate = "";

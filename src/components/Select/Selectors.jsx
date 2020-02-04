@@ -21,7 +21,6 @@ export default function Selectors(props) {
     selectorArray = [];
     query.length = 0;
     setIsLoading(true);
-    console.log(props.pxTable);
     fetch(props.pxTable)
       .then(response => {
         if (!response.ok) {
@@ -129,7 +128,6 @@ export default function Selectors(props) {
     }
 
     async function postRequest(obj) {
-      console.log(obj);
       await fetch(props.pxTable, {
         body: JSON.stringify(obj),
         method: "post"

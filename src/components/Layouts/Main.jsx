@@ -1,7 +1,6 @@
-import React, { useEffect, useState, Fragment } from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
-import Axios from "axios";
 import clsx from "clsx";
 import Container from "@material-ui/core/Container";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -222,7 +221,20 @@ export default function MainBody() {
   const handleChangeUrl = (e, hrefToTable) => {
     var baseUrl = window.location.origin + "/pxui/#/";
     window.location = baseUrl + hrefToTable;
-    setPxTable(e);
+
+    if (checkedA === 0) {
+      var x = e;
+      x = x.replace("/fo/", "/en/");
+      setPxTable(x);
+    }
+
+    if (checkedA === 1) {
+      var x = e;
+      x = x.replace("/fo/", "/en/");
+
+      setPxTable(x);
+    }
+
     setOpen(false);
     setChecked(true);
     setShowingInformationButton(true);
@@ -239,22 +251,16 @@ export default function MainBody() {
   };
 
   const handleChangeSwitch = name => event => {
-    console.log(event.target.checked);
     var x = statBankUrl;
-    var y = pxTable;
+    var y = { pxTable };
 
     if (event.target.checked === false) {
       x = x.replace("/en/", "/fo/");
       btnAboutTable = "um talvuna";
       searchField = "Leita eftir talvu";
+      setLang(1);
 
       setStatBankUrl(x);
-      if (pxTable != null) {
-        setItemSelected("Vælkomin til hagtalsgrunnin");
-        y = y.replace("/en/", "/fo/");
-        setPxTable(y);
-        setLang(1);
-      }
     }
     if (event.target.checked === true) {
       x = x.replace("/fo/", "/en/");
@@ -262,12 +268,7 @@ export default function MainBody() {
       setItemSelected("Welcome to Statistics Faroe Islands");
       btnAboutTable = "about table";
       searchField = "Search";
-
-      if (pxTable != null) {
-        y = y.replace("/fo/", "/en/");
-        setPxTable(y);
-        setLang(0);
-      }
+      setLang(0);
     }
 
     setCheckedA(event.target.checked);
@@ -378,8 +379,7 @@ export default function MainBody() {
                             onChange={handleChangeData}
                             pxTable={
                               pxTable ||
-                              "https://statbank.hagstova.fo/api/v1/fo/H2/" +
-                                props.location.pathname.substr(1)
+                              statBankUrl + props.location.pathname.substr(1)
                             }
                             mainColor={mainColor}
                           />
