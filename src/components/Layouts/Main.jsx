@@ -161,11 +161,11 @@ export default function MainBody() {
       padding: "12px",
       zIndex: "0",
       overflow: "hidden",
-      position: "relative",
+      position: "absolute",
       boxSizing: "border-box",
       flexShrink: "0",
       verticalAlign: "middle",
-      left: -240
+      left: "30px"
     },
     foFlag: {
       width: "45px",
@@ -174,11 +174,11 @@ export default function MainBody() {
       padding: "12px",
       zIndex: "0",
       overflow: "hidden",
-      position: "relative",
+      position: "absolute",
       boxSizing: "border-box",
       flexShrink: "0",
       verticalAlign: "middle",
-      left: -224
+      left: "0px"
     },
     enFlag: {
       width: "45px",
@@ -187,11 +187,11 @@ export default function MainBody() {
       padding: "12px",
       zIndex: "0",
       overflow: "hidden",
-      position: "relative",
+      position: "absolute",
       boxSizing: "border-box",
       flexShrink: "0",
       verticalAlign: "middle",
-      left: -258
+      left: "70px"
     }
   }));
   const classes = useStyles();
