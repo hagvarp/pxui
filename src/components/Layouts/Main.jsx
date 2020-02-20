@@ -40,9 +40,7 @@ export default function MainBody() {
   const [statBankUrl, setStatBankUrl] = useState(statBanks[0].value);
   const theme = useTheme();
   const [open, setOpen] = useState(true);
-  const [itemSelected, setItemSelected] = useState(
-    "Vælkomin til hagtalsgrunnin"
-  );
+  const [itemSelected, setItemSelected] = useState("Vælkomin til hagtalsgrunnin");
   const [checked, setChecked] = useState(false);
   const [checkedA, setCheckedA] = useState(false);
   const [lang, setLang] = useState(1);
@@ -256,12 +254,12 @@ export default function MainBody() {
 
     if (event.target.checked === false) {
       x = x.replace("/en/", "/fo/");
+      setStatBankUrl(x);
+      setItemSelected("Vælkomin til hagtalsgrunnin");
       btnAboutTable = "um talvuna";
       searchField = "Leita eftir talvu";
       setLang(1);
-
-      setStatBankUrl(x);
-    }
+   }
     if (event.target.checked === true) {
       x = x.replace("/fo/", "/en/");
       setStatBankUrl(x);
